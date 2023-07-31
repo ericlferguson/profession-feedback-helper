@@ -2,14 +2,14 @@ DESCRIPTION = """
     Produces a performance assessment for an machine learning engineer employee using the Dropbox career framework as a scaffold.
     
     Framework is based on this:
-    https://Abyss.github.io/dbx-career-framework/ic2_machine_learning_engineer.html
+    https://dropbox.github.io/dbx-career-framework/ic2_machine_learning_engineer.html
     
     """
 
 NAME = "XXX"
 HE = "she"
 HIS = "her"
-LEVEL = "tech lead"  # junior, intermediate, senior, tech lead
+LEVEL = "senior"  # junior, intermediate, senior, tech lead
 
 
 class FeedbackPillars:
@@ -49,6 +49,21 @@ class FeedbackPillars:
                 "impact levers": [
                     f"Craft - {NAME} is increasingly mastering {HIS} craft and leverage it for higher impact (e.g. software design)",
                     f"Mentorship - {NAME} may mentor new hires, interns, or more junior engineers.",
+                ],
+            }
+        elif self.level == "senior":
+            return {
+                "scope": [
+                    f"{NAME} owns and delivers projects in service of quarterly goals on the team.",
+                    f"{NAME} independently identifies the right solutions to solve ambiguous, open-ended problems.",
+                ],
+                "collaborative reach": [
+                    f"{NAME} works primarily with {HIS} direct team and cross-functional partners while driving cross-team collaboration for {HIS} project."
+                ],
+                "impact levers": [
+                    "Project Leadership - {NAME} defines and delivers well-scoped milestones for a project. {HE} may be a technical lead for projects on {HIS} team.",
+                    "Product Expertise - {NAME} actively keeps customer needs in mind and leverages input from product stakeholders as available to determine the right technical solutions to deliver customer value quickly.",
+                    "Mentorship - {NAME} actively levels up less-experienced members of {HIS} team by helping them with their craft, providing guidance, and setting a good example.",
                 ],
             }
         elif self.level == "tech lead":
@@ -106,6 +121,31 @@ class FeedbackPillars:
                     f"{NAME} identifies and gathers input from others and considers customer needs to make informed and timely decisions."
                 ],
             }
+        elif self.level == "senior":
+            return {
+                "impact": [
+                    f"{NAME} delivers some of {HIS} team's goals on time and with a high standard of quality.",
+                    f"{NAME} understands {HIS} customers, the business's goals, and {HIS} team's goals. {HE} ensures {HIS} work will have the greatest customer impact.",
+                    f"{NAME} can identify when {HIS} results aren't moving the needle for our business/team goals or serving the needs of customers in a meaningful way and works with {HIS} manager to redirect {HIS} focus.",
+                    f"{NAME} gets work to a simple place by focusing on the heart of the problem and prioritizing the right things.",
+                ],
+                "ownership": [
+                    f"{NAME} proactively identifies new opportunities and advocates for and implements improvements to the current state of projects.",
+                    f"{NAME} takes responsibility for {HIS} decisions and any mistakes on {HIS} project and takes action to prevent them in the future. {HE} embraces and shares the learnings with others.",
+                    f"When {NAME} encounters barriers, {HE} unblocks {HIS}self and {HIS} team by proactively assessing and eliminating the root cause.",
+                    f"{NAME} responds with urgency to operational issues (e.g., SEVs), owning resolution within {HIS} sphere of responsibility.",
+                    f"{NAME} actively seeks out and eliminates sources of toil on the team and helps reduce the impact of KTLO and SEVs.",
+                    f"{NAME} is unafraid of declaring a SEV when needed.",
+                    f"{NAME} proactively creates and/or updates playbooks for components {HE} owns.",
+                ],
+                "decision making": [
+                    f"{NAME} makes informed decisions by consulting the right stakeholders and balancing details with the big picture. {HE} executes against the spirit, and not just the letter, of the requirements.",
+                    f"{NAME} understands the implications of {HIS} decisions and adjusts {HIS} approach based on the impact and risk in the short and long-term.",
+                    f"{NAME} makes timely decisions and doesn't cut corners that would compromise {HIS} customer's trust.",
+                    f"When possible, {HE} leverages customer insights/data to inform decisions, balancing value for the customer with other business goals.",
+                    f"{NAME} escalates to {HIS} manager when {HE} needs help with a decision about {HIS} deliverables or priorities.",
+                ],
+            }
         elif self.level == "tech lead":
             return {
                 "impact": [
@@ -140,7 +180,6 @@ class FeedbackPillars:
                     f"{NAME} shares new ideas and can adapt {HIS} work when circumstances change.",
                 ],
             }
-
         elif self.level == "intermediate":
             return {
                 "agility": [
@@ -152,6 +191,24 @@ class FeedbackPillars:
                     f"{NAME} experiments with new approaches and share what {HE} has learned.",
                 ],
             }
+        elif self.level == "senior":
+            return {
+                "agility": [
+                    f"{NAME} embraces change and adapts quickly to it.",
+                    f"{NAME} remains resilient through change by staying calm under pressure and taking care of {HIS} well-being.",
+                    f"{NAME} navigates ambiguity by focusing on the greater purpose, goals, and desired impact to move forward one step at a time.",
+                ],
+                "innovation": [
+                    f"{NAME} asks questions and contributes to new ideas/approaches.",
+                    f"{NAME} has a growth mindset and is comfortable experimenting with new approaches, learning, owning the outcomes, and sharing what {HE} learned.",
+                    f"{NAME} works with {HIS} manager to find new ways of utilizing customer feedback to influence our teams' plans.",
+                ],
+                "strategy": [
+                    f"{NAME} works collaboratively with {HIS} manager to set realistic and ambitious short-term goals to deliver customer value quickly, and break them down to smaller projects for my team or myself.",
+                    f"{NAME} executes the development roadmap for multi-phase projects, possibly as a project lead.",
+                ],
+            }
+
         elif self.level == "tech lead":
             return {
                 "agility": [
@@ -191,6 +248,23 @@ class FeedbackPillars:
                     f"{NAME} offers honest feedback that is delivered with empathy to help others learn and grow.",
                 ],
             }
+        elif self.level == "senior":
+            return {
+                "personal growth": [
+                    f"{NAME} proactively asks for feedback from {HIS} manager, team, and cross-functional stakeholders and identifies ways to act upon it.",
+                    f"{NAME} has self-awareness about {HIS} strengths and works on {HIS} development areas.",
+                    f"{NAME} connects with others with empathy and understanding.",
+                    f"{NAME} drives discussions with {HIS} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, Dropbox-offered training, leveraging perks allowance etc.).",
+                ],
+                "team development": [
+                    f"{NAME} models integrity and a high standard of excellence for {HIS} work, leveraging this to influence and establish best practices.",
+                    f"{NAME} supports the growth of {HIS} teammates by taking into account their unique skills, strengths, backgrounds, and working styles.",
+                    f"{NAME} actively looks for opportunities to mentor new hires, interns, and apprentices.",
+                    f"{NAME} solicits and offers honest and constructive feedback that is delivered with empathy to help others learn and grow.",
+                    f"{NAME} actively contributes to interviewing and assessing candidates to help us build a diverse and talented team by conducting more advanced domain-specific and leveling interviews.",
+                    f"{NAME} is able to represent {HIS} team’s initiatives and goals to candidates in a compelling way.",
+                ],
+            }
         if self.level == "tech lead":
             return {
                 "personal growth": [
@@ -206,7 +280,6 @@ class FeedbackPillars:
                     f"{NAME} is able to represent {HIS} team's technical challenges to potential candidates in a compelling way (e.g., 1:1 sell chats, blog posts, public speaking).",
                 ],
             }
-
         else:
             raise NotImplementedError(f"{self.level} level is not implemented!")
 
@@ -227,6 +300,32 @@ class FeedbackPillars:
                     f"{NAME} shares relevant information on {HIS} projects to {HIS} manager, team, and customers.",
                 ],
             }
+        elif self.level == "senior":
+            return {
+                "collaboration": [
+                    f"{NAME} builds relationships across teams and helps get to positive outcomes.",
+                    f"{NAME} engages in productive conflict with thoughtful questioning and has the courage to state {HIS} point of view.",
+                    f"{NAME} proactively communicates and coordinates {HIS} team’s requirements with other groups and teams in engineering.",
+                    f"{NAME} is capable of working with cross-functional stakeholders to identify technical blind spots and clarify ambiguity in their ideas.",
+                    f"{NAME} avoids blame and focuses on solving the right problems, disagreeing and committing when necessary to move decisions forward.",
+                    f"{NAME} promotes and role models Abyss core values.",
+                ],
+                "organizational health": [
+                    f"{NAME} contributes to a positive sense of community on the team (e.g., engage in team lunches, team offsites, and other group activities, help with new-hire onboarding).",
+                    f"{NAME} listens to different perspectives and cuts biases from {HIS} words and actions.",
+                    f"{NAME} helps foster effective communication across the team and promotes an inclusive meeting culture.",
+                    f"{NAME} practices the Abyss Diversity Commitments on a regular basis.",
+                    f"{NAME} champions good virtual first practices that help {HIS} team collaborate effectively.",
+                    f"{NAME} helps shape the Abyss engineering culture through {HIS} involvement with activities outside of {HIS} team (e.g., presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek).",
+                ],
+                "communication": [
+                    f"{NAME} tailors {HIS} message to {HIS} audience, presenting it clearly and concisely at the right altitude.",
+                    f"{NAME} proactively shares information so the right people are informed and aligned.",
+                    f"{NAME} sets the right expectation with {HIS} manager to balance {HIS} work and mentorship requirements.",
+                    f"If there is a significant issue not being addressed, {NAME} initiates a crucial conversation even when uncomfortable.",
+                ],
+            }
+
         if self.level == "tech lead":
             return {
                 "collaboration": [
@@ -280,6 +379,35 @@ class FeedbackPillars:
                     f"{NAME} addresses code tasks with both high throughput and appropriately high quality for the stage of project {HE} is working on.",
                 ],
             }
+        elif self.level == "senior":
+            return {
+                "ML fluency": [
+                    f"{NAME} is familiar with a range of ML techniques (e.g., deep learning, optimization, regression, ensembles, tree-based methods, dimensionality reduction, Bayesian modeling, etc.), areas (CV, NLP, RL, etc.), and tools (sklearn, pytorch, tensorflow, etc.) and selects the right solution for {HIS} project.",
+                    f"{NAME} maintains awareness of the state of the art and can select an appropriate algorithm, tool, or technique for a given problem.",
+                    f"{NAME} can analyze and present datasets or results of experiments while choosing the appropriate statistical methods and visualization techniques.",
+                ],
+                "ML design": [
+                    f"{NAME} can translate a business problem into a spec for a computational task such as classification, ranking, or generation.",
+                    f"{NAME} is proficient in the ML development lifecycle and can design each stage according to the needs of the project.",
+                    f"{NAME} defines and tracks offline and online metrics in service of business objectives.",
+                    f"{NAME} prepares and conducts experiments, analyzes the results, and adapts {HIS} strategy to reflect significant findings.",
+                ],
+                "Code fluency": [
+                    f"{NAME} writes code that captures the essential nature of the solution and is appropriately flexible, reusable, efficient, and adaptable to changing requirements.",
+                    f"{NAME} ensures high code quality in code reviews and adopts approaches (e.g., set up best practices and coding standards, help resolve differences of opinions) to foster an effective/collaborative code review culture.",
+                    f"{NAME} has a strong awareness of the ecosystem of tools and libraries supporting {HIS} primary programming language, development environment, and ML frameworks (like TensorFlow, Keras, PyTorch, etc.) and a strong grasp of the idioms and patterns of {HIS} language.",
+                    f"{NAME} builds tools and produces technical documentation to improve developer efficiency and drive alignment within {HIS} team.",
+                ],
+                "Software design": [
+                    f"{NAME} is able to independently design software components in well-scoped scenarios, with simplicity and maintenance as key considerations. {HIS} components are testable, debuggable, and have logical APIs that are not easily misused.",
+                    f"{NAME} knows when to make significant refactors and when it’s better to leave things as-is.",
+                    f"{NAME} has a strong grasp of the libraries, platforms, and systems that {HE} relies on, allowing them to apply them expertly.",
+                ],
+                "Business acumen": [
+                    f"{NAME} engages in listening sessions (All Hands, Quarterly Business Updates, etc.) to increase {HIS} learning and guide {HIS} work/priorities.",
+                    f"{NAME} has a working knowledge of Abyss’s org/team structure and how teams work together across Abyss and is able to independently work with partner engineering teams to unblock code reviews and engineering designs.",
+                ],
+            }
         if self.level == "tech lead":
             return {
                 "ML design": [
@@ -317,6 +445,8 @@ okay_list = dict()
 going_well_list = dict()
 feedback_list = dict()
 feedback = FeedbackPillars(level=LEVEL)
+
+## use the class. To do: make this a proper CLI tool
 
 print(
     "Input [0,1,2] for feedback on an item."
