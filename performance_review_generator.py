@@ -11,6 +11,13 @@ from typing import List
 
 class FeedbackPillars:
     def __init__(self, name: str, pronouns: List[str], role: str, level: str) -> None:
+        """
+        Args:
+            name (str): Name of the employee
+            pronouns (List[str]): List of pronouns for the employee. E.g. ["he", "his"]
+            role (str): Role of the employee. Currently only supports "Machine Learning Engineer"
+            level (str): Level of the employee. Can be "junior", "intermediate", "senior", or "tech lead"
+        """
         self.level = level
         self.role = role
         self.name = name
@@ -23,6 +30,72 @@ class FeedbackPillars:
             "culture": self.make_culture(),
             "craft": self.make_craft(),
         }
+
+        self.okay_list = dict()
+        self.going_well_list = dict()
+        self.feedback_list = dict()
+
+        self.collect_feedback_from_user()
+        self.give_feedback()
+
+    def collect_feedback_from_user(self):
+        print(
+            "Input [0,1,2] for feedback on an item. "
+            "0 means under-performing. "
+            "1 means meets expectactions. "
+            "2 means over-performing."
+        )
+
+        for key_responsibility in self.responsibilities:
+            print(f"\n{key_responsibility}")
+            for key_behaviors in self.responsibilities[key_responsibility]:
+                print(f"\t{key_behaviors}")
+                for key_behavior in self.responsibilities[key_responsibility][
+                    key_behaviors
+                ]:
+                    rating = int(input(f"\t\t{key_behavior}\n"))
+                    if rating == 0:
+                        try:
+                            self.feedback_list[key_responsibility].append(key_behavior)
+                        except KeyError:
+                            self.feedback_list[key_responsibility] = [key_behavior]
+                    elif rating == 1:
+                        try:
+                            self.okay_list[key_responsibility].append(key_behavior)
+                        except KeyError:
+                            self.okay_list[key_responsibility] = [key_behavior]
+                    elif rating == 2:
+                        try:
+                            self.going_well_list[key_responsibility].append(
+                                key_behavior
+                            )
+                        except KeyError:
+                            self.going_well_list[key_responsibility] = [key_behavior]
+
+                    else:
+                        pass  # todo: try again for input
+                    
+    def give_feedback(self):
+        # todo: summarise feedback, probably through chatgpt
+
+        print("\n\nOVER PERFORMING:")
+        for key_responsibility in self.going_well_list:
+            print(f"\n{key_responsibility}")
+            for comment in self.going_well_list[key_responsibility]:
+                print(f"- {comment}")
+
+        print("\n\nMEETS EXPECTATIONS:")
+        for key_responsibility in self.okay_list:
+            print(f"\n{key_responsibility}")
+            for comment in self.okay_list[key_responsibility]:
+                print(f"- {comment}")
+
+        print("\n\nGIVE FEEDBACK:")
+        for key_responsibility in self.feedback_list:
+            print(f"\n{key_responsibility}")
+            for comment in self.feedback_list[key_responsibility]:
+                print(f"- {comment}")
+
 
     def make_overview(self):
         if self.role == "Machine Learning Engineer":
@@ -62,9 +135,9 @@ class FeedbackPillars:
                         f"{self.name} works primarily with {self.pronouns[1]} direct team and cross-functional partners while driving cross-team collaboration for {self.pronouns[1]} project."
                     ],
                     "impact levers": [
-                        "Project Leadership - {self.name} defines and delivers well-scoped milestones for a project. {self.pronouns[0]} may be a technical lead for projects on {self.pronouns[1]} team.",
-                        "Product Expertise - {self.name} actively keeps customer needs in mind and leverages input from product stakeholders as available to determine the right technical solutions to deliver customer value quickly.",
-                        "Mentorship - {self.name} actively levels up less-experienced members of {self.pronouns[1]} team by helping them with their craft, providing guidance, and setting a good example.",
+                        f"Project Leadership - {self.name} defines and delivers well-scoped milestones for a project. {self.pronouns[0]} may be a technical lead for projects on {self.pronouns[1]} team.",
+                        f"Product Expertise - {self.name} actively keeps customer needs in mind and leverages input from product stakeholders as available to determine the right technical solutions to deliver customer value quickly.",
+                        f"Mentorship - {self.name} actively levels up less-experienced members of {self.pronouns[1]} team by helping them with their craft, providing guidance, and setting a good example.",
                     ],
                 }
             elif self.level == "tech lead":
@@ -137,7 +210,7 @@ class FeedbackPillars:
                     "ownership": [
                         f"{self.name} proactively identifies new opportunities and advocates for and implements improvements to the current state of projects.",
                         f"{self.name} takes responsibility for {self.pronouns[1]} decisions and any mistakes on {self.pronouns[1]} project and takes action to prevent them in the future. {self.pronouns[0]} embraces and shares the learnings with others.",
-                        f"When {self.name} encounters barriers, {self.pronouns[0]} unblocks {HIS}self and {self.pronouns[1]} team by proactively assessing and eliminating the root cause.",
+                        f"When {self.name} encounters barriers, {self.pronouns[0]} unblocks {self.pronouns[1]}self and {self.pronouns[1]} team by proactively assessing and eliminating the root cause.",
                         f"{self.name} responds with urgency to operational issues (e.g., SEVs), owning resolution within {self.pronouns[1]} sphere of responsibility.",
                         f"{self.name} actively seeks out and eliminates sources of toil on the team and helps reduce the impact of KTLO and SEVs.",
                         f"{self.name} is unafraid of declaring a SEV when needed.",
@@ -243,8 +316,21 @@ class FeedbackPillars:
 
     def make_talent(self):
         if self.role == "Machine Learning Engineer":
+            if self.level == "junior":
+                return {
+                    "personal growth": [
+                        f"{self.name} open to and act upon feedback from {self.pronouns[1]} manager and peers.",
+                        f"{self.name} is self-aware about {self.pronouns[1]} strengths and areas for development.",
+                        f"{self.name} drives discussions with {self.pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow.",
+                    ],
+                    "team development": [
+                        f"{self.name} models integrity and a high standard of excellence for {self.pronouns[1]} work.",
+                        f"{self.name} is learning to interview and assess candidates to help us build a diverse and talented team. {self.pronouns[0]} consistently provides timely, details, and evidence-based inteview feedback.",
+                        f"{self.name} offers honest feedback that is delivered with empathy to help others learn and grow.",
+                    ],
+                }
 
-            if self.level == "intermediate":
+            elif self.level == "intermediate":
                 return {
                     "personal growth": [
                         f"{self.name} proactively asks for feedback from those {self.pronouns[0]} works with and identifies ways to act upon it.",
@@ -278,7 +364,7 @@ class FeedbackPillars:
                         f"{self.name} is able to represent {self.pronouns[1]} team's initiatives and goals to candidates in a compelling way.",
                     ],
                 }
-            if self.level == "tech lead":
+            elif self.level == "tech lead":
                 return {
                     "personal growth": [
                         f"{self.name} proactively asks for feedback from {self.pronouns[1]} manager, team, and cross-functional stakeholders. {self.pronouns[0]} knows {self.pronouns[1]} strengths and identifies ways to take actions on {self.pronouns[1]} development areas.",
@@ -300,7 +386,24 @@ class FeedbackPillars:
 
     def make_culture(self):
         if self.role == "Machine Learning Engineer":
-            if self.level == "intermediate":
+            if self.level == "junior":
+                return {
+                    "collaboration": [
+                        f"{self.name} can effectively collaborate and adopt necesary tools and software packages used by {self.pronouns[1]} team.",
+                        f"{self.name} work with {self.pronouns[1]} manager to engage with productive conflict and help resolve it with empathy and cooperation in mind.",
+                        f"{self.name} promotes and role models organisation's core values.",
+                    ],
+                    "organisational health": [
+                        f"{self.name} contributes to a positive sense of community on the team (e.g., engages in team lunches, team offsites, and other group activities, helps with new-hire on-boarding).",
+                        f"{self.name} listens to different perspectives and {self.pronouns[0]} cuts biases from {self.pronouns[1]} words and actions.",
+                    ],
+                    "communication": [
+                        f"{self.name} writes and speaks clearly.",
+                        f"{self.name} listens to understand others and asks clarifying questions.",
+                        f"{self.name} shares relevant information on {self.pronouns[1]} projects to {self.pronouns[1]} manager, team, and customers.",
+                    ],
+                }
+            elif self.level == "intermediate":
                 return {
                     "collaboration": [
                         f"{self.name} can effectively collaborate to get work done.",
@@ -379,6 +482,24 @@ class FeedbackPillars:
 
     def make_craft(self):
         if self.role == "Machine Learning Engineer":
+            if self.level == "junior":
+                return {
+                    "ML fluency": [
+                        f"{self.name} works on ML models by adapting exsiting tutorials and examples for new purposes.",
+                        f"{self.name} can analyze and present datasets or results of experiments with simple methods.",
+                    ],
+                    "ML design": [
+                        f"{self.name} applies existing tools and libraries from my team to advance {self.pronouns[1]} projects.",
+                        f"{self.name} understands the reasoning behind {self.pronouns[1]} team's design decisions to verify and debug implementations of the designs.",
+                    ],
+                    "code fluency": [
+                        f"{self.name} translates ideas into clear code, written to be read as well as executed.",
+                        f"{self.name} participates in code reviews and raises questions to help {self.pronouns[1]} learn the codebase and technologies relevant to {self.pronouns[1]} projects.",
+                        f"{self.name}'s code is free of glaring errors - bugs are in edge cases or design, not mainline paths - and is well documented and well tested with appropriate use of manual vs automated tests.",
+                        f"{self.name} is capable of reading and navigating through functions and modules that {self.pronouns[0]} did write.",
+                        f"{self.name} is learning to tackle code tasks with high throughput while maintaining and appropriately high quality; {self.pronouns[0]} optmizes for either speed or quality, depending on the exlicitly stated needs of the project {self.pronouns[0]} is working on.",
+                    ],
+                }
             if self.level == "intermediate":
                 return {
                     "ML fluency": [
@@ -465,66 +586,14 @@ class FeedbackPillars:
 
 
 def make_feedback():
-    name = "XXX"
-    pronouns = ["she", "her"]
-    level = "senior"  # junior, intermediate, senior, tech lead
+    name = "Lucy"
+    pronouns = ["she", "her"] 
+    level = "junior"
 
-    okay_list = dict()
-    going_well_list = dict()
-    feedback_list = dict()
     feedback = FeedbackPillars(
         name=name, pronouns=pronouns, role="Machine Learning Engineer", level=level
     )
 
-    ## use the class. To do: make this a proper CLI tool
 
-    print(
-        "Input [0,1,2] for feedback on an item."
-        "0 means under-performing."
-        "1 means meets expectactions."
-        "2 means over-performing."
-    )
-    for key_responsibility in feedback.responsibilities:
-        print(f"\n{key_responsibility}")
-        for key_behaviors in feedback.responsibilities[key_responsibility]:
-            print(f"\t{key_behaviors}")
-            for key_behavior in feedback.responsibilities[key_responsibility][
-                key_behaviors
-            ]:
-                rating = int(input(f"\t\t{key_behavior}\n"))
-                if rating == 0:
-                    try:
-                        feedback_list[key_responsibility].append(key_behavior)
-                    except KeyError:
-                        feedback_list[key_responsibility] = [key_behavior]
-                elif rating == 1:
-                    try:
-                        okay_list[key_responsibility].append(key_behavior)
-                    except KeyError:
-                        okay_list[key_responsibility] = [key_behavior]
-                elif rating == 2:
-                    try:
-                        going_well_list[key_responsibility].append(key_behavior)
-                    except KeyError:
-                        going_well_list[key_responsibility] = [key_behavior]
-
-                else:
-                    pass  # todo: try again for input
-
-    print("\n\nOVER PERFORMING:")
-    for key_responsibility in going_well_list:
-        print(f"\n{key_responsibility}")
-        for comment in going_well_list[key_responsibility]:
-            print(f"- {comment}")
-
-    print("\n\nMEETS EXPECTATIONS:")
-    for key_responsibility in okay_list:
-        print(f"\n{key_responsibility}")
-        for comment in okay_list[key_responsibility]:
-            print(f"- {comment}")
-
-    print("\n\nGIVE FEEDBACK:")
-    for key_responsibility in feedback_list:
-        print(f"\n{key_responsibility}")
-        for comment in feedback_list[key_responsibility]:
-            print(f"- {comment}")
+if __name__ == "__main__":
+    make_feedback()
