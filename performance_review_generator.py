@@ -102,7 +102,7 @@ class FeedbackPillars:
             if self.level == "junior":
                 return {
                     "scope": [
-                        f"{self.name} on defined tasks and contribute to solving problems with defined solutions.",
+                        f"{self.name} executes on defined tasks and contributes to solving problems with defined solutions.",
                     ],
                     "collaborative reach": [
                         f"{self.name} works primarily within the scope of {self.pronouns[1]} team with high level guidance from {self.pronouns[1]} manager/TL."
