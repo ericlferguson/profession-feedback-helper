@@ -7,10 +7,18 @@ DESCRIPTION = """
     """
 
 from typing import List
+import logging
 
 
 class FeedbackPillars:
-    def __init__(self, name: str, pronouns: List[str], role: str, level: str, give_chatgpt_feedback: bool = False) -> None:
+    def __init__(
+        self,
+        name: str,
+        pronouns: List[str],
+        role: str,
+        level: str,
+        get_chatgpt_feedback: bool = False,
+    ) -> None:
         """
         Args:
             name (str): Name of the employee
@@ -37,9 +45,12 @@ class FeedbackPillars:
 
         self.collect_feedback_from_user()
         self.give_feedback()
-        
-        if give_chatgpt_feedback:
-            self.give_chatgpt_feedback()
+
+        print(self.feedback)
+
+        if get_chatgpt_feedback:
+            self.get_chatgpt_feedback()
+            print(self.chatgpt_feedback)
 
     def collect_feedback_from_user(self):
         print(
@@ -77,28 +88,6 @@ class FeedbackPillars:
 
                     else:
                         pass  # todo: try again for input
-                    
-    def give_feedback(self):
-        # todo: summarise feedback, probably through chatgpt
-
-        print("\n\nOVER PERFORMING:")
-        for key_responsibility in self.going_well_list:
-            print(f"\n{key_responsibility}")
-            for comment in self.going_well_list[key_responsibility]:
-                print(f"- {comment}")
-
-        print("\n\nMEETS EXPECTATIONS:")
-        for key_responsibility in self.okay_list:
-            print(f"\n{key_responsibility}")
-            for comment in self.okay_list[key_responsibility]:
-                print(f"- {comment}")
-
-        print("\n\nGIVE FEEDBACK:")
-        for key_responsibility in self.feedback_list:
-            print(f"\n{key_responsibility}")
-            for comment in self.feedback_list[key_responsibility]:
-                print(f"- {comment}")
-
 
     def make_overview(self):
         if self.role == "Machine Learning Engineer":
@@ -586,22 +575,99 @@ class FeedbackPillars:
                 raise NotImplementedError(f"{self.level} level is not implemented!")
         else:
             raise NotImplementedError(f"{self.role} role is not implemented!")
-        
-    def give_chatgpt_feedback(self):
-        primer_prompt= "I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of \"Scaling People: Tactics for Management and Company Building\", or  Patrick Lencioni author of \"five dysfunctions of a team\"."
-        
-            
-        
-    
+
+    def give_feedback(self):
+        feedback = ""
+
+        feedback += "\n\nOVER PERFORMING:"
+        for key_responsibility in self.going_well_list:
+            feedback += f"\n{key_responsibility}"
+            for comment in self.going_well_list[key_responsibility]:
+                feedback += f"- {comment}"
+
+        feedback += "\n\nMEETS EXPECTATIONS:"
+        for key_responsibility in self.okay_list:
+            feedback += f"\n{key_responsibility}"
+            for comment in self.okay_list[key_responsibility]:
+                feedback += f"- {comment}"
+
+        feedback += "\n\nGIVE FEEDBACK:"
+        for key_responsibility in self.feedback_list:
+            feedback += f"\n{key_responsibility}"
+            for comment in self.feedback_list[key_responsibility]:
+                feedback += f"- {comment}"
+
+        self.feedback = feedback
+
+    def get_chatgpt_feedback(self, model="chatgpt-4o-latest"):
+        from openai import OpenAI
+        import pandas as pd
+        from tqdm import tqdm
+        from concurrent.futures import ThreadPoolExecutor, as_completed, wait
+        from tenacity import (
+            retry,
+            stop_after_attempt,
+            wait_random_exponential,
+        )  # for exponential backoff
+        from os.path import expanduser
+
+        @retry(wait=wait_random_exponential(min=1, max=10), stop=stop_after_attempt(3))
+        def submit_prompt(client, model, prompt: str, transaction: str):
+            logging.info(f"Submitting prompt...")
+
+            prompt = prompt + transaction
+            response = client.chat.completions.create(
+                model=model,
+                messages=[
+                    {"role": "system", "content": prompt},
+                    {"role": "user", "content": transaction},
+                ],
+            )
+
+            return response
+
+        # open ai api key from file
+        try:
+            with open(expanduser("~/.open-ai/open-ai-key"), "r") as f:
+                api_key = f.read().strip()
+        except FileNotFoundError:
+            print(
+                "Please create a file at ~/.open-ai/open-ai-key with your OpenAI API key."
+            )
+            return
+        except Exception as e:
+            print(f"An error occurred while reading the API key file: {e}")
+            return
+
+        client = OpenAI(api_key=api_key)
+
+        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of \"Scaling People: Tactics for Management and Company Building\", or  Patrick Lencioni author of \"five dysfunctions of a team\".
+        I am giving writing a performance review for a {self.level} {self.role}. I have rated {self.pronouns[1]} skills on the basis of: over performing; meeting expectations; and under performing. Build me a narrative basis for {self.pronouns[1]} performance review.
+        break it into these sections:
+        - What are some things they do well?
+        - How could they improve?
+        - What are their biggest challenges? 
+
+        now, here is the specific rated skills:\n"""
+
+        self.chatgpt_response = submit_prompt(
+            client, model, primer_prompt, self.feedback
+        )
+
+        self.chatgpt_feedback = self.chatgpt_response.choices[0].message.content
 
 
 def make_feedback():
     name = "Lucy"
-    pronouns = ["she", "her"] 
+    pronouns = ["she", "her"]
     level = "junior"
 
     feedback = FeedbackPillars(
-        name=name, pronouns=pronouns, role="Machine Learning Engineer", level=level, give_chatgot_feedback=True
+        name=name,
+        pronouns=pronouns,
+        role="Machine Learning Engineer",
+        level=level,
+        get_chatgpt_feedback=True,
     )
 
 
