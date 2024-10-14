@@ -10,7 +10,7 @@ from typing import List
 
 
 class FeedbackPillars:
-    def __init__(self, name: str, pronouns: List[str], role: str, level: str) -> None:
+    def __init__(self, name: str, pronouns: List[str], role: str, level: str, give_chatgpt_feedback: bool = False) -> None:
         """
         Args:
             name (str): Name of the employee
@@ -37,6 +37,9 @@ class FeedbackPillars:
 
         self.collect_feedback_from_user()
         self.give_feedback()
+        
+        if give_chatgpt_feedback:
+            self.give_chatgpt_feedback()
 
     def collect_feedback_from_user(self):
         print(
@@ -485,7 +488,7 @@ class FeedbackPillars:
             if self.level == "junior":
                 return {
                     "ML fluency": [
-                        f"{self.name} works on ML models by adapting exsiting tutorials and examples for new purposes.",
+                        f"{self.name} works on ML models by adapting existing tutorials and examples for new purposes.",
                         f"{self.name} can analyze and present datasets or results of experiments with simple methods.",
                     ],
                     "ML design": [
@@ -583,6 +586,13 @@ class FeedbackPillars:
                 raise NotImplementedError(f"{self.level} level is not implemented!")
         else:
             raise NotImplementedError(f"{self.role} role is not implemented!")
+        
+    def give_chatgpt_feedback(self):
+        primer_prompt= "I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of \"Scaling People: Tactics for Management and Company Building\", or  Patrick Lencioni author of \"five dysfunctions of a team\"."
+        
+            
+        
+    
 
 
 def make_feedback():
@@ -591,7 +601,7 @@ def make_feedback():
     level = "junior"
 
     feedback = FeedbackPillars(
-        name=name, pronouns=pronouns, role="Machine Learning Engineer", level=level
+        name=name, pronouns=pronouns, role="Machine Learning Engineer", level=level, give_chatgot_feedback=True
     )
 
 
