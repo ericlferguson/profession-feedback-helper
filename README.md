@@ -74,9 +74,6 @@ The generated feedback and optional ChatGPT narrative will be displayed in the c
 
 - **Feedback Ratings**: The feedback ratings must be provided interactively in the terminal. Ensure that you provide a valid number (0, 1, or 2) for each question.
 - **ChatGPT API Key**: For the ChatGPT-based narrative feedback, ensure that the API key file is in the correct location (`~/.open-ai/open-ai-key`). The tool will use this key to interact with OpenAI's API.
-```
-
-You can copy and paste this text directly into your README file. Let me know if you need any more edits!
 
 ## Contributing
 
