@@ -601,9 +601,6 @@ class FeedbackPillars:
 
     def get_chatgpt_feedback(self, model="chatgpt-4o-latest"):
         from openai import OpenAI
-        import pandas as pd
-        from tqdm import tqdm
-        from concurrent.futures import ThreadPoolExecutor, as_completed, wait
         from tenacity import (
             retry,
             stop_after_attempt,
@@ -658,9 +655,9 @@ class FeedbackPillars:
 
 
 def make_feedback():
-    name = "Lucy"
+    name = "Amy"
     pronouns = ["she", "her"]
-    level = "junior"
+    level = "intermediate"
 
     feedback = FeedbackPillars(
         name=name,
