@@ -55,9 +55,9 @@ class FeedbackPillars:
     def collect_feedback_from_user(self):
         print(
             "Input [0,1,2] for feedback on an item. "
-            "0 means under-performing. "
+            "0 means does not meet expectations. "
             "1 means meets expectactions. "
-            "2 means over-performing."
+            "2 means exceeds expectactions."
         )
 
         for key_responsibility in self.responsibilities:
@@ -67,27 +67,39 @@ class FeedbackPillars:
                 for key_behavior in self.responsibilities[key_responsibility][
                     key_behaviors
                 ]:
-                    rating = int(input(f"\t\t{key_behavior}\n"))
-                    if rating == 0:
+                    rating = -1
+                    valid_ratings = [0, 1, 2]
+                    while rating not in valid_ratings:
                         try:
-                            self.feedback_list[key_responsibility].append(key_behavior)
-                        except KeyError:
-                            self.feedback_list[key_responsibility] = [key_behavior]
-                    elif rating == 1:
-                        try:
-                            self.okay_list[key_responsibility].append(key_behavior)
-                        except KeyError:
-                            self.okay_list[key_responsibility] = [key_behavior]
-                    elif rating == 2:
-                        try:
-                            self.going_well_list[key_responsibility].append(
-                                key_behavior
-                            )
-                        except KeyError:
-                            self.going_well_list[key_responsibility] = [key_behavior]
+                            rating = int(input(f"\t\t{key_behavior}\n"))
+                        except ValueError:
+                            pass  # deal with invalid input
+                        if rating == 0:
+                            if self.feedback_list.get(key_responsibility) is None:
+                                self.feedback_list[key_responsibility] = [key_behavior]
+                            else:
+                                self.feedback_list[key_responsibility].append(
+                                    key_behavior
+                                )
+                        elif rating == 1:
+                            if self.okay_list.get(key_responsibility) is None:
+                                self.okay_list[key_responsibility] = [key_behavior]
+                            else:
+                                self.okay_list[key_responsibility].append(key_behavior)
+                        elif rating == 2:
+                            if self.going_well_list.get(key_responsibility) is None:
+                                self.going_well_list[key_responsibility] = [
+                                    key_behavior
+                                ]
+                            else:
+                                self.going_well_list[key_responsibility].append(
+                                    key_behavior
+                                )
 
-                    else:
-                        pass  # todo: try again for input
+                        else:
+                            print(
+                                f"Invalid input. Valid choices are {valid_ratings}. Try again."
+                            )
 
     def make_overview(self):
         if self.role == "Machine Learning Engineer":
@@ -579,23 +591,23 @@ class FeedbackPillars:
     def give_feedback(self):
         feedback = ""
 
-        feedback += "\n\nOVER PERFORMING:"
+        feedback += "\nOVER PERFORMING:"
         for key_responsibility in self.going_well_list:
-            feedback += f"\n{key_responsibility}"
+            feedback += f"\n{key_responsibility}\n"
             for comment in self.going_well_list[key_responsibility]:
-                feedback += f"- {comment}"
+                feedback += f"- {comment}\n"
 
-        feedback += "\n\nMEETS EXPECTATIONS:"
+        feedback += "\nMEETS EXPECTATIONS:"
         for key_responsibility in self.okay_list:
-            feedback += f"\n{key_responsibility}"
+            feedback += f"\n{key_responsibility}\n"
             for comment in self.okay_list[key_responsibility]:
-                feedback += f"- {comment}"
+                feedback += f"- {comment}\n"
 
-        feedback += "\n\nGIVE FEEDBACK:"
+        feedback += "\nGIVE FEEDBACK:"
         for key_responsibility in self.feedback_list:
-            feedback += f"\n{key_responsibility}"
+            feedback += f"\n{key_responsibility}\n"
             for comment in self.feedback_list[key_responsibility]:
-                feedback += f"- {comment}"
+                feedback += f"- {comment}\n"
 
         self.feedback = feedback
 
