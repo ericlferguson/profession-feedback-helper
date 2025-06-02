@@ -9,8 +9,17 @@ DESCRIPTION = """
 from typing import List
 import logging
 
+# Maps user-friendly levels to Dropbox IC levels
+LEVEL_MAP = {
+    "junior": "IC1",
+    "intermediate": "IC2",
+    "senior": "IC3",
+    "tech lead": "IC4",
+    "principal": "IC5",
+}
 
-class FeedbackPillars:
+
+class PerformanceReviewGenerator:
     def __init__(
         self,
         name: str,
@@ -19,17 +28,17 @@ class FeedbackPillars:
         level: str,
         get_chatgpt_feedback: bool = False,
     ) -> None:
-        """
-        Args:
-            name (str): Name of the employee
-            pronouns (List[str]): List of pronouns for the employee. E.g. ["he", "his"]
-            role (str): Role of the employee. Currently only supports "Machine Learning Engineer"
-            level (str): Level of the employee. Can be "junior", "intermediate", "senior", or "tech lead"
-        """
-        self.level = level
-        self.role = role
         self.name = name
         self.pronouns = pronouns
+        self.role = role
+        self.level = level.lower()
+        self.valid_levels = list(LEVEL_MAP.keys())
+        if self.level not in self.valid_levels:
+            raise ValueError(f"Invalid level '{self.level}'. Must be one of {', '.join(self.valid_levels)}.")
+        self.ic_level = LEVEL_MAP[self.level]
+        # Optionally, display both for debugging
+        print(f"Level selected: {self.level} (Dropbox {self.ic_level})")
+        
         self.responsibilities = {
             "overview": self.make_overview(),
             "results": self.make_results(),
@@ -162,6 +171,23 @@ class FeedbackPillars:
                         f"Mentorship - {self.name} actively levels-up less-experienced members of {self.pronouns[1]} team by helping them with their craft, providing guidance, and setting a good example.",
                     ],
                 }
+            elif self.level == "principal":
+                return {
+                    "scope": [
+                        f"{self.name} owns and delivers multi-year, org-level goals that push forward the boundaries of our business and technology.",
+                        f"{self.name} is an organization-wide technical leader who sets the direction for the company's Machine Learning strategy.",
+                    ],
+                    "collaborative reach": [
+                        f"{self.name} works across the entire engineering organization and partners closely with senior leadership.",
+                        f"{self.name} represents the company's technical capabilities to external stakeholders and the broader tech community.",
+                    ],
+                    "impact levers": [
+                        f"Organizational Strategy - {self.name} plays a key role in shaping the long-term technical strategy of the entire organization.",
+                        f"Technical Innovation - {self.name} drives major technical innovations that create new capabilities for the company.",
+                        f"Industry Influence - {self.name} is recognized as a thought leader in the Machine Learning field, influencing industry trends.",
+                        f"Organizational Growth - {self.name} significantly contributes to the growth and development of the engineering organization as a whole.",
+                    ],
+                }
             else:
                 raise NotImplementedError(f"{self.level} level is not implemented!")
         else:
@@ -169,98 +195,89 @@ class FeedbackPillars:
 
     def make_results(self):
         if self.role == "Machine Learning Engineer":
-
             if self.level == "junior":
                 return {
                     "impact": [
-                        f"{self.name} works with {self.pronouns[1]} manager to prioritize tasks that add the most value and deliver high-quality results for my customer.",
-                        f"{self.name} effectively participates in the core processes of my team (planning, on-call rotations, bug triage, metrics review, etc.)",
+                        f"{self.name} delivers on assigned tasks and contributes to team projects.",
+                        f"{self.name} implements and tests machine learning models under guidance.",
                     ],
-                    "ownership": [
-                        f"{self.name} follows through on {self.pronouns[1]} commitments, takes responsibility for {self.pronouns[1]} work, and delivers on time.",
-                        f"{self.name} owns {self.pronouns[1]} failures and learns from them.",
-                        f"{self.name} asks questions to clarify expectations.",
+                    "execution": [
+                        f"{self.name} follows established best practices and coding standards.",
+                        f"{self.name} writes clear and maintainable code for defined tasks.",
                     ],
-                    "decision making": [
-                        f"{self.name} escalates to {self.pronouns[1]} manager when they get stuck and reflect on ways that they can improve from their mistakes."
+                    "initiative": [
+                        f"{self.name} asks questions to clarify requirements and seeks help when stuck.",
+                        f"{self.name} shows eagerness to learn and apply new ML techniques.",
                     ],
                 }
             elif self.level == "intermediate":
                 return {
                     "impact": [
-                        f"{self.name} acts with urgency and delivers high-quality work that will add the most value.",
-                        f"{self.name} works with {self.pronouns[1]} manager to direct {self.pronouns[1]} focus so {self.pronouns[1]} work advances {self.pronouns[1]} team's goals.",
-                        f"{self.name} prioritises the right things and doesn't over-complicate {self.pronouns[1]} work. When necessary, {self.pronouns[0]} proposes appropriate scope adjustments.",
-                        f"{self.name} effectively participates in the core processes of {self.pronouns[1]} team, including recommending and implementing process improvements.",
+                        f"{self.name} independently delivers on medium-sized projects.",
+                        f"{self.name} implements and optimizes machine learning models with minimal guidance.",
                     ],
-                    "ownership": [
-                        f"{self.name} follows through on {self.pronouns[1]} commitments, takes responsibility for {self.pronouns[1]} work, and delivers on time.",
-                        f"{self.name} proactively identifies and advocate for opportunities to improve the current state of projects.",
-                        f"{self.name} owns {self.pronouns[1]} failures and learns from them.",
-                        f"{self.name} thinks a step or two ahead in {self.pronouns[1]} work, solve the right problems before they become bigger problems, and problem-solve with {self.pronouns[1]} manager when {self.pronouns[0]} is stuck.",
+                    "execution": [
+                        f"{self.name} designs and implements efficient ML pipelines.",
+                        f"{self.name} identifies and resolves common issues in ML workflows.",
                     ],
-                    "decision making": [
-                        f"{self.name} identifies and gathers input from others and considers customer needs to make informed and timely decisions."
+                    "initiative": [
+                        f"{self.name} proactively suggests improvements to existing ML systems.",
+                        f"{self.name} takes ownership of their work and sees it through to completion.",
                     ],
                 }
             elif self.level == "senior":
                 return {
                     "impact": [
-                        f"{self.name} delivers some of {self.pronouns[1]} team's goals on time and with a high standard of quality.",
-                        f"{self.name} understands {self.pronouns[1]} customers, the business's goals, and {self.pronouns[1]} team's goals. {self.pronouns[0]} ensures {self.pronouns[1]} work will have the greatest customer impact.",
-                        f"{self.name} can identify when {self.pronouns[1]} results aren't moving the needle for our business/team goals or serving the needs of customers in a meaningful way and works with {self.pronouns[1]} manager to redirect {self.pronouns[1]} focus.",
-                        f"{self.name} gets work to a simple place by focusing on the heart of the problem and prioritizing the right things.",
+                        f"{self.name} leads the delivery of large, complex ML projects.",
+                        f"{self.name} develops novel ML solutions that significantly improve product performance.",
                     ],
-                    "ownership": [
-                        f"{self.name} proactively identifies new opportunities and advocates for and implements improvements to the current state of projects.",
-                        f"{self.name} takes responsibility for {self.pronouns[1]} decisions and any mistakes on {self.pronouns[1]} project and takes action to prevent them in the future. {self.pronouns[0]} embraces and shares the learnings with others.",
-                        f"When {self.name} encounters barriers, {self.pronouns[0]} unblocks {self.pronouns[1]}self and {self.pronouns[1]} team by proactively assessing and eliminating the root cause.",
-                        f"{self.name} responds with urgency to operational issues (e.g., SEVs), owning resolution within {self.pronouns[1]} sphere of responsibility.",
-                        f"{self.name} actively seeks out and eliminates sources of toil on the team and helps reduce the impact of KTLO and SEVs.",
-                        f"{self.name} is unafraid of declaring a SEV when needed.",
-                        f"{self.name} proactively creates and/or updates playbooks for components {self.pronouns[0]} owns.",
+                    "execution": [
+                        f"{self.name} architects scalable and maintainable ML systems.",
+                        f"{self.name} optimizes ML pipelines for performance and resource efficiency.",
                     ],
-                    "decision making": [
-                        f"{self.name} makes informed decisions by consulting the right stakeholders and balancing details with the big picture. {self.pronouns[0]} executes against the spirit, and not just the letter, of the requirements.",
-                        f"{self.name} understands the implications of {self.pronouns[1]} decisions and adjusts {self.pronouns[1]} approach based on the impact and risk in the short and long-term.",
-                        f"{self.name} makes timely decisions and doesn't cut corners that would compromise {self.pronouns[1]} customer's trust.",
-                        f"When possible, {self.pronouns[0]} leverages customer insights/data to inform decisions, balancing value for the customer with other business goals.",
-                        f"{self.name} escalates to {self.pronouns[1]} manager when {self.pronouns[0]} needs help with a decision about {self.pronouns[1]} deliverables or priorities.",
+                    "initiative": [
+                        f"{self.name} identifies new opportunities for applying ML to solve business problems.",
+                        f"{self.name} mentors junior team members and elevates the team's ML capabilities.",
                     ],
                 }
             elif self.level == "tech lead":
                 return {
                     "impact": [
-                        f"{self.name} deliver many of {self.pronouns[1]} team's goals on time and with a high standard of quality.",
-                        f"{self.name}'s understanding of the business context and {self.pronouns[1]} team's goals enable the greatest customer impact and allows independent technical decisions in the face of open-ended requirements.",
-                        f"{self.name} can identify when {self.pronouns[1]} results aren't moving the needle for our business/team goals or serving the needs of customers in a meaningful way and works with {self.pronouns[1]} manager to redirect {self.pronouns[1]} focus",
-                        f"{self.name} get work to a simple place by focusing on the heart of the problem and prioritizing the right things",
-                        f"{self.name} improves how {self.pronouns[1]} team measures and communicates customer impact",
+                        f"{self.name} drives the success of multiple high-impact ML initiatives across teams.",
+                        f"{self.name} defines and implements ML strategies that create significant business value.",
                     ],
-                    "ownership": [
-                        f"{self.name} proactively identifies new opportunities and advocate for and implement improvements to the current state of projects — potentially having broader business impact across teams or products.",
-                        f"{self.name} takes responsibility for {self.pronouns[1]} decisions and failures on {self.pronouns[1]} projects and take action to prevent them in the future. {self.name} embraces and share the learnings from those failures.",
-                        f"When {self.name} encounter barriers, {self.pronouns[0]} unblocks {HIS}self and {self.pronouns[1]} team by proactively assessing and eliminating the root cause, and focusing on the solutions.",
-                        f"{self.name} responds with urgency to operational issues, owning resolution within my sphere of responsibility.",
-                        f"{self.name} actively seeks out and eliminate sources of toil on the team and help improve developer velocity.",
-                        f"{self.name} proactively creates and update playbooks for processes {self.pronouns[0]} owns.",
+                    "execution": [
+                        f"{self.name} designs and oversees the implementation of complex, distributed ML systems.",
+                        f"{self.name} establishes best practices and architectural patterns for ML at scale.",
                     ],
-                    "decision making": [
-                        f"{self.name} makes informed decisions by having productive debates with the right stakeholders, seeking diverse perspectives, balancing details with the big picture, and optimizing for the company.",
-                        f"{self.name} understands the implications of {self.pronouns[1]} decisions and adjusts {self.pronouns[1]} approach based on the impact and risk (e.g., choosing a more iterative approach based on the degree of uncertainty with respect to product fit, while maintaining a view of the long-term arc needed to accomplish business goals).",
-                        f"{self.name} leverages insights about customers to inform decisions, balancing value for the customer with other business goals.",
-                        f"{self.name} makes timely decisions and doesn't cut corners that would compromise {self.pronouns[1]} customer's trust.",
+                    "initiative": [
+                        f"{self.name} anticipates future ML needs and proactively develops solutions.",
+                        f"{self.name} fosters a culture of innovation and continuous improvement in ML practices.",
+                    ],
+                }
+            elif self.level == "principal":
+                return {
+                    "impact": [
+                        f"{self.name} drives org-wide ML initiatives that fundamentally enhance the company's capabilities.",
+                        f"{self.name} pioneers cutting-edge ML technologies that position the company as an industry leader.",
+                    ],
+                    "execution": [
+                        f"{self.name} architects transformative ML systems that operate at massive scale.",
+                        f"{self.name} defines the technical vision for ML across the organization.",
+                    ],
+                    "initiative": [
+                        f"{self.name} identifies and pursues breakthrough ML research opportunities.",
+                        f"{self.name} influences the broader ML community through publications, talks, and open-source contributions.",
                     ],
                 }
             else:
                 raise NotImplementedError(f"{self.level} level is not implemented!")
         else:
             raise NotImplementedError(f"{self.role} role is not implemented!")
-
     def make_direction(self):
         if self.role == "Machine Learning Engineer":
-
             if self.level == "junior":
+{{ ... }}
                 return {
                     "agility / innovation": [
                         f"{self.name} shares new ideas and can adapt {self.pronouns[1]} work when circumstances change.",
@@ -310,7 +327,25 @@ class FeedbackPillars:
                     "strategy": [
                         f"{self.name} defines the technical roadmap for impactful multi-phase projects, refining it as the projects progress to deliver customer value quickly, and provides leadership for the people executing on the project.",
                         f"In partnership with {self.pronouns[1]} manager, {self.name} defines {self.pronouns[1]} team's priorities and secures buy-in by engaging stakeholders and aligning with company priorities and customer needs.",
-                        f"{self.name} generates excitement for {HIS}/the team's strategy.",
+                        f"{self.name} generates excitement for {self.pronouns[1]}/the team's strategy.",
+                    ],
+                }
+            elif self.level == "principal":
+                return {
+                    "agility": [
+                        f"{self.name} leads through change and helps the organization adapt quickly.",
+                        f"{self.name} models resilience and helps others navigate ambiguity and uncertainty.",
+                        f"{self.name} creates clarity and confidence in times of ambiguity by focusing on the bigger picture and communicating a clear path forward.",
+                    ],
+                    "innovation": [
+                        f"{self.name} fosters a culture of innovation within the organization.",
+                        f"{self.name} identifies and champions transformative opportunities that can significantly impact the company's ML capabilities.",
+                        f"{self.name} pushes the boundaries of what's possible in ML, driving the adoption of cutting-edge techniques and technologies.",
+                    ],
+                    "strategy": [
+                        f"{self.name} develops and drives the long-term ML strategy for the organization, aligning it with overall business objectives.",
+                        f"{self.name} influences company-wide technical decisions and priorities.",
+                        f"{self.name} anticipates industry trends and positions the organization to capitalize on emerging opportunities in the ML space.",
                     ],
                 }
             else:
@@ -323,64 +358,71 @@ class FeedbackPillars:
             if self.level == "junior":
                 return {
                     "personal growth": [
-                        f"{self.name} open to and act upon feedback from {self.pronouns[1]} manager and peers.",
+                        f"{self.name} is open to and acts upon feedback from {self.pronouns[1]} manager and peers.",
                         f"{self.name} is self-aware about {self.pronouns[1]} strengths and areas for development.",
-                        f"{self.name} drives discussions with {self.pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow.",
-                    ],
-                    "team development": [
-                        f"{self.name} models integrity and a high standard of excellence for {self.pronouns[1]} work.",
-                        f"{self.name} is learning to interview and assess candidates to help us build a diverse and talented team. {self.pronouns[0]} consistently provides timely, details, and evidence-based inteview feedback.",
-                        f"{self.name} offers honest feedback that is delivered with empathy to help others learn and grow.",
+                        f"{self.name} drives discussions with {self.pronouns[1]} manager about {self.pronouns[1]} career goals.",
                     ],
                 }
-
             elif self.level == "intermediate":
                 return {
                     "personal growth": [
                         f"{self.name} proactively asks for feedback from those {self.pronouns[0]} works with and identifies ways to act upon it.",
-                        f"{self.name} has self-awareness about {self.pronouns[1]} strengths and areas for development.",
-                        f"{self.name} drives discussions with {self.pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow.",
+                        f"{self.name} has self-awareness about {self.pronouns[1]} strengths and development areas.",
+                        f"{self.name} reflects on {self.pronouns[1]} experiences to identify areas of growth.",
                     ],
-                    "hiring": [
-                        f"{self.name} contributes to interviewing and assessing candidates to help us build a diverse and talented team. {self.pronouns[0]} is calibrated and consistently performs high-signal interviews.",
-                        f"{self.name} is able to represent {self.pronouns[1]} team's initiatives and goals to candidates in a compelling way.",
-                    ],
-                    "talent development": [
-                        f"{self.name} models integrity and a high standard of excellence for {self.pronouns[1]} work.",
-                        f"{self.name} helps the more junior members of {self.pronouns[1]} team, hosts interns, or is a residency mentor.",
-                        f"{self.name} offers honest feedback that is delivered with empathy to help others learn and grow.",
+                    "mentorship": [
+                        f"{self.name} supports new hires on {self.pronouns[1]} team through onboarding.",
+                        f"{self.name} may mentor interns or apprentices.",
                     ],
                 }
             elif self.level == "senior":
                 return {
                     "personal growth": [
-                        f"{self.name} proactively asks for feedback from {self.pronouns[1]} manager, team, and cross-functional stakeholders and identifies ways to act upon it.",
-                        f"{self.name} has self-awareness about {self.pronouns[1]} strengths and works on {self.pronouns[1]} development areas.",
-                        f"{self.name} connects with others with empathy and understanding.",
-                        f"{self.name} drives discussions with {self.pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, Dropbox-offered training, leveraging perks allowance etc.).",
+                        f"{self.name} seeks out challenging or stretch opportunities to advance {self.pronouns[1]} learning and development.",
+                        f"{self.name} actively works on {self.pronouns[1]} development areas and seeks feedback to confirm progress.",
                     ],
-                    "team development": [
-                        f"{self.name} models integrity and a high standard of excellence for {self.pronouns[1]} work, leveraging this to influence and establish best practices.",
-                        f"{self.name} supports the growth of {self.pronouns[1]} teammates by taking into account their unique skills, strengths, backgrounds, and working styles.",
-                        f"{self.name} actively looks for opportunities to mentor new hires, interns, and apprentices.",
-                        f"{self.name} solicits and offers honest and constructive feedback that is delivered with empathy to help others learn and grow.",
-                        f"{self.name} actively contributes to interviewing and assessing candidates to help us build a diverse and talented team by conducting more advanced domain-specific and leveling interviews.",
-                        f"{self.name} is able to represent {self.pronouns[1]} team's initiatives and goals to candidates in a compelling way.",
+                    "mentorship": [
+                        f"{self.name} mentors other engineers on the team.",
+                        f"{self.name} supports personal and professional development of team members.",
+                        f"{self.name} is a role model for good engineering practices and strong team behaviors.",
+                    ],
+                    "talent development": [
+                        f"{self.name} participates in interviewing and helps improve our hiring processes.",
+                        f"{self.name} contributes to developing and delivering engineering onboarding and training materials.",
                     ],
                 }
             elif self.level == "tech lead":
                 return {
                     "personal growth": [
-                        f"{self.name} proactively asks for feedback from {self.pronouns[1]} manager, team, and cross-functional stakeholders. {self.pronouns[0]} knows {self.pronouns[1]} strengths and identifies ways to take actions on {self.pronouns[1]} development areas.",
-                        f"{self.name} has self-awareness and connects with others with empathy.",
-                        f"{self.name} drives discussions with {self.pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow.",
+                        f"{self.name} has a strong sense of self-awareness and actively works on {self.pronouns[1]} development areas.",
+                        f"{self.name} seeks out challenging, high-impact opportunities to advance {self.pronouns[1]} learning and development.",
                     ],
-                    "team development": [
-                        f"{self.name} models integrity and a high standard of excellence for {self.pronouns[1]} work. {self.pronouns[0]} leverages this to set and hold the bar for quality and best practices for {self.pronouns[1]} team (e.g., via code and design reviews).",
-                        f"{self.name} identifies and supports areas of growth for {self.pronouns[1]} teammates that take into account their unique skills, strengths, backgrounds, and working styles.",
-                        f"{self.name} solicits and offers honest, constructive, direct, and actionable feedback that is delivered with empathy to help others learn and grow into the next level.",
-                        f"{self.name} actively contributes to interviewing and gains the trust of candidates, representing Abyss's mission, strategy, and culture throughout the interview process.",
-                        f"{self.name} is able to represent {self.pronouns[1]} team's technical challenges to potential candidates in a compelling way (e.g., 1:1 sell chats, blog posts, public speaking).",
+                    "mentorship": [
+                        f"{self.name} actively mentors multiple team members, including senior engineers.",
+                        f"{self.name} helps other engineers to set goals and develop their careers.",
+                        f"{self.name} is a role model for engineering excellence and professional growth.",
+                    ],
+                    "talent development": [
+                        f"{self.name} plays a key role in recruiting and hiring decisions for the team.",
+                        f"{self.name} identifies and creates opportunities for team members to grow and take on new challenges.",
+                        f"{self.name} contributes significantly to the team's strategy for developing and retaining talent.",
+                    ],
+                }
+            elif self.level == "principal":
+                return {
+                    "personal growth": [
+                        f"{self.name} continues to grow and develop as a leader in the field of machine learning.",
+                        f"{self.name} seeks out opportunities to learn from other industry leaders and bring that knowledge back to the organization.",
+                    ],
+                    "mentorship": [
+                        f"{self.name} serves as a mentor and advisor to senior engineers and tech leads across the organization.",
+                        f"{self.name} actively develops the next generation of technical leaders within the company.",
+                    ],
+                    "talent development": [
+                        f"{self.name} plays a crucial role in shaping the organization's overall talent strategy for machine learning engineers.",
+                        f"{self.name} creates and champions programs for developing ML talent across the company.",
+                        f"{self.name} is instrumental in attracting top ML talent to the organization.",
+                        f"{self.name} influences the industry's perception of the company as a great place for ML engineers to work and grow.",
                     ],
                 }
             else:
@@ -393,90 +435,81 @@ class FeedbackPillars:
             if self.level == "junior":
                 return {
                     "collaboration": [
-                        f"{self.name} can effectively collaborate and adopt necesary tools and software packages used by {self.pronouns[1]} team.",
-                        f"{self.name} work with {self.pronouns[1]} manager to engage with productive conflict and help resolve it with empathy and cooperation in mind.",
-                        f"{self.name} promotes and role models organisation's core values.",
-                    ],
-                    "organisational health": [
-                        f"{self.name} contributes to a positive sense of community on the team (e.g., engages in team lunches, team offsites, and other group activities, helps with new-hire on-boarding).",
-                        f"{self.name} listens to different perspectives and {self.pronouns[0]} cuts biases from {self.pronouns[1]} words and actions.",
+                        f"{self.name} works effectively with {self.pronouns[1]} immediate team members.",
+                        f"{self.name} actively participates in team meetings and discussions.",
                     ],
                     "communication": [
-                        f"{self.name} writes and speaks clearly.",
-                        f"{self.name} listens to understand others and asks clarifying questions.",
-                        f"{self.name} shares relevant information on {self.pronouns[1]} projects to {self.pronouns[1]} manager, team, and customers.",
+                        f"{self.name} clearly communicates status updates and blockers to {self.pronouns[1]} manager and team.",
+                        f"{self.name} asks questions to clarify requirements and expectations.",
+                    ],
+                    "company values": [
+                        f"{self.name} demonstrates understanding of Dropbox values in day-to-day work.",
+                        f"{self.name} shows enthusiasm for the company mission and product.",
                     ],
                 }
             elif self.level == "intermediate":
                 return {
                     "collaboration": [
-                        f"{self.name} can effectively collaborate to get work done.",
-                        f"{self.name} work with {self.pronouns[1]} manager to manage conflict with empathy and cooperation in mind.",
-                    ],
-                    "organisational health": [
-                        f"{self.name} contributes to a positive sense of community on the team (e.g., engages in team lunches, team offsites, and other group activities, helps with new-hire on-boarding).",
-                        f"{self.name} listens to different perspectives and {self.pronouns[0]} cuts biases from {self.pronouns[1]} words and actions.",
+                        f"{self.name} works well across teams and disciplines on {self.pronouns[1]} projects.",
+                        f"{self.name} proactively shares knowledge with team members.",
                     ],
                     "communication": [
-                        f"{self.name} writes and speaks clearly.",
-                        f"{self.name} listens to understand others and asks clarifying questions.",
-                        f"{self.name} shares relevant information on {self.pronouns[1]} projects to {self.pronouns[1]} manager, team, and customers.",
+                        f"{self.name} effectively communicates technical concepts to both technical and non-technical audiences.",
+                        f"{self.name} provides constructive feedback in code reviews and design discussions.",
+                    ],
+                    "company values": [
+                        f"{self.name} consistently demonstrates and promotes Dropbox values.",
+                        f"{self.name} contributes to a positive team environment.",
                     ],
                 }
             elif self.level == "senior":
                 return {
                     "collaboration": [
-                        f"{self.name} builds relationships across teams and helps get to positive outcomes.",
-                        f"{self.name} engages in productive conflict with thoughtful questioning and has the courage to state {self.pronouns[1]} point of view.",
-                        f"{self.name} proactively communicates and coordinates {self.pronouns[1]} team's requirements with other groups and teams in engineering.",
-                        f"{self.name} is capable of working with cross-functional stakeholders to identify technical blind spots and clarify ambiguity in their ideas.",
-                        f"{self.name} avoids blame and focuses on solving the right problems, disagreeing and committing when necessary to move decisions forward.",
-                        f"{self.name} promotes and role models Abyss core values.",
-                    ],
-                    "organizational health": [
-                        f"{self.name} contributes to a positive sense of community on the team (e.g., engage in team lunches, team offsites, and other group activities, help with new-hire onboarding).",
-                        f"{self.name} listens to different perspectives and cuts biases from {self.pronouns[1]} words and actions.",
-                        f"{self.name} helps foster effective communication across the team and promotes an inclusive meeting culture.",
-                        f"{self.name} practices the Abyss Diversity Commitments on a regular basis.",
-                        f"{self.name} champions good virtual first practices that help {self.pronouns[1]} team collaborate effectively.",
-                        f"{self.name} helps shape the Abyss engineering culture through {self.pronouns[1]} involvement with activities outside of {self.pronouns[1]} team (e.g., presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek).",
+                        f"{self.name} fosters a collaborative environment within and across teams.",
+                        f"{self.name} proactively identifies and addresses team dynamics issues.",
                     ],
                     "communication": [
-                        f"{self.name} tailors {self.pronouns[1]} message to {self.pronouns[1]} audience, presenting it clearly and concisely at the right altitude.",
-                        f"{self.name} proactively shares information so the right people are informed and aligned.",
-                        f"{self.name} sets the right expectation with {self.pronouns[1]} manager to balance {self.pronouns[1]} work and mentorship requirements.",
-                        f"If there is a significant issue not being addressed, {self.name} initiates a crucial conversation even when uncomfortable.",
+                        f"{self.name} communicates complex technical ideas clearly and persuasively.",
+                        f"{self.name} tailors communication style to diverse audiences effectively.",
+                        f"{self.name} represents the team well in cross-functional settings.",
+                    ],
+                    "company values": [
+                        f"{self.name} is a strong advocate for Dropbox values and positively influences team culture.",
+                        f"{self.name} promotes inclusive practices and supports diversity initiatives.",
                     ],
                 }
-
-            if self.level == "tech lead":
+            elif self.level == "tech lead":
                 return {
                     "collaboration": [
-                        f"{self.name} promotes and role models Abyss core values, leading by example.",
-                        f"{self.name} builds relationships and drives coordination across teams and disciplines, helping to achieve positive outcomes.",
-                        f"{self.name} proactively communicates and coordinates {self.pronouns[1]} team's requirements with other groups and teams in engineering.",
-                        f"{self.name} is effective at working with cross-functional stakeholders to identify technical blind spots and clarify ambiguity in their ideas.",
-                        f"{self.name} engages in productive conflict with thoughtful questioning and has the courage to state {self.pronouns[1]} point of view.",
-                        f"{self.name} avoids blame and focuses on solving the right problems, and is willing to disagree and commit when necessary to move decisions forward.",
-                    ],
-                    "organizational health": [
-                        f"Working with {self.pronouns[1]} manager, {self.name} leverages the unique strengths and skills of the members of {self.pronouns[1]} team and helps identify talent gaps required for team success.",
-                        f"{self.name} enables others to bring their authentic selves to work and contributes to building community at Abyss.",
-                        f"{self.name} ensures diverse perspectives are included, leveraging inclusive meeting practices.",
-                        f"{self.name} practices the Abyss Diversity Commitments on a regular basis.",
-                        f"{self.name} champions good virtual-first practices that help {self.pronouns[1]} team collaborate effectively.",
-                        f"{self.name} helps shape the Abyss engineering culture through {self.pronouns[1]} involvement with activities outside of {self.pronouns[1]} team (e.g., presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek).",
+                        f"{self.name} builds strong relationships across the organization to drive alignment and collaboration.",
+                        f"{self.name} creates an environment of psychological safety where team members feel comfortable taking risks and sharing ideas.",
                     ],
                     "communication": [
-                        f"{self.name} communicates with clarity, brevity, focus, and tailors {self.pronouns[1]} message to {self.pronouns[1]} audience, presenting it at the right altitude.",
-                        f"{self.name} proactively shares information so that relevant stakeholders are informed and aligned.",
-                        f"{self.name} is effective in holding crucial conversations even when uncomfortable.",
-                        f"{self.name} influences stakeholders across a variety of audiences.",
-                        f"{self.name} seeks to listen and understand others.",
+                        f"{self.name} articulates technical vision and strategy clearly to various stakeholders.",
+                        f"{self.name} facilitates effective communication within the team and across teams.",
+                        f"{self.name} provides impactful presentations at the organizational level.",
                     ],
-                    "culture leader": [
-                        f"{self.name} acts as a partner to {self.pronouns[1]} manager in setting the cultural tone for the team. {self.pronouns[0]} supports an environment of psychological safety where all Abyssians are included and heard to support connection, empathy, and productive conflict where dissenting opinions are valued and addressed.",
-                        f"{self.name} helps {self.pronouns[1]} team network and build relationships across Abyss, creating connection and inclusion across {self.pronouns[1]} team and with other teams.",
+                    "company values": [
+                        f"{self.name} is a role model for Dropbox values and actively shapes team and org culture.",
+                        f"{self.name} champions diversity, equity, and inclusion in all aspects of work.",
+                    ],
+                }
+            elif self.level == "principal":
+                return {
+                    "collaboration": [
+                        f"{self.name} drives collaboration at the highest levels of the organization.",
+                        f"{self.name} breaks down silos and aligns diverse groups towards common goals.",
+                        f"{self.name} creates systems and processes that foster collaboration across the entire engineering organization.",
+                    ],
+                    "communication": [
+                        f"{self.name} communicates complex technical strategies to senior leadership and external stakeholders.",
+                        f"{self.name} influences company-wide communication practices and standards.",
+                        f"{self.name} represents Dropbox's technical vision and culture externally (e.g., conferences, industry events).",
+                    ],
+                    "company values": [
+                        f"{self.name} embodies and evangelizes Dropbox values, significantly influencing company culture.",
+                        f"{self.name} drives organizational initiatives that reinforce and evolve company values.",
+                        f"{self.name} is a thought leader in creating an inclusive and innovative engineering culture.",
                     ],
                 }
             else:
@@ -488,106 +521,81 @@ class FeedbackPillars:
         if self.role == "Machine Learning Engineer":
             if self.level == "junior":
                 return {
-                    "ML fluency": [
-                        f"{self.name} works on ML models by adapting existing tutorials and examples for new purposes.",
-                        f"{self.name} can analyze and present datasets or results of experiments with simple methods.",
+                    "technical skills": [
+                        f"{self.name} demonstrates basic proficiency in Python and ML libraries like TensorFlow or PyTorch.",
+                        f"{self.name} understands fundamental ML concepts and can implement simple models.",
                     ],
-                    "ML design": [
-                        f"{self.name} applies existing tools and libraries from my team to advance {self.pronouns[1]} projects.",
-                        f"{self.name} understands the reasoning behind {self.pronouns[1]} team's design decisions to verify and debug implementations of the designs.",
+                    "best practices": [
+                        f"{self.name} writes clean, readable code following team coding standards.",
+                        f"{self.name} participates in code reviews and incorporates feedback.",
                     ],
-                    "code fluency": [
-                        f"{self.name} translates ideas into clear code, written to be read as well as executed.",
-                        f"{self.name} participates in code reviews and raises questions to help {self.pronouns[1]} learn the codebase and technologies relevant to {self.pronouns[1]} projects.",
-                        f"{self.name}'s code is free of glaring errors - bugs are in edge cases or design, not mainline paths - and is well documented and well tested with appropriate use of manual vs automated tests.",
-                        f"{self.name} is capable of reading and navigating through functions and modules that {self.pronouns[0]} did write.",
-                        f"{self.name} is learning to tackle code tasks with high throughput while maintaining and appropriately high quality; {self.pronouns[0]} optmizes for either speed or quality, depending on the exlicitly stated needs of the project {self.pronouns[0]} is working on.",
+                    "domain knowledge": [
+                        f"{self.name} is developing understanding of the problem domain and Dropbox's ML use cases.",
                     ],
                 }
-            if self.level == "intermediate":
+            elif self.level == "intermediate":
                 return {
-                    "ML fluency": [
-                        f"{self.name} works effectively with the ML tools and software packages used by {self.pronouns[1]} team.",
-                        f"{self.name} understands the ML algorithms and techniques used in {self.pronouns[1]} area, and can adapt them projects as needed.",
-                        f"{self.name} can analyze and present datasets or results of experiments with statistical methods and/or visualization techniques {self.pronouns[1]} team may specify.",
+                    "technical skills": [
+                        f"{self.name} has strong proficiency in ML frameworks and can implement and tune various types of models.",
+                        f"{self.name} understands and can apply advanced ML concepts like regularization, feature engineering, and hyperparameter tuning.",
                     ],
-                    "ML design": [
-                        f"{self.name} is able to build a model from standard components in order to solve a given computational task.",
-                        f"{self.name} understands the stages of ML development lifecycle and their interactions within {self.pronouns[1]} projects, and make adjustments to existing designs for any stage when necessary.",
-                        f"{self.name} understand the reasoning behind {self.pronouns[1]} team's design decisions in order to implement the designs.",
+                    "best practices": [
+                        f"{self.name} writes efficient, scalable code and understands ML system design principles.",
+                        f"{self.name} implements proper error handling and logging in ML pipelines.",
                     ],
-                    "code fluency": [
-                        f"{self.name} translates ideas into clear code, written to be read as well as executed.",
-                        f"{self.name}'s code is free of glaring errors - bugs are in edge cases or design, not mainline paths - and is well documented and well tested with appropriate use of manual vs automated tests.",
-                        f"{self.name} is able to read and navigate through a large code base and effectively debug others' code.",
-                        f"{self.name} addresses code tasks with both high throughput and appropriately high quality for the stage of project {self.pronouns[0]} is working on.",
+                    "domain knowledge": [
+                        f"{self.name} has solid understanding of Dropbox's ML infrastructure and can independently work on existing ML systems.",
                     ],
                 }
             elif self.level == "senior":
                 return {
-                    "ML fluency": [
-                        f"{self.name} is familiar with a range of ML techniques (e.g., deep learning, optimization, regression, ensembles, tree-based methods, dimensionality reduction, Bayesian modeling, etc.), areas (CV, NLP, RL, etc.), and tools (sklearn, pytorch, tensorflow, etc.) and selects the right solution for {self.pronouns[1]} project.",
-                        f"{self.name} maintains awareness of the state of the art and can select an appropriate algorithm, tool, or technique for a given problem.",
-                        f"{self.name} can analyze and present datasets or results of experiments while choosing the appropriate statistical methods and visualization techniques.",
+                    "technical skills": [
+                        f"{self.name} has deep expertise in multiple areas of ML and can architect complex ML systems.",
+                        f"{self.name} stays current with state-of-the-art ML techniques and can evaluate their applicability to Dropbox's problems.",
                     ],
-                    "ML design": [
-                        f"{self.name} can translate a business problem into a spec for a computational task such as classification, ranking, or generation.",
-                        f"{self.name} is proficient in the ML development lifecycle and can design each stage according to the needs of the project.",
-                        f"{self.name} defines and tracks offline and online metrics in service of business objectives.",
-                        f"{self.name} prepares and conducts experiments, analyzes the results, and adapts {self.pronouns[1]} strategy to reflect significant findings.",
+                    "best practices": [
+                        f"{self.name} designs and implements robust, scalable ML pipelines.",
+                        f"{self.name} establishes best practices for model development, testing, and deployment.",
                     ],
-                    "Code fluency": [
-                        f"{self.name} writes code that captures the essential nature of the solution and is appropriately flexible, reusable, efficient, and adaptable to changing requirements.",
-                        f"{self.name} ensures high code quality in code reviews and adopts approaches (e.g., set up best practices and coding standards, help resolve differences of opinions) to foster an effective/collaborative code review culture.",
-                        f"{self.name} has a strong awareness of the ecosystem of tools and libraries supporting {self.pronouns[1]} primary programming language, development environment, and ML frameworks (like TensorFlow, Keras, PyTorch, etc.) and a strong grasp of the idioms and patterns of {self.pronouns[1]} language.",
-                        f"{self.name} builds tools and produces technical documentation to improve developer efficiency and drive alignment within {self.pronouns[1]} team.",
-                    ],
-                    "Software design": [
-                        f"{self.name} is able to independently design software components in well-scoped scenarios, with simplicity and maintenance as key considerations. {self.pronouns[1]} components are testable, debuggable, and have logical APIs that are not easily misused.",
-                        f"{self.name} knows when to make significant refactors and when it's better to leave things as-is.",
-                        f"{self.name} has a strong grasp of the libraries, platforms, and systems that {self.pronouns[0]} relies on, allowing them to apply them expertly.",
-                    ],
-                    "Business acumen": [
-                        f"{self.name} engages in listening sessions (All Hands, Quarterly Business Updates, etc.) to increase {self.pronouns[1]} learning and guide {self.pronouns[1]} work/priorities.",
-                        f"{self.name} has a working knowledge of Abyss's org/team structure and how teams work together across Abyss and is able to independently work with partner engineering teams to unblock code reviews and engineering designs.",
+                    "domain knowledge": [
+                        f"{self.name} has comprehensive understanding of Dropbox's ML ecosystem and can make significant improvements to it.",
+                        f"{self.name} translates business problems into ML solutions effectively.",
                     ],
                 }
-            if self.level == "tech lead":
+            elif self.level == "tech lead":
                 return {
-                    "ML design": [
-                        f"{self.name} formulates business objectives as computational tasks using the right approach for each objective.",
-                        f"{self.name} provides critical feedback to other members of {self.pronouns[1]} team throughout the lifecycle* of an ML project.",
-                        f"{self.name} critiques existing metrics and defines new offline and online metrics that stay valid throughout the model's lifetime.",
-                        f"{self.name} defines an experimentation strategy and adapts {self.pronouns[1]} team's roadmap to reflect significant findings.",
+                    "technical skills": [
+                        f"{self.name} has exceptional breadth and depth of ML knowledge and can tackle the most complex ML challenges.",
+                        f"{self.name} architects large-scale, distributed ML systems that push the boundaries of what's possible at Dropbox.",
                     ],
-                    "code fluency": [
-                        f"The expectations for L3 code fluency are still applicable here.",
-                        f"{self.name} can find ways to improve developer efficiency as measured by cycle time, ramp-up time, or other similar measurements.",
-                        f"{self.name} preemptively identifies and resolves technical risks before they jeopardize the project. {self.pronouns[0]} resolves cross-team dependencies earlier to ensure the successful execution of the project.",
-                        f"{self.name} avoids re-inventing the wheel by leveraging other Abyss solutions or off-the-shelf solutions with the possible trade-off in mind. {self.pronouns[0]} writes libraries and modules that can be extended and adopted by other teams at Abyss to increase their efficiency.",
+                    "best practices": [
+                        f"{self.name} defines and drives adoption of ML best practices across multiple teams.",
+                        f"{self.name} implements strategies for monitoring and improving ML system performance at scale.",
                     ],
-                    "software design": [
-                        f"{self.name} is able to give quality feedback on designs written by other members of {self.pronouns[1]} team, asking probing, insightful questions that solidify choices and surface erroneous assumptions.",
-                        f"{self.name} effectively and quickly debugs cross-module issues and may intuit where bugs might lie due to {self.pronouns[1]} deep knowledge of the libraries, platforms, and systems that {self.pronouns[1]} software relies on.",
+                    "domain knowledge": [
+                        f"{self.name} is a subject matter expert in Dropbox's ML systems and can guide strategic technical decisions.",
+                        f"{self.name} has deep understanding of how ML fits into Dropbox's broader technical and business strategy.",
                     ],
-                    "architecture design": [
-                        f"{self.name} is able to create coherent designs with multiple components interacting across API or system boundaries, ensuring that bugs do not creep in at the boundaries due to mismatches in expectations of what is technically feasible.",
-                        f"{self.name} is capable of rolling out a component or major feature reliably, including appropriate monitoring, paging, etc. {self.pronouns[0]} ensures that failure domains are understood and characterized appropriately before a large-scale rollout. For early-stage products, {self.pronouns[0]} is able to roll out with an eye toward achieving learning goals untainted by poor quality.",
-                        f"{self.name} designs clear success metrics and consistently achieves those metrics post-launch throughout the lifetime of the system or feature. For early-stage products, the success metrics may be oriented around learning goals rather than usage goals, given the inherent unpredictability of achieving product/market fit.",
+                }
+            elif self.level == "principal":
+                return {
+                    "technical skills": [
+                        f"{self.name} is recognized as a thought leader in ML, both within Dropbox and in the broader tech community.",
+                        f"{self.name} drives innovation in ML techniques and technologies that have company-wide or industry-wide impact.",
                     ],
-                    "technical strategy": [
-                        f"{self.name} is responsible for aligning the software and data models in {self.pronouns[1]} team to the overall technical and data strategy, making tradeoffs where appropriate in consultation with staff engineers.",
+                    "best practices": [
+                        f"{self.name} defines ML engineering standards and practices that are adopted across the organization and potentially the industry.",
+                        f"{self.name} creates frameworks and tools that significantly enhance ML development and deployment capabilities.",
                     ],
-                    "business acumen": [
-                        f"{self.name} engages in listening sessions (All Hands, Quarterly Business Updates, etc.) to increase {self.pronouns[1]} learning and guide {self.pronouns[1]} work/priorities.",
-                        f"{self.name} has a working knowledge of Abyss's org/team structure and how teams work together across Abyss, and is able to help {self.pronouns[1]} team effectively collaborate with other teams across the organization.",
+                    "domain knowledge": [
+                        f"{self.name} has unparalleled understanding of Dropbox's technical landscape and how ML can drive business value.",
+                        f"{self.name} shapes the long-term vision for ML at Dropbox and influences industry trends.",
                     ],
                 }
             else:
                 raise NotImplementedError(f"{self.level} level is not implemented!")
         else:
             raise NotImplementedError(f"{self.role} role is not implemented!")
-
     def give_feedback(self):
         feedback = ""
 
@@ -650,7 +658,7 @@ class FeedbackPillars:
 
         client = OpenAI(api_key=api_key)
 
-        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of \"Scaling People: Tactics for Management and Company Building\", or  Patrick Lencioni author of \"five dysfunctions of a team\".
+        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of \"Scaling People: Tactics for Management and Company Building\", or  Patrick Lencioni author of \"five dysfunctions of a team\". Reply is australian english.
         I am giving writing a performance review for a {self.level} {self.role}. I have rated {self.pronouns[1]} skills on the basis of: over performing; meeting expectations; and under performing. Build me a narrative basis for {self.pronouns[1]} performance review.
         break it into these sections:
         - What are some things they do well?
@@ -667,11 +675,11 @@ class FeedbackPillars:
 
 
 def make_feedback():
-    name = "Amy"
-    pronouns = ["she", "her"]
-    level = "intermediate"
+    name = "Bob"
+    pronouns = ["he", "his"]
+    level = "tech lead"
 
-    feedback = FeedbackPillars(
+    feedback = PerformanceReviewGenerator(
         name=name,
         pronouns=pronouns,
         role="Machine Learning Engineer",
