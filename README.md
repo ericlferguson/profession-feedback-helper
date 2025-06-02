@@ -1,84 +1,66 @@
-# Engineering Feedback Tool
+# Profession Feedback Helper
 
-This tool is designed to assist professional Engineering Managers in providing effective and structured feedback to their direct reports. The feedback framework is heavily based on the [Dropbox Engineering Career Framework](https://dropbox.github.io/dbx-career-framework/), ensuring that expectations and responsibilities are clear and consistent.
+A modern, extensible tool for generating structured, role-specific performance feedback for engineers, based on the [Dropbox Engineering Career Framework](https://dropbox.github.io/dbx-career-framework/).
 
 ## Features
 
-- **Structured Feedback**: Provides a systematic way to deliver feedback aligned with established career frameworks.
-- **Role-Based Expectations**: Feedback is tailored based on specific roles within the engineering team.
-- **ChatGPT driven summaries**: ChatGPT will summaries and turn specific feedback into a more approachable narrative. This optional feature requires an [OpenAI api key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key).
+- **Web-based GUI**: Collect and review feedback fully in your browser—no CLI required.
+- **YAML-driven role definitions**: Easily add or update behaviors, expectations, and levels for any role by editing YAML files.
+- **Supports Multiple Roles**: Out-of-the-box support for both Machine Learning Engineer and Software Engineer roles. Add more roles by dropping in a new YAML.
+- **Personalized Feedback**: Dynamic substitution of names and pronouns for tailored reviews.
+- **Section-based Ratings**: Behaviors grouped by pillar (Overview, Results, Culture, etc.) with radio-button ratings and per-section comments.
+- **Summary & Export**: See a clear summary of strengths, meets, and improvement areas, plus the full Dropbox-style feedback text.
+- **Optional ChatGPT Narrative**: Summarize structured feedback into a narrative with OpenAI (requires API key).
 
-## Current Scope
-
-Please note that the current implementation is limited to the **Machine Learning Engineer (MLE)** role. Support for additional roles will be added in future updates.
-
-## Usage Instructions
+## Quick Start
 
 ### Prerequisites
+- Python 3.8+
+- [pip](https://pip.pypa.io/en/stable/installation/)
+- (Optional) [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key) for ChatGPT summaries
 
-- Python 3.7 or above installed.
-- Install the necessary dependencies by running:
-  ```bash
-  pip install -r requirements.txt
-  ```
-- For the ChatGPT feedback feature, you will need an [OpenAI API key](https://help.openai.com/en/articles/4936850-where-do-i-find-my-openai-api-key). Make sure to save your key in `~/.open-ai/open-ai-key`.
-
-### Running the Feedback Tool
-
-1. **Clone the repository** to your local machine:
-
-   ```bash
-   git clone <repository-url>
-   cd <repository-name>
-   ```
-
-2. **Create feedback** for a Machine Learning Engineer by running:
-
-   ```
-   bash python feedback_tool.py
-   ```
-
-3. **Input the details**: You will be prompted to provide feedback for specific performance areas. Use the following inputs:
-
-   - `0` for under-performing
-   - `1` for meets expectations
-   - `2` for over-performing
-
-   Follow the prompts in your terminal to rate different aspects of the engineer's performance.
-
-4. **Review the generated feedback**: Once you complete the input, the tool will produce a summary of the feedback, divided into sections indicating areas of strength, improvement opportunities, and challenges.
-
-5. **Optional ChatGPT Feedback**: If you have an OpenAI API key and want to get ChatGPT to summarize the feedback into a more narrative format, set `get_chatgpt_feedback=True` when initializing the `FeedbackPillars` class. The narrative will be printed after the structured feedback.
-
-### Example Usage
-
-To generate feedback for an intermediate-level Machine Learning Engineer named "Amy", you can modify the `make_feedback()` function like this:
-
-```python
-feedback = FeedbackPillars(
-    name="Amy",
-    pronouns=["she", "her"],
-    role="Machine Learning Engineer",
-    level="intermediate",
-    get_chatgpt_feedback=True,
-)
-```
-
-Then run:
+### Installation
 ```bash
-python feedback_tool.py
+pip install -r requirements.txt
 ```
-The generated feedback and optional ChatGPT narrative will be displayed in the console.
 
-### Notes
+### Running the Web App
+1. Start the Flask app:
+   ```bash
+   python3 webapp.py
+   ```
+2. Open your browser to [http://127.0.0.1:5000](http://127.0.0.1:5000)
+3. Fill out the form (name, pronouns, role, level) and click **Start Review**
+4. For each behavior, select a rating (Does not meet / Meets / Exceeds) and add optional section comments
+5. Submit to see a summary and the generated Dropbox-style feedback
 
-- **Feedback Ratings**: The feedback ratings must be provided interactively in the terminal. Ensure that you provide a valid number (0, 1, or 2) for each question.
-- **ChatGPT API Key**: For the ChatGPT-based narrative feedback, ensure that the API key file is in the correct location (`~/.open-ai/open-ai-key`). The tool will use this key to interact with OpenAI's API.
+### Example Workflow
+- Select role (e.g., "Software Engineer") and level (e.g., "senior")
+- Rate each behavior in the interactive form
+- Add comments for any section as needed
+- View/download the results and use for 1:1s or official reviews
+
+### YAML Role Definitions
+- Role definitions live in `role_definitions/` as YAML files
+- Each YAML covers all levels and all Dropbox pillars for that role
+- To add a new role: copy an existing YAML, edit as needed, and restart the app
+
+### Enabling ChatGPT Summaries
+- Save your OpenAI API key to `~/.open-ai/open-ai-key`
+- The CLI and backend support generating a narrative summary using ChatGPT
+- (Web UI integration for ChatGPT is planned—PRs welcome!)
+
+## Extending & Customizing
+- **Add new roles**: Drop a new YAML file into `role_definitions/`
+- **Edit behaviors**: Update YAML for your org's values, levels, or feedback style
+- **UI Tweaks**: Edit `templates/` for branding or UX changes
+
+## CLI Usage (Legacy/Optional)
+- The original CLI workflow is still available for power users and testing
+- See `performance_review_generator.py` for CLI entrypoint and test harness
 
 ## Contributing
-
-Contributions are welcome! Please submit a pull request or open an issue to discuss potential changes.
+Contributions are welcome! Please open issues or PRs for new roles, UX improvements, or integrations.
 
 ## License
-
-This project is licensed under the MIT License.
+MIT License

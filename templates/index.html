@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Performance Review Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h2 class="mb-4">Performance Review Generator</h2>
+    <form method="post" class="card p-4 shadow-sm">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">Pronoun (subject)</label>
+                <input type="text" class="form-control" name="pronoun_subject" value="they" required>
+                <small class="form-text text-muted">e.g., he, she, they</small>
+            </div>
+            <div class="col">
+                <label class="form-label">Pronoun (possessive)</label>
+                <input type="text" class="form-control" name="pronoun_possessive" value="their" required>
+                <small class="form-text text-muted">e.g., his, her, their</small>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Role</label>
+            <select class="form-select" name="role" required>
+                {% for role in roles %}
+                <option value="{{ role }}">{{ role }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Level</label>
+            <select class="form-select" name="level" required>
+                {% for level in levels %}
+                <option value="{{ level }}">{{ level|capitalize }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Start Review</button>
+    </form>
+</div>
+</body>
+</html>

@@ -70,14 +70,15 @@ class PerformanceReviewGenerator:
         self.going_well_list = dict()
         self.feedback_list = dict()
 
-        self.collect_feedback_from_user()
-        self.give_feedback()
-
-        print(self.feedback)
-
-        if get_chatgpt_feedback:
-            self.get_chatgpt_feedback()
-            print(self.chatgpt_feedback)
+        # Only collect feedback interactively if running as main
+        import sys
+        if hasattr(sys, 'ps1') or getattr(sys, 'argv', [None])[0] == '' or __name__ == '__main__':
+            self.collect_feedback_from_user()
+            self.give_feedback()
+            print(self.feedback)
+            if get_chatgpt_feedback:
+                self.get_chatgpt_feedback()
+                print(self.chatgpt_feedback)
 
     def collect_feedback_from_user(self):
         """Collects user feedback for each behavior, with reduced nesting for clarity."""
