@@ -1,9 +1,8 @@
 # Dropbox Career Framework: Software Engineer Role Definitions
-# This YAML defines behaviors and expectations for Software Engineers at all levels.
 # Use {name} and {pronouns[1]} for dynamic substitution (e.g., his/her/their).
 
 levels:
-  junior:
+  junior:         # IC1
     overview:
       scope:
         - "{name} works on well-defined tasks with close supervision."
@@ -44,7 +43,7 @@ levels:
       domain knowledge:
         - "{name} is learning about Dropbox's products and systems."
 
-  intermediate:
+  intermediate:   # IC2
     overview:
       scope:
         - "{name} delivers larger features with moderate supervision."
@@ -85,7 +84,7 @@ levels:
       domain knowledge:
         - "{name} understands Dropbox's architecture and contributes to technical discussions."
 
-  senior:
+  senior:         # IC3
     overview:
       scope:
         - "{name} leads development of major features or projects."
@@ -126,7 +125,7 @@ levels:
       domain knowledge:
         - "{name} is a key resource for product and technical domain knowledge."
 
-  tech lead:
+  tech lead:      # IC4
     overview:
       scope:
         - "{name} leads cross-team initiatives and complex projects."
@@ -167,7 +166,7 @@ levels:
       domain knowledge:
         - "{name} shapes technical domains at Dropbox and beyond."
 
-  principal:
+  principal:      # IC5
     overview:
       scope:
         - "{name} sets technical direction for the company or industry."
@@ -207,3 +206,44 @@ levels:
         - "{name} sets the standard for engineering excellence."
       domain knowledge:
         - "{name} is a thought leader in the software industry."
+
+  distinguished:  # IC6 (if Dropbox uses this level)
+    overview:
+      scope:
+        - "{name} shapes the technical direction of the industry."
+        - "{name} is recognized globally for technical leadership."
+      collaborative reach:
+        - "{name} forges partnerships across and outside the company."
+      impact levers:
+        - "{name} sets new standards for engineering excellence."
+    results:
+      impact:
+        - "{name} drives innovation at a global scale."
+      ownership:
+        - "{name} is responsible for the most critical and strategic systems."
+      decision making:
+        - "{name} makes decisions that influence the entire industry."
+    direction:
+      agility:
+        - "{name} leads through paradigm shifts and industry changes."
+      innovation:
+        - "{name} invents and evangelizes new technologies."
+      strategy:
+        - "{name} defines long-term technical vision for the industry."
+    talent:
+      personal growth:
+        - "{name} is a role model for continuous learning."
+      team development:
+        - "{name} mentors and inspires the next generation of technical leaders."
+    culture:
+      collaboration:
+        - "{name} is a global ambassador for collaboration and values."
+      company values:
+        - "{name} defines and evolves company and industry values."
+    craft:
+      technical skills:
+        - "{name} is a world-recognized technical authority."
+      best practices:
+        - "{name} redefines engineering best practices."
+      domain knowledge:
+        - "{name} is a visionary in software and technology."
