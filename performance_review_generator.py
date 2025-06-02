@@ -2,7 +2,7 @@ DESCRIPTION = """
     Produces a performance assessment for an machine learning engineer employee using the Dropbox career framework as a scaffold.
     
     Framework is based on this:
-    https://dropbox.github.io/dbx-career-framework/ic2_machine_learning_engineer.html
+    https://dropbox.github.io/dbx-career-framework/
     
     """
 
@@ -289,7 +289,7 @@ class PerformanceReviewGenerator:
 def make_feedback():
     name = "Bob"
     pronouns = ["he", "his"]
-    level = "tech lead"
+    level = "senior"
 
     feedback = PerformanceReviewGenerator(
         name=name,
@@ -301,4 +301,34 @@ def make_feedback():
 
 
 if __name__ == "__main__":
-    make_feedback()
+    # === YAML-driven PerformanceReviewGenerator Test Harness ===
+    # This harness simulates feedback for multiple roles/levels without user input.
+
+    class TestablePerformanceReviewGenerator(PerformanceReviewGenerator):
+        def collect_feedback_from_user(self):
+            # Simulate all ratings as '1' (meets expectations)
+            for responsibility, behaviors_dict in self.responsibilities.items():
+                for behavior_category, behaviors in behaviors_dict.items():
+                    for behavior in behaviors:
+                        self.okay_list.setdefault(responsibility, []).append(behavior)
+
+    def run_test(role, level, name="Test User", pronouns=["they", "their"]):
+        print(f"\n=== TEST: {role} ({level}) ===")
+        gen = TestablePerformanceReviewGenerator(
+            name=name,
+            pronouns=pronouns,
+            role=role,
+            level=level,
+            get_chatgpt_feedback=False,
+        )
+        print(gen.feedback)
+
+    print("\n===== YAML-Driven Performance Review Generator Smoke Tests =====")
+    tests = [
+        ("Machine Learning Engineer", "junior", "Alice", ["she", "her"]),
+        ("Machine Learning Engineer", "senior", "Bob", ["he", "his"]),
+        ("Software Engineer", "junior", "Charlie", ["they", "their"]),
+        ("Software Engineer", "principal", "Dana", ["she", "her"]),
+    ]
+    for role, level, name, pronouns in tests:
+        run_test(role, level, name=name, pronouns=pronouns)

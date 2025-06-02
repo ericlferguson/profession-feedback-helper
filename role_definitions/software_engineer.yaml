@@ -1,0 +1,209 @@
+# Dropbox Career Framework: Software Engineer Role Definitions
+# This YAML defines behaviors and expectations for Software Engineers at all levels.
+# Use {name} and {pronouns[1]} for dynamic substitution (e.g., his/her/their).
+
+levels:
+  junior:
+    overview:
+      scope:
+        - "{name} works on well-defined tasks with close supervision."
+        - "{name} contributes to small features or bug fixes."
+      collaborative reach:
+        - "{name} collaborates mainly within {pronouns[1]} immediate team."
+      impact levers:
+        - "{name} learns and applies basic engineering practices."
+    results:
+      impact:
+        - "{name} completes assigned tasks reliably and on time."
+      ownership:
+        - "{name} takes responsibility for {pronouns[1]} own code."
+      decision making:
+        - "{name} seeks guidance when making technical decisions."
+    direction:
+      agility:
+        - "{name} adapts to feedback and changing requirements."
+      innovation:
+        - "{name} suggests small improvements to code or process."
+      strategy:
+        - "{name} understands the team's goals and priorities."
+    talent:
+      personal growth:
+        - "{name} seeks feedback and learning opportunities."
+      team development:
+        - "{name} supports team goals and helps peers when possible."
+    culture:
+      collaboration:
+        - "{name} communicates respectfully with team members."
+      company values:
+        - "{name} demonstrates Dropbox values in daily work."
+    craft:
+      technical skills:
+        - "{name} demonstrates proficiency in at least one programming language."
+      best practices:
+        - "{name} writes clean, readable code and participates in code reviews."
+      domain knowledge:
+        - "{name} is learning about Dropbox's products and systems."
+
+  intermediate:
+    overview:
+      scope:
+        - "{name} delivers larger features with moderate supervision."
+        - "{name} contributes to project planning and estimation."
+      collaborative reach:
+        - "{name} works effectively with cross-functional partners."
+      impact levers:
+        - "{name} applies engineering best practices and mentors interns."
+    results:
+      impact:
+        - "{name} delivers features that have customer impact."
+      ownership:
+        - "{name} owns components or subsystems."
+      decision making:
+        - "{name} makes technical decisions with input from others."
+    direction:
+      agility:
+        - "{name} adapts quickly to changing priorities."
+      innovation:
+        - "{name} proposes and prototypes new approaches."
+      strategy:
+        - "{name} aligns work with team and company goals."
+    talent:
+      personal growth:
+        - "{name} actively seeks feedback and acts on it."
+      team development:
+        - "{name} mentors junior engineers and shares knowledge."
+    culture:
+      collaboration:
+        - "{name} collaborates across teams and disciplines."
+      company values:
+        - "{name} models Dropbox values and encourages others."
+    craft:
+      technical skills:
+        - "{name} demonstrates expertise in multiple technologies."
+      best practices:
+        - "{name} upholds and promotes engineering best practices."
+      domain knowledge:
+        - "{name} understands Dropbox's architecture and contributes to technical discussions."
+
+  senior:
+    overview:
+      scope:
+        - "{name} leads development of major features or projects."
+        - "{name} scopes and drives complex technical work."
+      collaborative reach:
+        - "{name} influences engineering practices beyond {pronouns[1]} team."
+      impact levers:
+        - "{name} is a go-to expert for critical systems."
+    results:
+      impact:
+        - "{name} delivers high-impact features that drive business outcomes."
+      ownership:
+        - "{name} owns critical components and ensures their reliability."
+      decision making:
+        - "{name} makes sound technical decisions independently."
+    direction:
+      agility:
+        - "{name} leads teams through change and ambiguity."
+      innovation:
+        - "{name} introduces new technologies and practices."
+      strategy:
+        - "{name} shapes team and org technical strategy."
+    talent:
+      personal growth:
+        - "{name} proactively develops {pronouns[1]} skills and career."
+      team development:
+        - "{name} mentors and develops engineers across teams."
+    culture:
+      collaboration:
+        - "{name} drives a culture of collaboration and inclusion."
+      company values:
+        - "{name} champions Dropbox values and positive culture."
+    craft:
+      technical skills:
+        - "{name} is recognized as an expert in software engineering."
+      best practices:
+        - "{name} sets and enforces engineering standards."
+      domain knowledge:
+        - "{name} is a key resource for product and technical domain knowledge."
+
+  tech lead:
+    overview:
+      scope:
+        - "{name} leads cross-team initiatives and complex projects."
+        - "{name} defines technical direction for teams or domains."
+      collaborative reach:
+        - "{name} builds alignment across engineering and product teams."
+      impact levers:
+        - "{name} drives organizational technical improvements."
+    results:
+      impact:
+        - "{name} delivers results at org or company scale."
+      ownership:
+        - "{name} ensures reliability and scalability of critical systems."
+      decision making:
+        - "{name} makes strategic technical decisions that impact multiple teams."
+    direction:
+      agility:
+        - "{name} leads organizations through change and transformation."
+      innovation:
+        - "{name} fosters a culture of innovation and experimentation."
+      strategy:
+        - "{name} defines and communicates technical vision."
+    talent:
+      personal growth:
+        - "{name} is a continuous learner and models growth mindset."
+      team development:
+        - "{name} develops and coaches senior engineers and tech leads."
+    culture:
+      collaboration:
+        - "{name} builds strong relationships across the company."
+      company values:
+        - "{name} is a culture carrier and inspires others."
+    craft:
+      technical skills:
+        - "{name} is a technical authority in architecture and system design."
+      best practices:
+        - "{name} drives adoption of engineering best practices across the org."
+      domain knowledge:
+        - "{name} shapes technical domains at Dropbox and beyond."
+
+  principal:
+    overview:
+      scope:
+        - "{name} sets technical direction for the company or industry."
+        - "{name} leads and influences at the highest levels."
+      collaborative reach:
+        - "{name} connects teams, organizations, and external partners."
+      impact levers:
+        - "{name} is recognized as an industry leader."
+    results:
+      impact:
+        - "{name} drives transformative results at company or industry scale."
+      ownership:
+        - "{name} is accountable for the reliability and success of Dropbox's most critical systems."
+      decision making:
+        - "{name} makes decisions that shape the future of Dropbox and the industry."
+    direction:
+      agility:
+        - "{name} anticipates and leads through industry changes."
+      innovation:
+        - "{name} pioneers new approaches and technologies."
+      strategy:
+        - "{name} defines and evolves company-wide technical strategy."
+    talent:
+      personal growth:
+        - "{name} is a lifelong learner and inspires others to grow."
+      team development:
+        - "{name} mentors and develops leaders across the company."
+    culture:
+      collaboration:
+        - "{name} is a connector and catalyst for collaboration."
+      company values:
+        - "{name} embodies and evolves Dropbox values."
+    craft:
+      technical skills:
+        - "{name} is an industry-recognized expert in software engineering."
+      best practices:
+        - "{name} sets the standard for engineering excellence."
+      domain knowledge:
+        - "{name} is a thought leader in the software industry."
