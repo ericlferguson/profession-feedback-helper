@@ -79,20 +79,57 @@ def feedback():
         }
         session['feedback'] = generator.feedback
         session['summary'] = summary
-        return redirect(url_for('results'))
+        # Store generator state for ChatGPT feedback
+        session['chatgpt_input'] = dict(
+            name=user_info['name'],
+            pronouns=user_info['pronouns'],
+            role=user_info['role'],
+            level=user_info['level'],
+            going_well=generator.going_well_list,
+            meets=generator.okay_list,
+            needs_improvement=generator.feedback_list,
+            comments=comments,
+        )
+        return redirect(url_for('chatgpt_results'))
     return render_template('feedback.html', items=items, user=user_info, sections=sections)
 
 
-@app.route('/results')
-def results():
-    feedback = session.get('feedback')
+@app.route('/chatgpt_results')
+def chatgpt_results():
+    import time
+    chatgpt_result = session.get('chatgpt_result')
+    chatgpt_input = session.get('chatgpt_input')
     summary = session.get('summary')
-    if not feedback or not summary:
-        return redirect(url_for('index'))
     # Compute all unique section names for summary
-    all_sections = set(summary['meets'].keys()) | set(summary['going_well'].keys()) | set(summary['needs_improvement'].keys())
-    all_sections = sorted(all_sections)
-    return render_template('results.html', feedback=feedback, summary=summary, all_sections=all_sections)
+    all_sections = []
+    if summary:
+        all_sections = set(summary['meets'].keys()) | set(summary['going_well'].keys()) | set(summary['needs_improvement'].keys())
+        all_sections = sorted(all_sections)
+    if chatgpt_result:
+        return render_template('chatgpt_results.html', chatgpt_result=chatgpt_result, summary=summary, all_sections=all_sections)
+    if not chatgpt_input:
+        return redirect(url_for('index'))
+    # Show loading page while waiting
+    if request.args.get('waited') != '1':
+        # Start feedback generation and redirect after a short wait
+        return render_template('loading.html')
+    # Actually generate feedback
+    generator = PerformanceReviewGenerator(
+        name=chatgpt_input['name'],
+        pronouns=chatgpt_input['pronouns'],
+        role=chatgpt_input['role'],
+        level=chatgpt_input['level'],
+        get_chatgpt_feedback=True,
+    )
+    # Restore feedback lists
+    generator.going_well_list = chatgpt_input['going_well']
+    generator.okay_list = chatgpt_input['meets']
+    generator.feedback_list = chatgpt_input['needs_improvement']
+    generator.comments = chatgpt_input['comments']
+    generator.give_feedback()
+    generator.get_chatgpt_feedback()
+    session['chatgpt_result'] = generator.chatgpt_feedback
+    return render_template('chatgpt_results.html', chatgpt_result=generator.chatgpt_feedback, summary=summary, all_sections=all_sections)
 
 if __name__ == '__main__':
     app.run(debug=True)
