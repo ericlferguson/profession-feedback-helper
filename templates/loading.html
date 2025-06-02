@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5 text-center">
+  <div class="spinner-border text-primary mb-3" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <h3>Generating summary with ChatGPT...</h3>
+  <p class="lead">This may take a few moments. Please wait.</p>
+  <script>
+    setTimeout(function() {
+      window.location.href = window.location.pathname + "?waited=1";
+    }, 1200);
+  </script>
+</div>
+{% endblock %}

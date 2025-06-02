@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+  {% if summary and all_sections %}
+  <div class="card mb-4 shadow">
+    <div class="card-header bg-info text-dark">
+      <h4 class="mb-0">Feedback Summary</h4>
+    </div>
+    <div class="card-body">
+      {% for section in all_sections %}
+      <div class="mb-3">
+        <h5 class="mb-1">{{ section|capitalize }}</h5>
+        <ul class="mb-1">
+          {% if summary.going_well[section] %}
+          <li><strong>Strengths (Exceeds):</strong> {{ summary.going_well[section]|join('; ') }}</li>
+          {% endif %}
+          {% if summary.meets[section] %}
+          <li><strong>Meets:</strong> {{ summary.meets[section]|join('; ') }}</li>
+          {% endif %}
+          {% if summary.needs_improvement[section] %}
+          <li><strong>Needs Improvement:</strong> {{ summary.needs_improvement[section]|join('; ') }}</li>
+          {% endif %}
+        </ul>
+        {% if summary.comments[section] %}
+        <div class="text-muted small mb-2"><strong>Comments:</strong> {{ summary.comments[section] }}</div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  <div class="card shadow">
+    <div class="card-header bg-success text-white">
+      <h3 class="mb-0">ChatGPT Feedback Summary</h3>
+    </div>
+    <div class="card-body">
+      <pre class="bg-light p-3">{{ chatgpt_result|e }}</pre>
+      <a href="/" class="btn btn-primary mt-3">Start Another Review</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
