@@ -1,0 +1,233 @@
+levels:
+  junior:
+    overview:
+      scope:
+        - "{name} executes on defined tasks and contributes to solving problems with defined solutions."
+      collaborative reach:
+        - "{name} works primarily within the scope of {pronouns[1]} team with high level guidance from {pronouns[1]} manager/TL."
+      impact levers:
+        - "{name} is developing {pronouns[1]} craft and learning to leverage it for impact."
+    results:
+      impact:
+        - "{name} delivers on assigned tasks and contributes to team projects."
+        - "{name} implements and tests machine learning models under guidance."
+      ownership:
+        - "{name} follows established best practices and coding standards."
+        - "{name} writes clear and maintainable code for defined tasks."
+      decision making:
+        - "{name} seeks input from manager and peers for decisions."
+        - "{name} is learning to consider customer needs."
+    direction:
+      agility / innovation:
+        - "{name} shares new ideas and can adapt {pronouns[1]} work when circumstances change."
+    talent:
+      personal growth:
+        - "{name} seeks feedback and is open to learning."
+        - "{name} participates in learning opportunities and training."
+      team development:
+        - "{name} collaborates with peers and supports team goals."
+    culture:
+      collaboration:
+        - "{name} works effectively within the team."
+        - "{name} communicates respectfully and professionally."
+      company values:
+        - "{name} demonstrates Dropbox values in daily work."
+    craft:
+      technical skills:
+        - "{name} demonstrates basic proficiency in Python and ML libraries like TensorFlow or PyTorch."
+        - "{name} understands fundamental ML concepts and can implement simple models."
+      best practices:
+        - "{name} writes clean, readable code following team coding standards."
+        - "{name} participates in code reviews and incorporates feedback."
+      domain knowledge:
+        - "{name} is developing understanding of the problem domain and Dropbox's ML use cases."
+
+  intermediate:
+    overview:
+      scope:
+        - "{name} executes on defined projects to achieve team-level goals."
+        - "{name} independently defines the right solutions or uses existing approaches to solve defined problems."
+      collaborative reach:
+        - "{name} works primarily within the scope of {pronouns[1]} team with high level guidance from {pronouns[1]} manager/TL."
+      impact levers:
+        - "{name} is increasingly mastering {pronouns[1]} craft and may mentor new hires, interns, or more junior engineers."
+    results:
+      impact:
+        - "{name} has a bias for action, acts with urgency, and delivers high-quality work that adds value for business, stakeholders, and customers."
+        - "{name} works with {pronouns[1]} manager to direct focus so work advances the team's goals."
+        - "{name} prioritizes the right things and avoids overcomplicating work; proposes appropriate scope adjustments when necessary."
+        - "{name} effectively participates in core team processes, including recommending and implementing process improvements."
+      ownership:
+        - "{name} follows through on commitments, takes responsibility for work, and delivers on time."
+        - "{name} proactively identifies and advocates for opportunities to improve the current state of projects and team processes."
+        - "{name} owns decisions and mistakes, and learns from them."
+        - "{name} thinks a step or two ahead, solves the right problems before they become bigger, and problem-solves with {pronouns[1]} manager when stuck."
+        - "{name} responds urgently to operational issues (e.g., SEVs), owning resolution within their sphere of responsibility."
+        - "{name} looks for opportunities to reduce KTLO and works with the team to ease the burden for on-call."
+        - "{name} is vigilant about degradations in service by tracking key metrics and advocates for declaring a SEV if concerns are warranted."
+      decision making:
+        - "{name} identifies and gathers input from the right stakeholders and considers customer needs to make informed and timely decisions."
+        - "{name} understands the implications of decisions and adjusts approach based on impact and risk, sharing rationale with relevant stakeholders."
+        - "{name} escalates to {pronouns[1]} manager when help is needed with decisions about deliverables or priorities."
+    direction:
+      agility:
+        - "{name} is open to change and enthusiastic about new initiatives."
+        - "{name} works with {pronouns[1]} manager to navigate complex and ambiguous situations."
+      innovation:
+        - "{name} asks questions and contributes to new ideas/approaches."
+        - "{name} experiments with new approaches and shares what {pronouns[0]} has learned."
+    talent:
+      personal growth:
+        - "{name} seeks feedback and acts on it."
+        - "{name} takes ownership of {pronouns[1]} own development."
+      team development:
+        - "{name} helps onboard and mentor new team members."
+        - "{name} shares knowledge with peers."
+    culture:
+      collaboration:
+        - "{name} works collaboratively with team and cross-functional partners."
+        - "{name} engages in productive conflict and models Dropbox values."
+      company values:
+        - "{name} contributes to a positive team environment."
+    craft:
+      technical skills:
+        - "{name} has strong proficiency in ML frameworks and can implement and tune various types of models."
+        - "{name} understands and can apply advanced ML concepts like regularization, feature engineering, and hyperparameter tuning."
+      best practices:
+        - "{name} writes maintainable, efficient code and reviews code from others."
+        - "{name} uses version control and documents work clearly."
+      domain knowledge:
+        - "{name} understands Dropbox's ML use cases and contributes to solution design."
+
+  senior:
+    overview:
+      scope:
+        - "{name} leads significant projects and influences team-level strategy."
+      collaborative reach:
+        - "{name} collaborates across multiple teams and functions."
+      impact levers:
+        - "{name} mentors others and drives technical excellence."
+    results:
+      impact:
+        - "{name} delivers major features and systems that have broad impact."
+      ownership:
+        - "{name} takes responsibility for critical projects and ensures their success."
+      decision making:
+        - "{name} makes high-quality decisions that balance technical and business needs."
+    direction:
+      agility:
+        - "{name} embraces change and adapts quickly to it."
+        - "{name} remains resilient through change by staying calm under pressure and taking care of {pronouns[1]} well-being."
+        - "{name} navigates ambiguity by focusing on the greater purpose, goals, and desired impact to move forward one step at a time."
+      innovation:
+        - "{name} asks questions and contributes to new ideas/approaches."
+        - "{name} has a growth mindset and is comfortable experimenting with new approaches, learning, owning the outcomes, and sharing what {pronouns[0]} learned."
+        - "{name} works with {pronouns[1]} manager to find new ways of utilizing customer feedback to influence our teams' plans."
+      strategy:
+        - "{name} works collaboratively with {pronouns[1]} manager to set realistic and ambitious short-term goals to deliver customer value quickly, and break them down to smaller projects for my team or myself."
+        - "{name} executes the development roadmap for multi-phase projects, possibly as a project lead."
+    talent:
+      personal growth:
+        - "{name} proactively seeks feedback and drives {pronouns[1]} own development."
+      team development:
+        - "{name} mentors junior engineers and helps grow the team."
+        - "{name} gives constructive feedback and supports others' growth."
+    culture:
+      collaboration:
+        - "{name} is a role model for collaboration and communication."
+      company values:
+        - "{name} champions Dropbox values and organizational health."
+    craft:
+      technical skills:
+        - "{name} is recognized as an expert in ML and software engineering."
+      best practices:
+        - "{name} sets and upholds best practices for ML and engineering."
+      domain knowledge:
+        - "{name} is a go-to person for ML domain expertise and strategic advice."
+
+  tech lead:
+    overview:
+      scope:
+        - "{name} sets technical direction for multiple teams or a domain."
+      collaborative reach:
+        - "{name} influences org-wide engineering practices."
+      impact levers:
+        - "{name} is a recognized expert and mentor."
+    results:
+      impact:
+        - "{name} drives the success of multiple high-impact ML initiatives across teams."
+      ownership:
+        - "{name} ensures best practices are adopted org-wide."
+      decision making:
+        - "{name} makes strategic decisions that shape the future of ML at Dropbox."
+    direction:
+      agility:
+        - "{name} embraces change and adapts quickly to it."
+      innovation:
+        - "{name} sets audacious goals, takes risks, and shares lessons learned."
+        - "{name} pushes boundaries using industry best practices and customer feedback."
+      strategy:
+        - "{name} defines the technical roadmap for impactful multi-phase projects, refining it as the projects progress to deliver customer value quickly, and provides leadership for the people executing on the project."
+        - "In partnership with {pronouns[1]} manager, {name} defines {pronouns[1]} team's priorities and secures buy-in by engaging stakeholders and aligning with company priorities and customer needs."
+        - "{name} generates excitement for {pronouns[1]}/the team's strategy."
+    talent:
+      personal growth:
+        - "{name} is a continuous learner and encourages others to grow."
+      team development:
+        - "{name} coaches and develops engineers across teams."
+    culture:
+      collaboration:
+        - "{name} builds bridges across teams and disciplines."
+      company values:
+        - "{name} is a culture carrier and inspires others."
+    craft:
+      technical skills:
+        - "{name} is a technical authority in ML and system design."
+      best practices:
+        - "{name} drives adoption of best practices across the org."
+      domain knowledge:
+        - "{name} shapes the ML domain at Dropbox and beyond."
+
+  principal:
+    overview:
+      scope:
+        - "{name} is an organization-wide technical leader who sets the direction for the company's Machine Learning strategy."
+      collaborative reach:
+        - "{name} aligns and inspires engineering teams across the entire company."
+      impact levers:
+        - "{name} shapes the long-term vision for ML at Dropbox and influences industry trends."
+    results:
+      impact:
+        - "{name} defines the technical vision for ML across the organization."
+      ownership:
+        - "{name} is accountable for the success of ML at Dropbox."
+      decision making:
+        - "{name} influences the broader ML community through publications, talks, and open-source contributions."
+    direction:
+      agility:
+        - "{name} leads the organization in adapting to change."
+      innovation:
+        - "{name} fosters a culture of innovation within the organization."
+        - "{name} identifies and champions transformative opportunities that can significantly impact the company's ML capabilities."
+        - "{name} pushes the boundaries of what's possible in ML, driving the adoption of cutting-edge techniques and technologies."
+      strategy:
+        - "{name} develops and drives the long-term ML strategy for the organization, aligning it with overall business objectives."
+        - "{name} influences company-wide technical decisions and priorities."
+        - "{name} anticipates industry trends and positions the organization to capitalize on emerging opportunities in the ML space."
+    talent:
+      personal growth:
+        - "{name} is a lifelong learner and inspires others to grow."
+      team development:
+        - "{name} mentors and develops leaders across the company."
+    culture:
+      collaboration:
+        - "{name} is a connector and catalyst for collaboration."
+      company values:
+        - "{name} embodies and evolves Dropbox values."
+    craft:
+      technical skills:
+        - "{name} is an industry-recognized expert in ML."
+      best practices:
+        - "{name} sets the standard for engineering and ML excellence."
+      domain knowledge:
+        - "{name} is a thought leader in the ML community."
