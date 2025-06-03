@@ -217,7 +217,7 @@ levels:
         - "{name} builds tools and produces technical documentation to improve developer efficiency and drive alignment within {pronouns[1]} team."
         - "{name} looks for ways to reduce future toil and tech debt for existing components {pronouns[1]} team owns."
       software design:
-        - "{name} is able to independently design software components in well scoped scenarios, with simplicity and maintenance as key considerations. {pronouns[1].capitalize()} components are testable, debuggable and have logical APIs that are not easily misused."
+        - "{name} is able to independently design software components in well scoped scenarios, with simplicity and maintenance as key considerations. {pronouns[1]} components are testable, debuggable and have logical APIs that are not easily misused. (Capitalize pronoun in code if needed)"
         - "{name} knows when to make significant refactors and when it’s better to leave things as-is."
         - "{name} has a strong grasp of the libraries, platforms, and systems that {name} relies on, allowing {pronouns[1]} to apply them expertly."
       architecture design:

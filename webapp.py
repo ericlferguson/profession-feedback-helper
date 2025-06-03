@@ -1,9 +1,17 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_session import Session
 from performance_review_generator import PerformanceReviewGenerator, DEFAULT_LEVEL_MAP
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+
+# Configure server-side session (filesystem-based by default)
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config['SESSION_FILE_DIR'] = os.path.join(os.path.dirname(__file__), 'flask_session')
+app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_USE_SIGNER'] = True
+Session(app)
 
 # Utility to get available roles from YAML files
 def get_available_roles():
