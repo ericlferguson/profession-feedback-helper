@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_session import Session
 from performance_review_generator import PerformanceReviewGenerator, DEFAULT_LEVEL_MAP
+from resume_session_utils import get_latest_session_file, load_session_data
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -12,6 +13,18 @@ app.config['SESSION_FILE_DIR'] = os.path.join(os.path.dirname(__file__), 'flask_
 app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_USE_SIGNER'] = True
 Session(app)
+
+# Resume last session route
+@app.route('/resume', methods=['POST'])
+def resume():
+    session_file = get_latest_session_file()
+    if not session_file:
+        return redirect(url_for('index'))
+    data = load_session_data(session_file)
+    # Restore all keys from the loaded session into the current session
+    for k, v in data.items():
+        session[k] = v
+    return redirect(url_for('chatgpt_results'))
 
 # Utility to get available roles from YAML files
 def get_available_roles():
@@ -26,6 +39,8 @@ def get_available_roles():
 def index():
     roles = get_available_roles()
     levels = list(DEFAULT_LEVEL_MAP.keys())
+    # Check if there is a resumable session file
+    resume_available = get_latest_session_file() is not None
     if request.method == 'POST':
         name = request.form['name']
         pronouns = [request.form['pronoun_subject'], request.form['pronoun_possessive']]
@@ -33,7 +48,7 @@ def index():
         level = request.form['level']
         session['user_info'] = dict(name=name, pronouns=pronouns, role=role, level=level)
         return redirect(url_for('feedback'))
-    return render_template('index.html', roles=roles, levels=levels)
+    return render_template('index.html', roles=roles, levels=levels, resume_available=resume_available)
 
 @app.route('/feedback', methods=['GET', 'POST'])
 def feedback():

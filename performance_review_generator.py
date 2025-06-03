@@ -275,14 +275,15 @@ class PerformanceReviewGenerator:
 
         client = OpenAI(api_key=api_key)
 
-        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of \"Scaling People: Tactics for Management and Company Building\", or  Patrick Lencioni author of \"five dysfunctions of a team\". Reply is australian english.
-        I am giving writing a performance review for a {self.level} {self.role}. I have rated {self.pronouns[1]} skills on the basis of: over performing; meeting expectations; and under performing. Build me a narrative basis for {self.pronouns[1]} performance review.
+        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of \"Scaling People: Tactics for Management and Company Building\", or  Patrick Lencioni author of \"five dysfunctions of a team\". Reply with UK english spelling.
+        I am giving writing a performance review for a {self.level} {self.role}. Build me a narrative for {self.name}'s performance review, based on my ratings of {self.pronouns[1]} skills.
         break it into these sections:
         - What are some things they do well?
         - How could they improve?
         - What are their biggest challenges? 
 
-        now, here is the specific rated skills:\n"""
+        I have rated their skills on the basis of: going well; meets; and needs improvement.
+        Here is the specific rated skills. Pay note to any additional comments made also. The tone should not be too casual.\n"""
 
         self.chatgpt_response = submit_prompt(
             client, model, primer_prompt, self.feedback

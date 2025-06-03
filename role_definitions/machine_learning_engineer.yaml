@@ -3,23 +3,36 @@ levels:
     overview:
       scope:
         - "{name} executes on defined tasks and contributes to solving problems with defined solutions."
+        - "{name} takes ownership of deliverables in service of team goals, with guidance from manager or mentor."
       collaborative reach:
-        - "{name} works primarily within the scope of {pronouns[1]} team with high level guidance from {pronouns[1]} manager/TL."
+        - "{name} works primarily within the scope of {pronouns[1]} team, collaborating with peers and seeking input from more experienced team members."
       impact levers:
-        - "{name} is developing {pronouns[1]} craft and learning to leverage it for impact."
+        - "{name} is developing {pronouns[1]} craft and learning to leverage it for impact, seeking feedback and support."
     results:
       impact:
-        - "{name} delivers on assigned tasks and contributes to team projects."
-        - "{name} implements and tests machine learning models under guidance."
+        - "{name} delivers on assigned tasks and contributes to team projects, meeting expectations for quality and timeliness."
+        - "{name} implements and tests machine learning models under guidance, seeking clarification when requirements are unclear."
+        - "{name} understands the purpose of {pronouns[1]} work and how it contributes to team and customer goals."
       ownership:
-        - "{name} follows established best practices and coding standards."
-        - "{name} writes clear and maintainable code for defined tasks."
+        - "{name} follows established best practices and coding standards for all assigned work."
+        - "{name} writes clear, maintainable code for defined tasks and incorporates feedback from reviews."
+        - "{name} takes responsibility for {pronouns[1]} work, learning from mistakes and sharing lessons with the team."
+        - "{name} asks for help when encountering barriers and works with manager or mentor to resolve issues."
       decision making:
-        - "{name} seeks input from manager and peers for decisions."
-        - "{name} is learning to consider customer needs."
+        - "{name} seeks input from manager, mentor, and peers when making decisions."
+        - "{name} considers customer needs and the impact of decisions on the team and project."
+        - "{name} escalates to manager or mentor when unsure about priorities or deliverables."
     direction:
-      agility / innovation:
-        - "{name} shares new ideas and can adapt {pronouns[1]} work when circumstances change."
+      agility:
+        - "{name} is open to change and adapts {pronouns[1]} work when circumstances change."
+        - "{name} remains calm under pressure and is willing to try new approaches."
+        - "{name} navigates ambiguity by asking clarifying questions and focusing on the immediate task."
+      innovation:
+        - "{name} shares new ideas and is open to experimenting with new approaches, learning from outcomes."
+        - "{name} seeks feedback on ideas and incorporates suggestions."
+      strategy:
+        - "{name} participates in planning discussions and contributes to breaking down tasks for team projects."
+        - "{name} understands short-term goals and how {pronouns[1]} work fits into the team's objectives."
     talent:
       personal growth:
         - "{name} seeks feedback and is open to learning."
@@ -31,7 +44,7 @@ levels:
         - "{name} works effectively within the team."
         - "{name} communicates respectfully and professionally."
       company values:
-        - "{name} demonstrates Dropbox values in daily work."
+        - "{name} demonstrates company values in daily work."
     craft:
       technical skills:
         - "{name} demonstrates basic proficiency in Python and ML libraries like TensorFlow or PyTorch."
@@ -40,171 +53,382 @@ levels:
         - "{name} writes clean, readable code following team coding standards."
         - "{name} participates in code reviews and incorporates feedback."
       domain knowledge:
-        - "{name} is developing understanding of the problem domain and Dropbox's ML use cases."
+        - "{name} is developing understanding of the problem domain and the organization's ML use cases."
 
   intermediate:
     overview:
       scope:
-        - "{name} executes on defined projects to achieve team-level goals."
-        - "{name} independently defines the right solutions or uses existing approaches to solve defined problems."
+        - "{name} executes on defined projects to achieve team-level goals, delivering on quarterly objectives."
+        - "{name} independently defines or selects the right solutions to solve defined problems, with minimal guidance."
       collaborative reach:
-        - "{name} works primarily within the scope of {pronouns[1]} team with high level guidance from {pronouns[1]} manager/TL."
+        - "{name} works primarily within the team, collaborating with cross-functional partners and occasionally across teams for project delivery."
       impact levers:
-        - "{name} is increasingly mastering {pronouns[1]} craft and may mentor new hires, interns, or more junior engineers."
+        - "{name} is mastering {pronouns[1]} craft and may mentor new hires, interns, or more junior engineers."
+        - "{name} contributes to defining and delivering well-scoped milestones for projects."
+        - "{name} keeps customer needs in mind and leverages input from stakeholders to determine technical solutions."
     results:
       impact:
-        - "{name} has a bias for action, acts with urgency, and delivers high-quality work that adds value for business, stakeholders, and customers."
-        - "{name} works with {pronouns[1]} manager to direct focus so work advances the team's goals."
-        - "{name} prioritizes the right things and avoids overcomplicating work; proposes appropriate scope adjustments when necessary."
-        - "{name} effectively participates in core team processes, including recommending and implementing process improvements."
+        - "{name} acts with urgency and delivers high-quality work that adds value for business, stakeholders, and customers."
+        - "{name} works with manager to direct focus so work advances the team's goals."
+        - "{name} prioritises the right things and avoids overcomplicating work, proposing scope adjustments when necessary."
+        - "{name} participates in core team processes, recommending and implementing process improvements."
+        - "{name} understands how {pronouns[1]} work contributes to customer and business impact."
       ownership:
         - "{name} follows through on commitments, takes responsibility for work, and delivers on time."
         - "{name} proactively identifies and advocates for opportunities to improve the current state of projects and team processes."
-        - "{name} owns decisions and mistakes, and learns from them."
-        - "{name} thinks a step or two ahead, solves the right problems before they become bigger, and problem-solves with {pronouns[1]} manager when stuck."
-        - "{name} responds urgently to operational issues (e.g., SEVs), owning resolution within their sphere of responsibility."
-        - "{name} looks for opportunities to reduce KTLO and works with the team to ease the burden for on-call."
-        - "{name} is vigilant about degradations in service by tracking key metrics and advocates for declaring a SEV if concerns are warranted."
+        - "{name} owns decisions and mistakes, learning from them and sharing lessons with the team."
+        - "{name} thinks ahead, solves the right problems before they become bigger, and problem-solves with manager when stuck."
+        - "{name} responds urgently to operational issues, owning resolution within sphere of responsibility."
+        - "{name} looks for opportunities to reduce toil and works with the team to ease the burden for on-call and operational incidents."
+        - "{name} is vigilant about degradations in service, tracking key metrics and advocating for declaring incidents if concerns are warranted."
+        - "{name} proactively updates documentation and playbooks for components owned."
       decision making:
         - "{name} identifies and gathers input from the right stakeholders and considers customer needs to make informed and timely decisions."
         - "{name} understands the implications of decisions and adjusts approach based on impact and risk, sharing rationale with relevant stakeholders."
-        - "{name} escalates to {pronouns[1]} manager when help is needed with decisions about deliverables or priorities."
+        - "{name} makes timely decisions and does not cut corners that would compromise customer trust."
+        - "{name} leverages customer insights and data to inform decisions, balancing customer value with business goals."
+        - "{name} escalates to manager when help is needed with decisions about deliverables or priorities."
     direction:
       agility:
         - "{name} is open to change and enthusiastic about new initiatives."
-        - "{name} works with {pronouns[1]} manager to navigate complex and ambiguous situations."
+        - "{name} works with manager to navigate complex and ambiguous situations."
+        - "{name} remains calm under pressure and is willing to try new approaches."
+        - "{name} navigates ambiguity by focusing on the immediate goal and asking clarifying questions."
       innovation:
-        - "{name} asks questions and contributes to new ideas/approaches."
-        - "{name} experiments with new approaches and shares what {pronouns[0]} has learned."
+        - "{name} asks questions and contributes to new ideas and approaches."
+        - "{name} experiments with new approaches, learning from outcomes and sharing what {pronouns[0]} has learned."
+        - "{name} seeks feedback on ideas and incorporates suggestions."
+      strategy:
+        - "{name} participates in setting realistic and ambitious short-term goals to deliver customer value quickly, and breaks them down to smaller projects for the team or self."
+        - "{name} contributes to the execution of the development roadmap for multi-phase projects."
     talent:
       personal growth:
-        - "{name} seeks feedback and acts on it."
-        - "{name} takes ownership of {pronouns[1]} own development."
+        - "{name} seeks feedback from manager, mentor, and team, and acts on it."
+        - "{name} takes ownership of {pronouns[1]} own development, reflecting on strengths and areas for growth."
+        - "{name} participates in training and development opportunities."
       team development:
-        - "{name} helps onboard and mentor new team members."
-        - "{name} shares knowledge with peers."
+        - "{name} helps onboard and mentor new team members and less-experienced colleagues."
+        - "{name} shares knowledge, resources, and best practices with peers."
+        - "{name} supports a positive and inclusive team environment."
+        - "{name} offers and receives constructive feedback to help others learn and grow."
+        - "{name} participates in interviewing and assessing candidates for the team."
     culture:
       collaboration:
         - "{name} works collaboratively with team and cross-functional partners."
-        - "{name} engages in productive conflict and models Dropbox values."
+        - "{name} engages in productive conflict and models company values."
+        - "{name} communicates proactively and coordinates requirements with other groups."
+        - "{name} is open to feedback and different perspectives, seeking to understand others' views."
+      organisational health:
+        - "{name} contributes to a positive team environment by participating in group activities and supporting onboarding."
+        - "{name} listens to others and avoids bias in words and actions."
+        - "{name} helps foster inclusive meetings and communication."
+        - "{name} supports diversity and inclusion within the team."
+        - "{name} helps shape the engineering culture through involvement in activities outside the team (e.g. tech talks, RFCs, interview questions, hackathons)."
+      communication:
+        - "{name} tailors communication to the audience, asking for clarification when needed."
+        - "{name} shares information proactively with relevant team members."
+        - "{name} sets clear expectations about progress and asks for help when needed."
+        - "{name} is willing to raise concerns or issues with manager or mentor."
       company values:
-        - "{name} contributes to a positive team environment."
+        - "{name} demonstrates company values in daily work and interactions."
     craft:
       technical skills:
-        - "{name} has strong proficiency in ML frameworks and can implement and tune various types of models."
-        - "{name} understands and can apply advanced ML concepts like regularization, feature engineering, and hyperparameter tuning."
-      best practices:
+        - "{name} has strong proficiency in machine learning tools and libraries, and can implement and tune various types of models."
+        - "{name} understands and can apply advanced ML concepts like regularisation, feature engineering, and hyperparameter tuning."
+        - "{name} is learning to select and justify appropriate tools and techniques for assigned tasks."
+      ml design:
+        - "{name} can translate business problems into computational tasks with moderate support."
+        - "{name} is familiar with the stages of the ML development lifecycle and participates in each stage as assigned."
+        - "{name} helps prepare and conduct experiments, and is learning to analyse results and adapt strategy."
+      code fluency:
         - "{name} writes maintainable, efficient code and reviews code from others."
         - "{name} uses version control and documents work clearly."
-      domain knowledge:
-        - "{name} understands Dropbox's ML use cases and contributes to solution design."
+        - "{name} participates in code reviews and incorporates feedback."
+        - "{name} is developing awareness of the ecosystem of tools and libraries for {pronouns[1]} primary language and ML tools."
+      software design:
+        - "{name} is developing understanding of software design principles and applies them to moderately complex components."
+        - "{name} ensures code is testable and debuggable, and is learning about APIs and how to use them effectively."
+        - "{name} knows when to make small refactors and when to leave things as they are."
+      business acumen:
+        - "{name} is learning about the organisation's structure, team goals, and how {pronouns[1]} work supports business objectives."
+        - "{name} participates in listening sessions and business updates to guide work and priorities."
+      ml lifecycle:
+        - "{name} is familiar with the ML development lifecycle: task formulation; dataset collection and cleaning; feature extraction; modelling and evaluation; testing and deployment; and iteration with feedback."
 
   senior:
     overview:
       scope:
-        - "{name} leads significant projects and influences team-level strategy."
+        - "{name} leads significant projects and influences team-level strategy, delivering on quarterly goals."
+        - "{name} independently identifies the right solutions to solve ambiguous, open-ended problems."
       collaborative reach:
-        - "{name} collaborates across multiple teams and functions."
+        - "{name} collaborates across multiple teams and functions, driving cross-team collaboration for projects."
       impact levers:
-        - "{name} mentors others and drives technical excellence."
+        - "{name} defines and delivers well-scoped milestones for projects, and may act as technical lead."
+        - "{name} actively keeps customer needs in mind and leverages input from stakeholders to determine the right technical solutions."
+        - "{name} actively mentors less-experienced members of the team, providing guidance and setting a good example."
     results:
       impact:
-        - "{name} delivers major features and systems that have broad impact."
+        - "{name} delivers major features and systems that have broad impact, on time and to a high standard of quality."
+        - "{name} understands customers, business goals, and team goals, ensuring work has the greatest customer impact."
+        - "{name} identifies when results are not advancing business or team goals and works with manager to redirect focus."
+        - "{name} simplifies work by focusing on the heart of the problem and prioritising the right things."
       ownership:
-        - "{name} takes responsibility for critical projects and ensures their success."
+        - "{name} proactively identifies new opportunities and advocates for improvements to the current state of projects."
+        - "{name} takes responsibility for decisions and mistakes, and acts to prevent them in the future, sharing learnings with others."
+        - "{name} unblocks self and team by proactively assessing and eliminating root causes of barriers."
+        - "{name} responds with urgency to operational issues, owning resolution within sphere of responsibility."
+        - "{name} seeks out and eliminates sources of toil, and helps reduce the impact of keeping-the-lights-on (KTLO) and operational incidents."
+        - "{name} is willing to declare operational incidents when needed."
+        - "{name} proactively creates and/or updates documentation and playbooks for components owned."
       decision making:
-        - "{name} makes high-quality decisions that balance technical and business needs."
+        - "{name} makes informed decisions by consulting the right stakeholders and balancing details with the big picture, executing against the spirit as well as the letter of requirements."
+        - "{name} understands the implications of decisions and adjusts approach based on impact and risk, both short and long-term."
+        - "{name} makes timely decisions without cutting corners that would compromise customer trust."
+        - "{name} leverages customer insights and data to inform decisions, balancing value for the customer with other business goals."
+        - "{name} escalates to manager when help is needed with decisions about deliverables or priorities."
     direction:
       agility:
-        - "{name} embraces change and adapts quickly to it."
+        - "{name} embraces change and adapts quickly."
         - "{name} remains resilient through change by staying calm under pressure and taking care of {pronouns[1]} well-being."
         - "{name} navigates ambiguity by focusing on the greater purpose, goals, and desired impact to move forward one step at a time."
       innovation:
-        - "{name} asks questions and contributes to new ideas/approaches."
-        - "{name} has a growth mindset and is comfortable experimenting with new approaches, learning, owning the outcomes, and sharing what {pronouns[0]} learned."
-        - "{name} works with {pronouns[1]} manager to find new ways of utilizing customer feedback to influence our teams' plans."
+        - "{name} asks questions and contributes to new ideas and approaches."
+        - "{name} has a growth mindset and is comfortable experimenting, learning, owning outcomes, and sharing what {pronouns[0]} learned."
+        - "{name} works with {pronouns[1]} manager to find new ways of utilising customer feedback to influence team plans."
       strategy:
-        - "{name} works collaboratively with {pronouns[1]} manager to set realistic and ambitious short-term goals to deliver customer value quickly, and break them down to smaller projects for my team or myself."
+        - "{name} works collaboratively with manager to set realistic and ambitious short-term goals to deliver customer value quickly, breaking them down into smaller projects for the team or self."
         - "{name} executes the development roadmap for multi-phase projects, possibly as a project lead."
     talent:
       personal growth:
-        - "{name} proactively seeks feedback and drives {pronouns[1]} own development."
+        - "{name} proactively seeks feedback from manager, team, and stakeholders, and identifies ways to act upon it."
+        - "{name} has self-awareness about strengths and works on development areas."
+        - "{name} connects with others with empathy and understanding."
+        - "{name} drives discussions with manager about aspirational goals and seeks out opportunities to learn and grow (e.g., training, professional development)."
       team development:
-        - "{name} mentors junior engineers and helps grow the team."
-        - "{name} gives constructive feedback and supports others' growth."
+        - "{name} models integrity and a high standard of excellence, influencing and establishing best practices."
+        - "{name} supports the growth of teammates by considering their unique skills, strengths, backgrounds, and working styles."
+        - "{name} actively mentors new hires, interns, and apprentices."
+        - "{name} solicits and offers honest, constructive feedback delivered with empathy to help others learn and grow."
+        - "{name} contributes to interviewing and assessing candidates, conducting advanced domain-specific and levelling interviews."
+        - "{name} represents the team's initiatives and goals to candidates in a compelling way."
     culture:
       collaboration:
-        - "{name} is a role model for collaboration and communication."
+        - "{name} builds relationships across teams and helps achieve positive outcomes."
+        - "{name} engages in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
+        - "{name} proactively communicates and coordinates team requirements with other groups and teams."
+        - "{name} works with cross-functional stakeholders to identify technical blindspots and clarify ambiguity in their ideas."
+        - "{name} avoids blame and solves the right problems, disagreeing and committing when necessary to move decisions forward."
+      organisational health:
+        - "{name} contributes to a positive sense of community on the team (e.g. team lunches, offsites, onboarding)."
+        - "{name} listens to different perspectives and removes bias from words and actions."
+        - "{name} fosters effective communication and promotes inclusive meeting culture."
+        - "{name} champions diversity and inclusion commitments."
+        - "{name} promotes practices that help the team collaborate effectively, including remote or hybrid work."
+        - "{name} helps shape the engineering culture through involvement in activities outside the team (e.g. tech talks, RFCs, interview questions, hackathons)."
+      communication:
+        - "{name} tailors messages to the audience, presenting clearly and concisely at the right level."
+        - "{name} proactively shares information so the right people are informed and aligned."
+        - "{name} sets the right expectations with manager to balance work and mentorship requirements."
+        - "{name} initiates crucial conversations when significant issues are not being addressed, even if uncomfortable."
       company values:
-        - "{name} champions Dropbox values and organizational health."
+        - "{name} champions company values and organisational health."
     craft:
       technical skills:
-        - "{name} is recognized as an expert in ML and software engineering."
-      best practices:
-        - "{name} sets and upholds best practices for ML and engineering."
-      domain knowledge:
-        - "{name} is a go-to person for ML domain expertise and strategic advice."
+        - "{name} is recognised as an expert in machine learning and software engineering."
+        - "{name} is familiar with a range of ML techniques (e.g., deep learning, optimisation, regression, ensembles, tree-based methods, dimensionality reduction, Bayesian modelling, etc.), areas (CV, NLP, RL, etc.), and tools, and selects the right solution for the project."
+        - "{name} maintains awareness of the state of the art and selects appropriate algorithms, tools, or techniques for given problems."
+        - "{name} can analyse and present datasets or experiment results using appropriate statistical methods and visualisation techniques."
+      ml design:
+        - "{name} translates business problems into specifications for computational tasks such as classification, ranking, or generation."
+        - "{name} is proficient in the ML development lifecycle and can design each stage according to project needs."
+        - "{name} defines and tracks offline and online metrics in service of business objectives."
+        - "{name} prepares and conducts experiments, analyses results, and adapts strategy to reflect significant findings."
+      code fluency:
+        - "{name} writes code that is flexible, reusable, efficient, and adaptable to changing requirements."
+        - "{name} ensures high code quality in reviews and fosters an effective, collaborative code review culture."
+        - "{name} has strong awareness of the ecosystem of tools and libraries supporting {pronouns[1]} primary programming language and ML tools, and a strong grasp of idioms and patterns."
+        - "{name} builds tools and produces technical documentation to improve developer efficiency and drive alignment within the team."
+      software design:
+        - "{name} independently designs software components in well-scoped scenarios, prioritising simplicity and maintainability."
+        - "{name} ensures components are testable, debuggable, and have logical, user-friendly APIs."
+        - "{name} knows when to make significant refactors and when to leave things as they are."
+        - "{name} has a strong grasp of the libraries, platforms, and systems relied on, applying them expertly."
+      business acumen:
+        - "{name} engages in listening sessions and business updates to guide work and priorities."
+        - "{name} has a working knowledge of the organisation's structure and how teams work together, and is able to work independently with partner teams to unblock code reviews and engineering designs."
+      ml lifecycle:
+        - "{name} is proficient in all stages of the ML development lifecycle: task formulation; dataset collection, cleaning, and aggregation; feature extraction; modelling, optimisation, and evaluation; offline/online testing, deployment and monitoring; and iteration based on feedback from each stage."
 
   tech lead:
     overview:
       scope:
-        - "{name} sets technical direction for multiple teams or a domain."
+        - "{name} sets technical direction for multiple teams or a domain, leading the delivery of large-scale, high-impact ML initiatives."
+        - "{name} ensures alignment of technical strategy with organisational objectives and customer needs."
       collaborative reach:
-        - "{name} influences org-wide engineering practices."
+        - "{name} influences organisation-wide engineering practices and collaborates across teams, functions, and business units."
+        - "{name} drives cross-team collaboration for strategic projects and initiatives."
       impact levers:
-        - "{name} is a recognized expert and mentor."
+        - "{name} is a recognised expert and mentor, coaching and developing engineers at all levels."
+        - "{name} defines and delivers well-scoped milestones for complex, multi-team projects."
+        - "{name} champions technical excellence, best practices, and innovation across the organisation."
     results:
       impact:
-        - "{name} drives the success of multiple high-impact ML initiatives across teams."
+        - "{name} drives the success of multiple high-impact ML initiatives across teams, ensuring delivery of business value and customer impact."
+        - "{name} ensures major features and systems are delivered on time and to a high standard of quality."
+        - "{name} anticipates and addresses challenges that may impact project delivery or outcomes."
       ownership:
-        - "{name} ensures best practices are adopted org-wide."
+        - "{name} ensures best practices are adopted organisation-wide, proactively identifying and addressing gaps."
+        - "{name} takes responsibility for critical projects and their outcomes, sharing learnings and driving continuous improvement."
+        - "{name} establishes and maintains documentation and playbooks for key systems and processes."
       decision making:
-        - "{name} makes strategic decisions that shape the future of ML at Dropbox."
+        - "{name} makes strategic decisions that shape the future of ML at the organisation, balancing technical, business, and customer needs."
+        - "{name} consults with stakeholders, considers risks and trade-offs, and communicates rationale for major decisions."
+        - "{name} escalates issues appropriately and supports others in making high-quality decisions."
     direction:
       agility:
-        - "{name} embraces change and adapts quickly to it."
+        - "{name} embraces change and adapts quickly, guiding teams through transitions and uncertainty."
+        - "{name} models resilience and supports others in navigating ambiguity and change."
       innovation:
-        - "{name} sets audacious goals, takes risks, and shares lessons learned."
-        - "{name} pushes boundaries using industry best practices and customer feedback."
+        - "{name} sets audacious goals, takes calculated risks, and shares lessons learned with the organisation."
+        - "{name} pushes boundaries using industry best practices, emerging technologies, and customer feedback."
+        - "{name} fosters a culture of experimentation, learning, and continuous improvement."
       strategy:
-        - "{name} defines the technical roadmap for impactful multi-phase projects, refining it as the projects progress to deliver customer value quickly, and provides leadership for the people executing on the project."
-        - "In partnership with {pronouns[1]} manager, {name} defines {pronouns[1]} team's priorities and secures buy-in by engaging stakeholders and aligning with company priorities and customer needs."
-        - "{name} generates excitement for {pronouns[1]}/the team's strategy."
+        - "{name} defines the technical roadmap for impactful, multi-phase projects, refining it as projects progress to deliver customer value quickly."
+        - "{name} provides leadership for the people executing on the project, ensuring clarity of vision and alignment with organisational priorities."
+        - "In partnership with manager, {name} defines team priorities and secures buy-in by engaging stakeholders and aligning with company and customer needs."
+        - "{name} generates excitement for the team's strategy and inspires others to contribute to shared goals."
     talent:
       personal growth:
-        - "{name} is a continuous learner and encourages others to grow."
+        - "{name} is a continuous learner, seeking feedback and pursuing professional development."
+        - "{name} encourages and supports others in their growth and development."
       team development:
-        - "{name} coaches and develops engineers across teams."
+        - "{name} coaches and develops engineers across teams, providing mentorship, guidance, and opportunities for learning."
+        - "{name} identifies and nurtures emerging talent within the organisation."
+        - "{name} contributes to recruiting, interviewing, and onboarding processes to build a diverse and talented team."
     culture:
       collaboration:
-        - "{name} builds bridges across teams and disciplines."
+        - "{name} builds bridges across teams and disciplines, fostering a collaborative and inclusive environment."
+        - "{name} facilitates cross-team communication and alignment on shared goals."
+        - "{name} models productive conflict resolution and encourages open dialogue."
+      organisational health:
+        - "{name} champions organisational values and promotes a positive, inclusive culture."
+        - "{name} contributes to community-building activities and supports diversity, equity, and inclusion initiatives."
+        - "{name} helps shape the engineering culture through involvement in organisation-wide initiatives (e.g. tech talks, RFCs, interview questions, hackathons)."
+      communication:
+        - "{name} communicates vision, strategy, and expectations clearly to diverse audiences."
+        - "{name} ensures information flows effectively between teams and stakeholders."
+        - "{name} provides constructive feedback and facilitates crucial conversations when needed."
       company values:
-        - "{name} is a culture carrier and inspires others."
+        - "{name} is a culture carrier and inspires others to uphold organisational values."
     craft:
       technical skills:
-        - "{name} is a technical authority in ML and system design."
-      best practices:
-        - "{name} drives adoption of best practices across the org."
-      domain knowledge:
-        - "{name} shapes the ML domain at Dropbox and beyond."
+        - "{name} is a technical authority in machine learning and system design, with deep expertise across multiple domains."
+        - "{name} maintains awareness of the state of the art and applies emerging techniques and technologies to solve complex problems."
+      ml design:
+        - "{name} leads the design of scalable, robust ML systems and architectures for complex business needs."
+        - "{name} defines and tracks metrics that align with organisational objectives and drive business impact."
+        - "{name} oversees experimentation and ensures findings are translated into actionable improvements."
+      code fluency:
+        - "{name} sets and upholds high standards for code quality, maintainability, and documentation across teams."
+        - "{name} fosters a strong code review culture and drives adoption of best practices."
+        - "{name} identifies opportunities to improve developer efficiency and alignment through tooling and process improvements."
+      software design:
+        - "{name} architects complex software systems with a focus on scalability, maintainability, and reliability."
+        - "{name} ensures systems are testable, observable, and resilient to failure."
+        - "{name} mentors others in software design principles and practices."
+      business acumen:
+        - "{name} has a deep understanding of the organisation's structure, business objectives, and market context."
+        - "{name} partners with business and product leaders to align technical solutions with strategic goals."
+        - "{name} anticipates industry trends and positions the organisation to take advantage of new opportunities."
+      ml lifecycle:
+        - "{name} is an authority on all stages of the ML development lifecycle, establishing standards and guiding teams through best practices from task formulation to deployment and iteration."
 
   principal:
     overview:
       scope:
-        - "{name} is an organization-wide technical leader who sets the direction for the company's Machine Learning strategy."
+        - "{name} is an organisation-wide technical leader who sets the direction for the company's machine learning strategy."
+        - "{name} defines and drives the long-term vision for ML, ensuring alignment with organisational and industry trends."
       collaborative reach:
-        - "{name} aligns and inspires engineering teams across the entire company."
+        - "{name} aligns and inspires engineering teams across the entire organisation, building consensus and momentum for ML initiatives."
+        - "{name} influences and collaborates with leaders across business units, functions, and the wider industry."
       impact levers:
-        - "{name} shapes the long-term vision for ML at Dropbox and influences industry trends."
+        - "{name} shapes the long-term vision for ML at the organisation and influences industry trends."
+        - "{name} is a thought leader, setting standards and best practices for ML across the organisation and industry."
+        - "{name} mentors and develops senior technical talent, building organisational capability in ML."
     results:
       impact:
-        - "{name} defines the technical vision for ML across the organization."
+        - "{name} defines the technical vision for ML across the organisation, ensuring delivery of transformative business and customer outcomes."
+        - "{name} leads the delivery of organisation-wide ML initiatives, driving measurable impact at scale."
+        - "{name} anticipates and addresses strategic challenges, ensuring the organisation remains at the forefront of ML innovation."
       ownership:
-        - "{name} is accountable for the success of ML at Dropbox."
+        - "{name} is accountable for the success of ML at the organisation, taking responsibility for outcomes and driving continuous improvement."
+        - "{name} establishes and maintains standards, processes, and governance for ML across the organisation."
+        - "{name} shares learnings and drives adoption of best practices across teams and business units."
       decision making:
+        - "{name} makes high-impact, strategic decisions that shape the future of ML at the organisation and in the industry."
+        - "{name} consults with executive and technical leaders, balancing technical, business, and customer needs."
         - "{name} influences the broader ML community through publications, talks, and open-source contributions."
+        - "{name} supports others in making high-quality, strategic decisions and escalates issues appropriately."
     direction:
       agility:
+        - "{name} embraces change and leads the organisation through transitions in technology and market context."
+        - "{name} models resilience and adaptability, supporting others in navigating ambiguity and change."
+      innovation:
+        - "{name} drives a culture of innovation, experimentation, and continuous learning across the organisation."
+        - "{name} identifies and pursues opportunities to apply emerging ML technologies and approaches for strategic advantage."
+        - "{name} sets ambitious goals and inspires others to push the boundaries of what is possible with ML."
+      strategy:
+        - "{name} defines and evolves the ML strategy in alignment with organisational goals and market trends."
+        - "{name} partners with executive leadership to secure investment and resources for ML initiatives."
+        - "{name} builds and communicates a compelling vision for ML, aligning teams and stakeholders around shared objectives."
+        - "{name} anticipates industry shifts and positions the organisation to capitalise on new opportunities."
+    talent:
+      personal growth:
+        - "{name} is a lifelong learner, seeking out new knowledge and staying at the forefront of ML advancements."
+        - "{name} seeks feedback from peers, leaders, and the broader community to continuously improve."
+        - "{name} models humility, curiosity, and a growth mindset."
+      team development:
+        - "{name} mentors and develops senior technical leaders, building a strong pipeline of ML talent."
+        - "{name} champions diversity, equity, and inclusion in hiring, development, and advancement of ML professionals."
+        - "{name} supports and sponsors the professional growth of others through coaching, sponsorship, and advocacy."
+        - "{name} contributes to recruiting, interviewing, and onboarding at the highest levels."
+    culture:
+      collaboration:
+        - "{name} builds alliances across teams, business units, and the industry to advance ML initiatives."
+        - "{name} fosters a culture of collaboration, inclusion, and knowledge sharing at all levels."
+        - "{name} models and encourages open, constructive dialogue on complex and strategic topics."
+      organisational health:
+        - "{name} champions organisational values and sets the tone for a positive, ethical, and inclusive culture."
+        - "{name} supports community-building, diversity, and inclusion initiatives inside and outside the organisation."
+        - "{name} shapes the engineering culture through thought leadership, external engagement, and involvement in industry forums."
+      communication:
+        - "{name} communicates vision, strategy, and technical direction with clarity and influence to diverse audiences."
+        - "{name} ensures alignment and information flow between executive leadership, technical teams, and external partners."
+        - "{name} represents the organisation in external forums, conferences, and industry groups."
+        - "{name} provides and solicits feedback at the highest level, facilitating crucial conversations when needed."
+      company values:
+        - "{name} is a culture carrier and role model for organisational values, inspiring others to uphold them."
+    craft:
+      technical skills:
+        - "{name} is an industry-recognised authority in machine learning, with deep expertise across multiple domains."
+        - "{name} advances the state of the art in ML through research, publications, and external engagement."
+      ml design:
+        - "{name} sets the standard for scalable, robust ML system design and architecture at the organisational and industry level."
+        - "{name} defines and evolves metrics that drive strategic business and customer impact."
+        - "{name} oversees and influences experimentation and innovation across teams and business units."
+      code fluency:
+        - "{name} establishes and maintains the highest standards for code quality, maintainability, and documentation across the organisation."
+        - "{name} drives the adoption of best practices and emerging technologies in software development."
+      software design:
+        - "{name} architects and reviews complex, organisation-wide software systems, ensuring scalability, reliability, and strategic alignment."
+        - "{name} mentors others in advanced software design and systems thinking."
+      business acumen:
+        - "{name} has a deep understanding of the organisation's business, market, and industry context, and shapes ML strategy accordingly."
+        - "{name} partners with executive and business leaders to align ML initiatives with strategic goals and market opportunities."
+        - "{name} anticipates and responds to industry trends, regulatory changes, and emerging risks."
+      ml lifecycle:
+        - "{name} defines and evolves standards for the ML development lifecycle, guiding the organisation and influencing the broader industry."
+        - "{name} ensures that best practices are adopted at scale, from task formulation to deployment, monitoring, and iteration."
         - "{name} leads the organization in adapting to change."
       innovation:
         - "{name} fosters a culture of innovation within the organization."

@@ -8,36 +8,77 @@
 </head>
 <body class="bg-light">
 <div class="container mt-5">
-    <h2 class="mb-4">Performance Review Results</h2>
-    <div class="card p-4 shadow-sm mb-4">
-        <h4>Summary by Section</h4>
-        {% for section in all_sections %}
-        <div class="mb-4">
-            <h5>{{ section|capitalize }}</h5>
+    <h2 class="mb-4 text-center">Performance Review Summary</h2>
+    <!-- Quick Summary Table -->
+    <div class="mb-4">
+      <table class="table table-bordered table-hover align-middle bg-white">
+        <thead class="table-light">
+          <tr>
+            <th>Section</th>
+            <th class="text-success"><span class="bi bi-star-fill"></span> Exceeds</th>
+            <th class="text-primary"><span class="bi bi-check-circle-fill"></span> Meets</th>
+            <th class="text-warning"><span class="bi bi-exclamation-triangle-fill"></span> Needs Improvement</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for section in all_sections %}
+          <tr>
+            <td><strong>{{ section|capitalize }}</strong></td>
+            <td>
+              {% set exceeds = summary.going_well.get(section, []) %}
+              {% if exceeds %}<span class="badge bg-success">{{ exceeds|length }}</span>{% else %}-{% endif %}
+            </td>
+            <td>
+              {% set meets = summary.meets.get(section, []) %}
+              {% if meets %}<span class="badge bg-primary">{{ meets|length }}</span>{% else %}-{% endif %}
+            </td>
+            <td>
+              {% set needs = summary.needs_improvement.get(section, []) %}
+              {% if needs %}<span class="badge bg-warning text-dark">{{ needs|length }}</span>{% else %}-{% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <!-- Section-by-section Details -->
+    <div class="accordion mb-4" id="summaryAccordion">
+      {% for section in all_sections %}
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading-{{ loop.index }}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ loop.index }}" aria-expanded="false" aria-controls="collapse-{{ loop.index }}">
+            <span class="me-2"><span class="badge bg-secondary">{{ section|capitalize }}</span></span>
+          </button>
+        </h2>
+        <div id="collapse-{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ loop.index }}" data-bs-parent="#summaryAccordion">
+          <div class="accordion-body">
             {% set exceeds = summary.going_well.get(section, []) %}
             {% set meets = summary.meets.get(section, []) %}
             {% set needs = summary.needs_improvement.get(section, []) %}
             {% if exceeds %}
-            <div class="alert alert-success"><strong>Exceeds Expectations:</strong>
-                <ul>{% for b in exceeds %}<li>{{ b }}</li>{% endfor %}</ul>
+            <div class="mb-2"><span class="badge bg-success"><i class="bi bi-star-fill"></i> Exceeds</span>
+              <ul class="mb-0">{% for b in exceeds %}<li>{{ b }}</li>{% endfor %}</ul>
             </div>
             {% endif %}
             {% if meets %}
-            <div class="alert alert-primary"><strong>Meets Expectations:</strong>
-                <ul>{% for b in meets %}<li>{{ b }}</li>{% endfor %}</ul>
+            <div class="mb-2"><span class="badge bg-primary"><i class="bi bi-check-circle-fill"></i> Meets</span>
+              <ul class="mb-0">{% for b in meets %}<li>{{ b }}</li>{% endfor %}</ul>
             </div>
             {% endif %}
             {% if needs %}
-            <div class="alert alert-warning"><strong>Needs Improvement:</strong>
-                <ul>{% for b in needs %}<li>{{ b }}</li>{% endfor %}</ul>
+            <div class="mb-2"><span class="badge bg-warning text-dark"><i class="bi bi-exclamation-triangle-fill"></i> Needs Improvement</span>
+              <ul class="mb-0">{% for b in needs %}<li>{{ b }}</li>{% endfor %}</ul>
             </div>
             {% endif %}
             {% if summary.comments[section] %}
-            <div class="alert alert-info"><strong>Comments:</strong> {{ summary.comments[section] }}</div>
+            <div class="alert alert-info mt-2"><strong>Comments:</strong> {{ summary.comments[section] }}</div>
             {% endif %}
+          </div>
         </div>
-        {% endfor %}
+      </div>
+      {% endfor %}
     </div>
+    <!-- End Section Details -->
     <div class="card p-4 shadow-sm">
         <h4>Full Generated Feedback</h4>
         <pre>{{ feedback }}</pre>
