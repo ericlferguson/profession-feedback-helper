@@ -42,13 +42,17 @@ def feedback():
     )
     # Flatten for form rendering
     items = []
-    sections = set()
+    section_order = []
     for section, subs in generator.responsibilities.items():
         for subsection, behaviors in subs.items():
             for behavior in behaviors:
                 items.append((section, subsection, behavior))
-                sections.add(section)
-    sections = sorted(sections)
+        section_order.append(section)
+    # Ensure 'overview' is first, then rest sorted
+    if 'overview' in section_order:
+        sections = ['overview'] + sorted([s for s in set(section_order) if s != 'overview'])
+    else:
+        sections = sorted(set(section_order))
     if request.method == 'POST':
         ratings = {}
         comments = {}
