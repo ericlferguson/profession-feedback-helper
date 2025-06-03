@@ -1,4 +1,4 @@
-# Dropbox Career Framework: Software Engineer Role Definitions
+# company Career Framework: Software Engineer Role Definitions
 # Use {name} and {pronouns[1]} for dynamic substitution (e.g., his/her/their).
 
 levels:
@@ -32,7 +32,7 @@ levels:
       personal growth:
         - "{name} is open to and acts upon feedback from {pronouns[1]} manager and peers."
         - "{name} is gaining self-awareness about {pronouns[1]} strengths and areas for development."
-        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g. PGP, Dropbox-offered training, leveraging perks allowance)."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g. PGP, company-offered training, leveraging perks allowance)."
       team development:
         - "{name} models integrity and has a high standard of excellence for {pronouns[1]} work."
         - "{name} is learning to interview and assess candidates to help us build a diverse and talented team. {name} consistently provides timely, detailed, and evidence-based interview feedback."
@@ -41,11 +41,11 @@ levels:
       collaboration:
         - "{name} can effectively collaborate and adopt necessary tools (e.g., pair programming) that adapts to virtual first and get work done."
         - "{name} works with {pronouns[1]} manager to engage in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
-        - "{name} promotes and role models Dropbox core values."
+        - "{name} promotes and role models company core values."
       organizational health:
         - "{name} listens to different perspectives and removes biases from {pronouns[1]} words and actions."
         - "{name} contributes to a positive sense of community on {pronouns[1]} team (e.g., engage in team activities, offsites, and new-hire onboarding)."
-        - "{name} practices the Dropbox Diversity Commitments on a regular basis."
+        - "{name} practices the company Diversity Commitments on a regular basis."
       communication:
         - "{name} writes and speaks with clarity and focus."
         - "{name} listens to understand others and asks clarifying questions."
@@ -98,7 +98,7 @@ levels:
       personal growth:
         - "{name} proactively asks for feedback from {pronouns[1]} manager, team, and cross-functional stakeholders and identifies ways to act upon it."
         - "{name} has self-awareness about {pronouns[1]} strengths and areas for development."
-        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, Dropbox-offered training, leveraging perks allowance, etc.)."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, company-offered training, leveraging perks allowance, etc.)."
       team development:
         - "{name} models integrity and a high standard of excellence for {pronouns[1]} work."
         - "{name} helps more junior members of {pronouns[1]} team, interns, or new hires, taking into account their unique strengths, backgrounds, and working styles."
@@ -110,11 +110,11 @@ levels:
         - "{name} can effectively collaborate and adopt necessary tools (e.g., pair programming) that adapts to virtual first and get work done."
         - "{name} works with {pronouns[1]} manager to engage in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
         - "{name} avoids blame, clarifies problems to focus on solutions, and 'disagrees and commits' when necessary to move decisions forward."
-        - "{name} promotes and role models Dropbox core values."
+        - "{name} promotes and role models company core values."
       organizational health:
         - "{name} contributes to a positive sense of community on the team (e.g., engages in team lunches, team offsites, and other virtual or in-person group activities, helps with new-hire onboarding)."
         - "{name} listens to different perspectives and removes biases from {pronouns[1]} words and actions."
-        - "{name} practices the Dropbox Diversity Commitments on a regular basis."
+        - "{name} practices the company Diversity Commitments on a regular basis."
         - "{name} champions Virtual First practices that help the team collaborate effectively."
       communication:
         - "{name} writes and speaks with clarity and focus."
@@ -181,7 +181,7 @@ levels:
         - "{name} proactively asks for feedback from {pronouns[1]} manager, team, and cross-functional stakeholders and identifies ways to act upon it."
         - "{name} has self-awareness about {pronouns[1]} strengths and works on {pronouns[1]} development areas."
         - "{name} connects with others with empathy and understanding."
-        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, Dropbox-offered training, leveraging perks allowance etc.)."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, company-offered training, leveraging perks allowance etc.)."
       team development:
         - "{name} models integrity and a high standard of excellence for {pronouns[1]} work. {name} leverages this to influence and establish best practices."
         - "{name} supports the growth of {pronouns[1]} teammates by taking into account their unique skills, strengths, backgrounds and working styles."
@@ -196,14 +196,14 @@ levels:
         - "{name} proactively communicates and coordinates {pronouns[1]} team’s requirements with other groups and teams in engineering."
         - "{name} is capable of working with cross-functional stakeholders to identify technical blindspots and clarify ambiguity in their ideas."
         - "{name} avoids blame and solves the right problems, disagreeing and committing when necessary to move decisions forward."
-        - "{name} promotes and role models Dropbox core values."
+        - "{name} promotes and role models company core values."
       organizational health:
         - "{name} contributes to a positive sense of community on the team (e.g. engage in team lunches, team offsites, and other group activities, help with new-hire on-boarding)."
         - "{name} listens to different perspectives and cuts biases from {pronouns[1]} words and actions."
         - "{name} helps foster effective communication across the team and promotes inclusive meeting culture."
-        - "{name} practices the Dropbox Diversity Commitments on a regular basis."
+        - "{name} practices the company Diversity Commitments on a regular basis."
         - "{name} champions good Virtual First practices that help {pronouns[1]} team collaborate effectively."
-        - "{name} helps shape the Dropbox engineering culture through {pronouns[1]} involvement with activities outside of {pronouns[1]} team (e.g. presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek)."
+        - "{name} helps shape the company engineering culture through {pronouns[1]} involvement with activities outside of {pronouns[1]} team (e.g. presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek)."
       communication:
         - "{name} tailors {pronouns[1]} message to {pronouns[1]} audience, presenting it clearly and concisely at the right altitude."
         - "{name} proactively shares information so {pronouns[1]} manager, team, and stakeholders are informed and aligned."
@@ -279,16 +279,16 @@ levels:
       personal growth:
         - "{name} proactively asks for feedback from {pronouns[1]} manager, team, and cross-functional stakeholders. {name} knows {pronouns[1]} strengths and identifies ways to take action on development areas."
         - "{name} has self-awareness and connects with others with empathy."
-        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, Dropbox-offered training, leveraging perks allowance, etc.)."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, company-offered training, leveraging perks allowance, etc.)."
       team development:
         - "{name} models integrity and a high standard of excellence for {pronouns[1]} work, setting and holding the bar for quality and best practices for {pronouns[1]} team (e.g. via code and design reviews)."
         - "{name} identifies and supports areas of growth for teammates that take into account their unique skills, strengths, backgrounds and working styles."
         - "{name} solicits and offers honest, constructive, direct, and actionable feedback delivered with empathy to help others learn and grow into the next level."
-        - "{name} actively contributes to interviewing, gains the trust of candidates, and can represent Dropbox's mission, strategy, and culture throughout the interview process."
+        - "{name} actively contributes to interviewing, gains the trust of candidates, and can represent company's mission, strategy, and culture throughout the interview process."
         - "{name} is able to represent {pronouns[1]} team’s technical challenges to potential candidates in a compelling way (e.g. 1:1 sell chats, blog posts, public speaking)."
     culture:
       collaboration:
-        - "{name} promotes and role models Dropbox core values, leading by example."
+        - "{name} promotes and role models company core values, leading by example."
         - "{name} builds relationships and drives coordination across teams & disciplines, helping get to positive outcomes."
         - "{name} proactively communicates and coordinates {pronouns[1]} team’s requirements with other groups and teams in engineering."
         - "{name} is effective at working with cross-functional stakeholders to identify technical blindspots and clarify ambiguity in their ideas."
@@ -296,11 +296,11 @@ levels:
         - "{name} avoids blame and solves the right problems, disagreeing and committing when necessary to move decisions forward."
       organizational health:
         - "Working with {pronouns[1]} manager, {name} leverages the unique strengths and skills of team members and helps identify talent gaps required for team success."
-        - "{name} enables others to bring their authentic selves at work and contributes to building community at Dropbox."
+        - "{name} enables others to bring their authentic selves at work and contributes to building community at company."
         - "{name} ensures diverse perspectives are included, leveraging inclusive meeting practices."
-        - "{name} practices the Dropbox Diversity Commitments regularly."
+        - "{name} practices the company Diversity Commitments regularly."
         - "{name} champions good virtual first practices that help {pronouns[1]} team collaborate effectively."
-        - "{name} helps shape Dropbox engineering culture through involvement with activities outside of {pronouns[1]} team (e.g. presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek)."
+        - "{name} helps shape company engineering culture through involvement with activities outside of {pronouns[1]} team (e.g. presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek)."
       communication:
         - "{name} communicates with clarity, brevity, focus, and tailors {pronouns[1]} message to the audience, presenting it at the right altitude."
         - "{name} proactively shares information so the relevant stakeholders are informed and aligned."
@@ -308,15 +308,15 @@ levels:
         - "{name} is effective in holding crucial conversations even when uncomfortable."
         - "{name} influences stakeholders across a variety of audiences."
       culture leader:
-        - "{name} acts as a partner to {pronouns[1]} manager in setting the cultural tone for the team, supporting an environment of psychological safety where all Dropboxers are included and heard."
-        - "{name} helps {pronouns[1]} team network and build relationships across Dropbox, creating connection and inclusion across teams."
+        - "{name} acts as a partner to {pronouns[1]} manager in setting the cultural tone for the team, supporting an environment of psychological safety where all companyers are included and heard."
+        - "{name} helps {pronouns[1]} team network and build relationships across company, creating connection and inclusion across teams."
     craft:
       code fluency:
         - "The expectations for IC3 code fluency are still applicable here (though some specialist engineers may go deep in this area)."
         - "{name} looks for ways to simplify code and infrastructure, prioritizing tasks that lead to lower system and infrastructure maintenance and migration costs with meaningful and measurable impact."
         - "{name} finds ways to improve developer efficiency as measured by cycle time, ramp-up time, or other similar measurements."
         - "{name} preemptively identifies and resolves technical risks before they jeopardize the project, and resolves cross-team dependencies early to ensure successful execution."
-        - "{name} avoids re-inventing the wheel by leveraging other Dropbox or off-the-shelf solutions, writing libraries and modules that can be extended and adopted by other teams."
+        - "{name} avoids re-inventing the wheel by leveraging other company or off-the-shelf solutions, writing libraries and modules that can be extended and adopted by other teams."
       software design:
         - "{name} is responsible for designing the software or systems required in {pronouns[1]} area of ownership and ensuring that they meet their design objectives."
         - "{name} gives quality feedback on designs written by other team members, asking probing, insightful questions that solidify choices and surface erroneous assumptions."
@@ -330,21 +330,21 @@ levels:
         - "{name} is responsible for alignment of the software and systems in {pronouns[1]} team to overall technical strategy, making tradeoffs where appropriate in consultation with staff engineers."
       business acumen:
         - "{name} engages in listening sessions (All Hands, Quarterly Business Updates, etc.) to increase {pronouns[1]} learning and guide {pronouns[1]} work/priorities."
-        - "{name} has a working knowledge of Dropbox’s org/team structure and how teams work together across Dropbox, and is able to help {pronouns[1]} team collaborate effectively with other teams across the org."
+        - "{name} has a working knowledge of company’s org/team structure and how teams work together across company, and is able to help {pronouns[1]} team collaborate effectively with other teams across the org."
 
   principal:      # IC5
     overview:
       scope:
-        - "{name} delivers multi-year, multi-team product or platform goals, setting the technical strategy for large areas of Dropbox."
+        - "{name} delivers multi-year, multi-team product or platform goals, setting the technical strategy for large areas of company."
         - "{name} exhibits a very high standard of technical judgement, innovation, and execution to tackle open-ended problems that require difficult prioritization, defining both the what and how of things to be done."
       collaborative reach:
-        - "{name} influences the roadmaps of other Dropbox teams to achieve business-impacting goals."
+        - "{name} influences the roadmaps of other company teams to achieve business-impacting goals."
         - "{name} exercises judgement that favors the priorities of the wider engineering org rather than favoring locally optimal outcomes."
       impact levers:
         - "{name} demonstrates domain expertise, bringing unique business value through deep knowledge of a particular platform or product category."
         - "{name} defines the vision for and delivers large business-impacting projects with multiple constraints."
         - "{name} influences or makes product decisions and determines the right technical tradeoffs to deliver customer value quickly."
-        - "{name} serves as a role model and mentor for other Dropbox engineers."
+        - "{name} serves as a role model and mentor for other company engineers."
     results:
       impact:
         - "{name} identifies and executes on opportunities that have area/group-wide impact."
@@ -357,7 +357,7 @@ levels:
         - "{name} owns {pronouns[1]} decisions and mistakes and takes action to prevent similar mistakes in the future, sharing learnings with others."
         - "{name} unblocks teams by assessing and eliminating the root cause of barriers, including recommending process and scale improvements."
       decision making:
-        - "{name} uses a holistic view of the engineering org, customer insights, and Dropbox’s goals to make decisions optimized for the wider org, not just local projects."
+        - "{name} uses a holistic view of the engineering org, customer insights, and company’s goals to make decisions optimized for the wider org, not just local projects."
         - "{name} acts thoughtfully and decisively in critical situations, leads decision-making even when making unpopular decisions, and seeks diverse perspectives."
         - "{name} is able to reach the right decision despite conflicting perspectives, disagreeing and committing when necessary."
     direction:
@@ -379,23 +379,23 @@ levels:
         - "{name} connects with others with empathy and understanding."
         - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow."
       team development:
-        - "{name} is a role model for other Dropboxers and models a standard of excellence that supports a culture of high performance."
+        - "{name} is a role model for other companyers and models a standard of excellence that supports a culture of high performance."
         - "{name} invests time to coach and mentor teammates, especially those looking to grow into L4/L5, and provides thoughtful, constructive feedback."
         - "{name} spreads knowledge widely via talks, blog posts, or written documentation."
-        - "{name} participates in hiring and calibration processes for senior candidates and managers, and represents Dropbox's mission, strategy, and culture."
+        - "{name} participates in hiring and calibration processes for senior candidates and managers, and represents company's mission, strategy, and culture."
         - "{name} is an effective partner to {pronouns[1]} manager and can represent the team’s technical challenges to candidates in an exciting way."
     culture:
       collaboration:
-        - "{name} promotes and role models Dropbox core values, leading by example."
-        - "{name} helps break down silos within and across functions, influencing others to reach the best outcome for Dropbox."
+        - "{name} promotes and role models company core values, leading by example."
+        - "{name} helps break down silos within and across functions, influencing others to reach the best outcome for company."
         - "{name} builds deep cross-functional relationships, facilitates the right conversations, and settles disagreements by managing different viewpoints."
         - "{name} engages in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
         - "{name} balances multiple perspectives and disagrees and commits when necessary to move key company decisions and priorities forward."
       organizational health:
         - "{name} leverages the unique strengths & skills of team members and helps identify talent gaps required for team success."
         - "{name} champions community building efforts and inclusion initiatives, partnering with management to ensure a healthy engineering org."
-        - "{name} practices Dropbox Diversity Commitments regularly."
-        - "{name} builds relationships and uses inclusive meeting practices to support an inclusive environment for all Dropboxers."
+        - "{name} practices company Diversity Commitments regularly."
+        - "{name} builds relationships and uses inclusive meeting practices to support an inclusive environment for all companyers."
       communication:
         - "{name} tailors messages to the audience, presenting clearly and concisely at the right altitude."
         - "{name} writes crisp narratives to create understanding, influence others, and enable effective decision-making."
@@ -404,10 +404,10 @@ levels:
         - "{name} seeks to listen and understand others."
       culture leader:
         - "{name} partners with {pronouns[1]} manager in setting the cultural tone for the team, creating an inclusive environment of psychological safety."
-        - "{name} is aware of {pronouns[1]} public presence and actions and their influence on people and Dropbox’s culture."
-        - "{name} helps the team network and build relationships across Dropbox, creating connection and inclusion."
-        - "{name} personifies Dropbox core values and supports the community."
-        - "{name} points out when actions or decisions contradict Dropbox values and suggests alternatives more aligned with our values."
+        - "{name} is aware of {pronouns[1]} public presence and actions and their influence on people and company’s culture."
+        - "{name} helps the team network and build relationships across company, creating connection and inclusion."
+        - "{name} personifies company core values and supports the community."
+        - "{name} points out when actions or decisions contradict company values and suggests alternatives more aligned with our values."
     craft:
       code fluency:
         - "The expectations for code fluency do not go beyond L4, though some specialist engineers may go deep in this area."
@@ -424,14 +424,14 @@ levels:
       technical strategy:
         - "{name} is accountable for alignment of the software and systems in {pronouns[1]} area to overall technical strategy, making tradeoffs where appropriate in consultation with principal engineers."
       business acumen:
-        - "{name} leverages fluency in Dropbox’s business, products, customers, and strategy to identify opportunities for the team to help Dropbox meet its business objectives."
-        - "{name} can explain how Dropbox’s strategy and business priorities inform and guide {pronouns[1]} and the team’s priorities."
+        - "{name} leverages fluency in company’s business, products, customers, and strategy to identify opportunities for the team to help company meet its business objectives."
+        - "{name} can explain how company’s strategy and business priorities inform and guide {pronouns[1]} and the team’s priorities."
 
   principal:  # IC6 Principal Software Engineer
     overview:
       scope:
         - "{name} owns and delivers org/company-wide multi-year, multi-team goals."
-        - "{name} takes a multi-year, industry-leading perspective, ensuring our products adapt to scale, usage, and/or business needs well beyond Dropbox’s current scope."
+        - "{name} takes a multi-year, industry-leading perspective, ensuring our products adapt to scale, usage, and/or business needs well beyond company’s current scope."
       collaborative reach:
         - "{name} typically influences the technical strategy of a group, partnering closely with Directors and senior leadership to ensure the health of EPD as a whole and influence the overall direction."
         - "{name} transcends organizational boundaries and proactively identifies the best ways to leverage {pronouns[1]}self."
@@ -453,7 +453,7 @@ levels:
         - "When {name} or the team encounters barriers, {name} unblocks them by assessing and eliminating the root cause, including recommending process and scale improvements."
         - "{name} transcends organizational boundaries by taking a holistic view of the group’s goals and taking responsibility across the group, not just within immediate scope."
       decision making:
-        - "{name} has a holistic view of the engineering org, customer insights, and Dropbox’s goals, and uses experience and judgment to make decisions optimized for the wider org, not just the local project."
+        - "{name} has a holistic view of the engineering org, customer insights, and company’s goals, and uses experience and judgment to make decisions optimized for the wider org, not just the local project."
         - "{name} acts thoughtfully and decisively in critical situations, seeking diverse perspectives, encouraging productive debate with the right stakeholders, and leading decision-making even when making unpopular decisions."
         - "{name} is able to reach the right decision despite conflicting perspectives, disagreeing and committing when necessary."
     direction:
@@ -473,7 +473,7 @@ levels:
         - "{name} proactively asks for feedback from those {name} works with and identifies ways to act upon it."
         - "{name} has self-awareness about {pronouns[1]} strengths and takes actions on development areas."
         - "{name} connects with others with empathy and understanding."
-        - "{name} seeks out opportunities to learn and grow (e.g., external thought leadership, Dropbox-offered training, leveraging perks allowance)."
+        - "{name} seeks out opportunities to learn and grow (e.g., external thought leadership, company-offered training, leveraging perks allowance)."
       team development:
         - "{name} models a standard of excellence that supports a culture of high performance on the team, drives EPD-wide processes, and defines the bar for engineering-wide quality and best practices."
         - "{name} invests time to coach and mentor teammates (especially those looking to grow into L5/L6), taking into account their skills, backgrounds, and working styles, and providing thoughtful, constructive feedback."
@@ -481,20 +481,20 @@ levels:
         - "If requested, {name} participates in calibration sessions by providing meaningful feedback to ensure fair and consistent decisions."
         - "{name} is an active participant in the hiring process for senior candidates and managers (e.g., hiring committee, debriefs)."
         - "{name} attracts talent for a variety of roles with diversity of background and location in mind."
-        - "{name} gains the trust of candidates and can represent Dropbox's mission, strategy, and culture throughout the interview process."
+        - "{name} gains the trust of candidates and can represent company's mission, strategy, and culture throughout the interview process."
         - "{name} is an effective partner to {pronouns[1]} manager and can represent the group's technical challenges to candidates in an exciting way (e.g., 1:1 selling, blog posts, public speaking)."
     culture:
       collaboration:
-        - "{name} promotes and role models Dropbox core values, leading by example."
-        - "{name} helps break down silos within and across functions and influences others to reach the best outcome for Dropbox."
+        - "{name} promotes and role models company core values, leading by example."
+        - "{name} helps break down silos within and across functions and influences others to reach the best outcome for company."
         - "{name} builds deep cross-functional relationships, facilitates the right conversations, and settles disagreements by managing different viewpoints."
         - "{name} engages in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
         - "{name} balances multiple perspectives and disagrees and commits when necessary to move key company decisions and priorities forward."
       organizational health:
         - "{name} leverages the unique strengths and skills of team members and helps identify talent gaps required for team success."
         - "{name} champions community building efforts and inclusion initiatives, working in close partnership with senior leadership to ensure a healthy engineering org."
-        - "{name} practices the Dropbox Diversity Commitments on a regular basis."
-        - "{name} builds relationships and uses inclusive meeting practices to support an inclusive environment for all Dropboxers."
+        - "{name} practices the company Diversity Commitments on a regular basis."
+        - "{name} builds relationships and uses inclusive meeting practices to support an inclusive environment for all companyers."
       communication:
         - "{name} develops compelling, clear, and focused messages, and effectively presents them at the executive level."
         - "If asked, {name} writes crisp narratives to create understanding, influence others, and enable effective decision-making."
@@ -503,10 +503,10 @@ levels:
         - "{name} seeks to listen and understand others."
       culture leader:
         - "{name} acts as a partner to managers in setting the cultural tone for the engineering org, helping create an inclusive environment of psychological safety to support connection, empathy, and productive conflict where dissenting and diverse opinions are valued."
-        - "{name} leads by example, is aware of {pronouns[1]} public presence and actions, and understands {pronouns[1]} influence on people and Dropbox’s culture."
-        - "{name} helps teams across Dropbox network and build relationships, creating connection and inclusion across orgs."
-        - "{name} personifies Dropbox core values and supports the community."
-        - "{name} points out when actions or decisions contradict Dropbox values and suggests alternatives more aligned with our values."
+        - "{name} leads by example, is aware of {pronouns[1]} public presence and actions, and understands {pronouns[1]} influence on people and company’s culture."
+        - "{name} helps teams across company network and build relationships, creating connection and inclusion across orgs."
+        - "{name} personifies company core values and supports the community."
+        - "{name} points out when actions or decisions contradict company values and suggests alternatives more aligned with our values."
     craft:
       code fluency:
         - "The expectations for code fluency do not go beyond L4, though some specialist engineers may go deep in this area."
@@ -519,5 +519,5 @@ levels:
         - "{name} is responsible for making technical choices that have no one clearly correct answer but whose consequences have a sweeping effect across {pronouns[1]} scope in the organization."
         - "{name} rallies the organization around those choices by providing a clear rationale and technical vision backing them."
       business acumen:
-        - "{name} leverages {pronouns[1]} fluency in Dropbox’s business, products, customers, and strategy to identify opportunities where the team can help Dropbox meet its business objectives."
-        - "{name} can effectively communicate Dropbox's company-wide vision, strategy, and objectives and connect {pronouns[1]} and the team's work to them."
+        - "{name} leverages {pronouns[1]} fluency in company’s business, products, customers, and strategy to identify opportunities where the team can help company meet its business objectives."
+        - "{name} can effectively communicate company's company-wide vision, strategy, and objectives and connect {pronouns[1]} and the team's work to them."
