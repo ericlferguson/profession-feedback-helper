@@ -5,245 +5,519 @@ levels:
   junior:         # IC1
     overview:
       scope:
-        - "{name} works on well-defined tasks with close supervision."
-        - "{name} contributes to small features or bug fixes."
+        - "{name} executes on defined tasks and contributes to solving problems with defined solutions."
       collaborative reach:
-        - "{name} collaborates mainly within {pronouns[1]} immediate team."
+        - "{name} works within the scope of {pronouns[1]} team with specific guidance from {pronouns[1]} manager/TL."
       impact levers:
-        - "{name} learns and applies basic engineering practices."
+        - "Craft - {name} primarily focuses on improving {pronouns[1]} craft as an engineer."
     results:
       impact:
-        - "{name} completes assigned tasks reliably and on time."
+        - "{name} works with {pronouns[1]} manager to prioritize tasks that add the most value and deliver high-quality results for {pronouns[1]} customer."
+        - "{name} understands and effectively participates in the core processes of {pronouns[1]} team (planning, on-call rotations, bug triage, metrics review, etc)."
+        - "With guidance from {pronouns[1]} manager and Tech lead, {name} delivers high-quality work on time that adds the most value for the customer and our business."
       ownership:
-        - "{name} takes responsibility for {pronouns[1]} own code."
+        - "{name} follows through on {pronouns[1]} commitments, takes responsibility for {pronouns[1]} work, and delivers {pronouns[1]} work on time."
+        - "{name} asks questions to clarify expectations."
+        - "{name} owns {pronouns[1]} decisions and mistakes and learns from them."
+        - "{name} contributes with urgency to operational issues (e.g., SEVs), leveraging {pronouns[1]} strengths to help find resolution."
+        - "{name} raises concerns when {name} is suspicious that there has been a regression in service, and advocates for declaring a SEV if a problem is found."
       decision making:
-        - "{name} seeks guidance when making technical decisions."
+        - "{name} escalates to {pronouns[1]} manager when {name} gets stuck and needs help with a decision concerning {pronouns[1]} deliverables or priorities."
     direction:
       agility:
-        - "{name} adapts to feedback and changing requirements."
+        - "{name} can adapt {pronouns[1]} work when circumstances change."
       innovation:
-        - "{name} suggests small improvements to code or process."
-      strategy:
-        - "{name} understands the team's goals and priorities."
+        - "{name} finds new and creative ways to accomplish {pronouns[1]} work, and shares {pronouns[1]} ideas with the team."
     talent:
       personal growth:
-        - "{name} seeks feedback and learning opportunities."
+        - "{name} is open to and acts upon feedback from {pronouns[1]} manager and peers."
+        - "{name} is gaining self-awareness about {pronouns[1]} strengths and areas for development."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g. PGP, Dropbox-offered training, leveraging perks allowance)."
       team development:
-        - "{name} supports team goals and helps peers when possible."
+        - "{name} models integrity and has a high standard of excellence for {pronouns[1]} work."
+        - "{name} is learning to interview and assess candidates to help us build a diverse and talented team. {name} consistently provides timely, detailed, and evidence-based interview feedback."
+        - "{name} is able to represent {pronouns[1]} team’s initiatives and goals to candidates in a compelling way."
     culture:
       collaboration:
-        - "{name} communicates respectfully with team members."
-      company values:
-        - "{name} demonstrates Dropbox values in daily work."
+        - "{name} can effectively collaborate and adopt necessary tools (e.g., pair programming) that adapts to virtual first and get work done."
+        - "{name} works with {pronouns[1]} manager to engage in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
+        - "{name} promotes and role models Dropbox core values."
+      organizational health:
+        - "{name} listens to different perspectives and removes biases from {pronouns[1]} words and actions."
+        - "{name} contributes to a positive sense of community on {pronouns[1]} team (e.g., engage in team activities, offsites, and new-hire onboarding)."
+        - "{name} practices the Dropbox Diversity Commitments on a regular basis."
+      communication:
+        - "{name} writes and speaks with clarity and focus."
+        - "{name} listens to understand others and asks clarifying questions."
+        - "{name} proactively shares relevant information on {pronouns[1]} project including difficult task-level trade-offs that impact the product to {pronouns[1]} manager and team (including product/business partners)."
     craft:
-      technical skills:
-        - "{name} demonstrates proficiency in at least one programming language."
-      best practices:
-        - "{name} writes clean, readable code and participates in code reviews."
-      domain knowledge:
-        - "{name} is learning about Dropbox's products and systems."
+      code fluency:
+        - "{name} translates ideas into clear code, written to be read as well as executed."
+        - "{name} participates in code reviews and raises questions to help {pronouns[1]} learn the codebases and technologies relevant to {pronouns[1]} work."
+        - "{name}'s code is free of glaring errors - bugs are in edge cases or design, not mainline paths - and is well documented and well tested with appropriate use of manual vs automated tests."
+        - "{name} is capable of reading and navigating functions and classes/modules in a large codebase that {name} didn’t write."
+        - "{name} is learning to tackle coding tasks with high throughput while maintaining appropriately high quality; {name} optimizes for either speed or quality, depending on the explicitly stated needs of {pronouns[1]} team."
 
   intermediate:   # IC2
     overview:
       scope:
-        - "{name} delivers larger features with moderate supervision."
-        - "{name} contributes to project planning and estimation."
+        - "{name} executes on defined projects to achieve team-level goals."
+        - "{name} independently defines the right solutions or uses existing approaches to solve defined problems."
       collaborative reach:
-        - "{name} works effectively with cross-functional partners."
+        - "{name} works primarily within the scope of {pronouns[1]} team with high-level guidance from {pronouns[1]} manager/TL."
       impact levers:
-        - "{name} applies engineering best practices and mentors interns."
+        - "Craft – {name} is increasingly mastering {pronouns[1]} craft and leverages it for higher impact (e.g., software design)."
+        - "Mentorship – {name} may mentor new hires, interns, or more junior engineers."
     results:
       impact:
-        - "{name} delivers features that have customer impact."
+        - "{name} has a bias for action, acts with urgency, and delivers high-quality work that adds the most value for our business, cross-functional stakeholders, and customers."
+        - "{name} works with {pronouns[1]} manager to direct {pronouns[1]} focus so {pronouns[1]} work advances the team’s goals."
+        - "{name} prioritizes the right things and doesn’t overcomplicate {pronouns[1]} work. When necessary, {name} proposes appropriate scope adjustments."
+        - "{name} effectively participates in the core processes of {pronouns[1]} team, including recommending and implementing process improvements."
       ownership:
-        - "{name} owns components or subsystems."
+        - "{name} follows through on {pronouns[1]} commitments, takes responsibility for {pronouns[1]} work, and delivers on time."
+        - "{name} proactively identifies and advocates for opportunities to improve the current state of projects and team processes."
+        - "{name} owns {pronouns[1]} decisions and mistakes, and learns from them."
+        - "{name} thinks a step or two ahead in {pronouns[1]} work, solves the right problems before they become bigger problems, and problem-solves with {pronouns[1]} manager when stuck."
+        - "{name} responds with urgency to operational issues (e.g., SEVs), owning resolution within {pronouns[1]} sphere of responsibility."
+        - "{name} looks for opportunities to reduce KTLO and works with the team to ease the burden for on-call."
+        - "{name} is vigilant about degradations in service by tracking key metrics, and advocates for declaring a SEV if concerns are warranted."
       decision making:
-        - "{name} makes technical decisions with input from others."
+        - "{name} identifies and gathers input from the right stakeholders and considers customer needs to make informed and timely decisions."
+        - "{name} understands the implications of {pronouns[1]} decisions and adjusts {pronouns[1]} approach based on the impact and risk, and shares that rationale with relevant stakeholders."
+        - "{name} escalates to {pronouns[1]} manager when {name} needs help with a decision about {pronouns[1]} deliverables or priorities."
     direction:
       agility:
-        - "{name} adapts quickly to changing priorities."
+        - "{name} has an open mindset to change and is enthusiastic about new initiatives."
+        - "{name} works with {pronouns[1]} manager to navigate complex and ambiguous situations."
+        - "{name} is learning to stay calm under pressure and is building practices to take care of {pronouns[1]} well-being."
       innovation:
-        - "{name} proposes and prototypes new approaches."
-      strategy:
-        - "{name} aligns work with team and company goals."
+        - "{name} asks questions and contributes to new ideas and approaches."
+        - "{name} has a growth mindset and is comfortable experimenting with new approaches, learning, owning the outcomes, and sharing what {name} learned."
     talent:
       personal growth:
-        - "{name} actively seeks feedback and acts on it."
+        - "{name} proactively asks for feedback from {pronouns[1]} manager, team, and cross-functional stakeholders and identifies ways to act upon it."
+        - "{name} has self-awareness about {pronouns[1]} strengths and areas for development."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, Dropbox-offered training, leveraging perks allowance, etc.)."
       team development:
-        - "{name} mentors junior engineers and shares knowledge."
+        - "{name} models integrity and a high standard of excellence for {pronouns[1]} work."
+        - "{name} helps more junior members of {pronouns[1]} team, interns, or new hires, taking into account their unique strengths, backgrounds, and working styles."
+        - "{name} offers honest, timely, and direct feedback that is delivered with empathy to help others learn and grow."
+        - "{name} actively contributes to interviewing and assessing candidates to help us build a diverse and talented team in terms of background and location. {name} is calibrated and consistently performs high-signal interviews."
+        - "{name} is able to represent {pronouns[1]} team’s initiatives and goals to candidates in a compelling way."
     culture:
       collaboration:
-        - "{name} collaborates across teams and disciplines."
-      company values:
-        - "{name} models Dropbox values and encourages others."
+        - "{name} can effectively collaborate and adopt necessary tools (e.g., pair programming) that adapts to virtual first and get work done."
+        - "{name} works with {pronouns[1]} manager to engage in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
+        - "{name} avoids blame, clarifies problems to focus on solutions, and 'disagrees and commits' when necessary to move decisions forward."
+        - "{name} promotes and role models Dropbox core values."
+      organizational health:
+        - "{name} contributes to a positive sense of community on the team (e.g., engages in team lunches, team offsites, and other virtual or in-person group activities, helps with new-hire onboarding)."
+        - "{name} listens to different perspectives and removes biases from {pronouns[1]} words and actions."
+        - "{name} practices the Dropbox Diversity Commitments on a regular basis."
+        - "{name} champions Virtual First practices that help the team collaborate effectively."
+      communication:
+        - "{name} writes and speaks with clarity and focus."
+        - "{name} listens to understand others and asks clarifying questions."
+        - "{name} proactively shares relevant information on {pronouns[1]} project including difficult task-level trade-offs that impact the product to {pronouns[1]} manager and team (including product/business partners)."
     craft:
-      technical skills:
-        - "{name} demonstrates expertise in multiple technologies."
-      best practices:
-        - "{name} upholds and promotes engineering best practices."
-      domain knowledge:
-        - "{name} understands Dropbox's architecture and contributes to technical discussions."
+      code fluency:
+        - "{name} translates ideas into clear code, written to be read as well as executed."
+        - "{name}'s code is free of glaring errors – bugs are in edge cases or design, not mainline paths – and is well documented and well tested with appropriate use of manual vs automated tests."
+        - "{name} actively engages and reconciles different opinions in code reviews and can follow best practices set up by others."
+        - "{name} is able to read and navigate through a large codebase and effectively debug others’ code."
+        - "{name} addresses code tasks with both high throughput and appropriately high quality for the stage of project {name} is working on."
+      software design:
+        - "{name} is able to understand the existing designs and technology choices within {pronouns[1]} area, and makes appropriate adjustments to existing designs when necessary."
+        - "Code modules {name} writes exhibit good separation of concerns."
+      architecture design:
+        - "{name} is able to decompose a simple problem or business scenario into a solution composed of multiple software components interacting with each other."
 
   senior:         # IC3
     overview:
       scope:
-        - "{name} leads development of major features or projects."
-        - "{name} scopes and drives complex technical work."
+        - "{name} owns and delivers projects in service of quarterly goals on the team."
+        - "{name} independently identifies the right solutions to solve ambiguous, open-ended problems."
       collaborative reach:
-        - "{name} influences engineering practices beyond {pronouns[1]} team."
+        - "{name} works primarily with {pronouns[1]} direct team and cross-functional partners while driving cross-team collaboration for {pronouns[1]} project."
       impact levers:
-        - "{name} is a go-to expert for critical systems."
+        - "Project Leadership - {name} defines and delivers well-scoped milestones for a project. {name} may be a technical lead for projects on {pronouns[1]} team."
+        - "Product Expertise - {name} actively keeps customer needs in mind and leverages input from product stakeholders as available to determine the right technical solutions to deliver customer value quickly."
+        - "Mentorship - {name} actively levels up less-experienced members of {pronouns[1]} team by helping them with their craft, providing guidance, and setting a good example."
     results:
       impact:
-        - "{name} delivers high-impact features that drive business outcomes."
+        - "{name} delivers some of {pronouns[1]} team’s goals on time and with a high standard of quality."
+        - "{name} understands {pronouns[1]} customers, the business’s goals and {pronouns[1]} team’s goals. {name} ensures {pronouns[1]} work will have the greatest customer impact."
+        - "{name} can identify when {pronouns[1]} results aren’t moving the needle for our business/team goals or serving the needs of customers in a meaningful way and works with {pronouns[1]} manager to redirect {pronouns[1]} focus."
+        - "{name} gets work to a simple place by focusing on the heart of the problem and prioritizing the right things."
       ownership:
-        - "{name} owns critical components and ensures their reliability."
+        - "{name} proactively identifies new opportunities and advocates for and implements improvements to the current state of projects."
+        - "{name} takes responsibility for {pronouns[1]} decisions and mistakes on {pronouns[1]} project and takes action to prevent them in the future. {name} embraces and shares the learnings with others."
+        - "When {name} encounters barriers, {name} unblocks {pronouns[1]}self and {pronouns[1]} team by proactively assessing and eliminating the root cause."
+        - "{name} responds with urgency to operational issues (e.g., SEVs), owning resolution within {pronouns[1]} sphere of responsibility."
+        - "{name} actively seeks out and eliminates sources of toil on the team and helps reduce the impact of KTLO and SEVs."
+        - "{name} is unafraid of declaring a SEV when needed."
+        - "{name} proactively creates and updates playbooks for components {name} owns."
       decision making:
-        - "{name} makes sound technical decisions independently."
+        - "{name} makes informed decisions by consulting the right stakeholders and balancing details with the big picture. {name} executes against the spirit, and not just the letter, of the requirements."
+        - "{name} understands the implications of {pronouns[1]} decisions and adjusts {pronouns[1]} approach based on the impact and risk in the short and long-term."
+        - "{name} makes timely decisions and doesn’t cut corners that would compromise {pronouns[1]} customer’s trust."
+        - "When possible {name} leverages customer insights/data to inform decisions, balancing value for the customer with other business goals."
+        - "{name} escalates to {pronouns[1]} manager when {name} needs help with a decision about {pronouns[1]} deliverables or priorities."
     direction:
       agility:
-        - "{name} leads teams through change and ambiguity."
+        - "{name} embraces change and adapts quickly to it."
+        - "{name} remains resilient through change by staying calm under pressure and taking care of {pronouns[1]} well-being."
+        - "{name} navigates ambiguity by focusing on the greater purpose, goals, and desired impact to move forward one step at a time."
       innovation:
-        - "{name} introduces new technologies and practices."
+        - "{name} asks questions and contributes to new ideas/approaches."
+        - "{name} has a growth mindset and is comfortable experimenting with new approaches, learning, owning the outcomes, and sharing what {name} learned."
+        - "{name} works with {pronouns[1]} manager to find new ways of utilizing customer feedback to influence our teams' plans."
       strategy:
-        - "{name} shapes team and org technical strategy."
+        - "{name} works collaboratively with {pronouns[1]} manager to set realistic and ambitious short-term goals to deliver customer value quickly and break these goals down into smaller projects for {pronouns[1]} team or {pronouns[1]}self."
+        - "{name} executes the development roadmap for multi-phase projects, possibly as a project lead."
     talent:
       personal growth:
-        - "{name} proactively develops {pronouns[1]} skills and career."
+        - "{name} proactively asks for feedback from {pronouns[1]} manager, team, and cross-functional stakeholders and identifies ways to act upon it."
+        - "{name} has self-awareness about {pronouns[1]} strengths and works on {pronouns[1]} development areas."
+        - "{name} connects with others with empathy and understanding."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, Dropbox-offered training, leveraging perks allowance etc.)."
       team development:
-        - "{name} mentors and develops engineers across teams."
+        - "{name} models integrity and a high standard of excellence for {pronouns[1]} work. {name} leverages this to influence and establish best practices."
+        - "{name} supports the growth of {pronouns[1]} teammates by taking into account their unique skills, strengths, backgrounds and working styles."
+        - "{name} actively looks for opportunities to mentor new hires, interns and apprentices."
+        - "{name} solicits and offers honest and constructive feedback that is delivered with empathy to help others learn and grow."
+        - "{name} actively contributes to interviewing and assessing candidates to help us build a diverse and talented team by conducting more advanced domain-specific and leveling interviews."
+        - "{name} is able to represent {pronouns[1]} team’s initiatives and goals to candidates in a compelling way."
     culture:
       collaboration:
-        - "{name} drives a culture of collaboration and inclusion."
-      company values:
-        - "{name} champions Dropbox values and positive culture."
+        - "{name} builds relationships across teams and helps get to positive outcomes."
+        - "{name} engages in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
+        - "{name} proactively communicates and coordinates {pronouns[1]} team’s requirements with other groups and teams in engineering."
+        - "{name} is capable of working with cross-functional stakeholders to identify technical blindspots and clarify ambiguity in their ideas."
+        - "{name} avoids blame and solves the right problems, disagreeing and committing when necessary to move decisions forward."
+        - "{name} promotes and role models Dropbox core values."
+      organizational health:
+        - "{name} contributes to a positive sense of community on the team (e.g. engage in team lunches, team offsites, and other group activities, help with new-hire on-boarding)."
+        - "{name} listens to different perspectives and cuts biases from {pronouns[1]} words and actions."
+        - "{name} helps foster effective communication across the team and promotes inclusive meeting culture."
+        - "{name} practices the Dropbox Diversity Commitments on a regular basis."
+        - "{name} champions good Virtual First practices that help {pronouns[1]} team collaborate effectively."
+        - "{name} helps shape the Dropbox engineering culture through {pronouns[1]} involvement with activities outside of {pronouns[1]} team (e.g. presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek)."
+      communication:
+        - "{name} tailors {pronouns[1]} message to {pronouns[1]} audience, presenting it clearly and concisely at the right altitude."
+        - "{name} proactively shares information so {pronouns[1]} manager, team, and stakeholders are informed and aligned."
+        - "{name} sets the right expectation with {pronouns[1]} manager to balance {pronouns[1]} work and mentorship requirements."
+        - "If there is a significant issue not being addressed, {name} initiates a crucial conversation even when uncomfortable."
     craft:
-      technical skills:
-        - "{name} is recognized as an expert in software engineering."
-      best practices:
-        - "{name} sets and enforces engineering standards."
-      domain knowledge:
-        - "{name} is a key resource for product and technical domain knowledge."
+      code fluency:
+        - "{name} writes code that captures the essential nature of the solution and is appropriately flexible, reusable, efficient, and adaptable to changing requirements."
+        - "{name} ensures high code quality in code reviews. {name} adopts approaches (e.g., sets up best practices and coding standards, helps resolve differences of opinions) to foster an effective/collaborative code review culture."
+        - "{name} has a strong awareness of the ecosystem of tools and libraries supporting {pronouns[1]} primary programming language and development environment and a strong grasp of the idioms and patterns of {pronouns[1]} language. {name} may be intimately familiar with the open source community surrounding it."
+        - "{name} builds tools and produces technical documentation to improve developer efficiency and drive alignment within {pronouns[1]} team."
+        - "{name} looks for ways to reduce future toil and tech debt for existing components {pronouns[1]} team owns."
+      software design:
+        - "{name} is able to independently design software components in well scoped scenarios, with simplicity and maintenance as key considerations. {pronouns[1].capitalize()} components are testable, debuggable and have logical APIs that are not easily misused."
+        - "{name} knows when to make significant refactors and when it’s better to leave things as-is."
+        - "{name} has a strong grasp of the libraries, platforms, and systems that {name} relies on, allowing {pronouns[1]} to apply them expertly."
+      architecture design:
+        - "{name} understands how components fit into the overall system architecture and can identify and address design tradeoffs."
+        - "{name} participates in and sometimes leads architecture discussions for projects within {pronouns[1]} team."
+        - "{name} applies architectural patterns appropriately and documents design decisions."
+      business acumen:
+        - "{name} engages in listening sessions (All Hands, Quarterly Business Updates, etc.) to increase {pronouns[1]} learning and guide {pronouns[1]} work/priorities."
+        - "{name} has a working knowledge of org/team structure and how teams work together across the org, and is able to independently work with partner engineering teams to unblock code reviews, and engineering designs"
 
   tech lead:      # IC4
     overview:
       scope:
-        - "{name} leads cross-team initiatives and complex projects."
-        - "{name} defines technical direction for teams or domains."
+        - "{name} owns and delivers semi-annual/annual goals for {pronouns[1]} team."
+        - "{name} is an expert at identifying the right solutions to solve ambiguous, open-ended problems that require tough prioritization."
+        - "{name} defines technical solutions or efficient operational processes that level up {pronouns[1]} team."
       collaborative reach:
-        - "{name} builds alignment across engineering and product teams."
+        - "{name} is a strong leader for {pronouns[1]} team, with impact beginning to extend outside {pronouns[1]} team."
+        - "{name} optimizes beyond just {pronouns[1]} team by driving cross-team or cross-discipline initiatives."
       impact levers:
-        - "{name} drives organizational technical improvements."
+        - "Technical Strategy – {name} plays a key role in setting medium-to-long term strategy for business-impacting projects."
+        - "Project Leadership – {name} autonomously defines and delivers technical roadmaps of larger projects, often involving cross-team dependencies."
+        - "Product Expertise – {name} keeps customer needs in mind and leverages input from product stakeholders to determine the right technical solutions."
+        - "Mentorship – {name} levels up less-experienced members of {pronouns[1]} team by providing guidance and setting a good example."
     results:
       impact:
-        - "{name} delivers results at org or company scale."
+        - "{name} delivers many of {pronouns[1]} team’s goals on time and with a high standard of quality."
+        - "{name} uses business context and team goals to maximize customer impact and make independent technical decisions in the face of open-ended requirements."
+        - "{name} identifies when results aren’t moving the needle for business/team goals or serving customer needs, and works with {pronouns[1]} manager to redirect focus."
+        - "{name} gets work to a simple place by focusing on the heart of the problem and prioritizing the right things."
+        - "{name} improves how {pronouns[1]} team measures and communicates customer impact."
       ownership:
-        - "{name} ensures reliability and scalability of critical systems."
+        - "{name} proactively identifies new opportunities and advocates for and implements improvements to the current state of projects, potentially having broader business impact across teams or products."
+        - "{name} takes responsibility for decisions and mistakes on projects and takes action to prevent them in the future, sharing learnings with others."
+        - "When encountering barriers, {name} unblocks {pronouns[1]}self and {pronouns[1]} team by proactively assessing and eliminating root causes and focusing on solutions."
+        - "{name} responds with urgency, and drives urgency in {pronouns[1]} team to operational issues (e.g., SEVs), owning resolution within {pronouns[1]} sphere of responsibility."
+        - "{name} actively seeks out and eliminates sources of toil on the team and helps reduce the impact of KTLO and SEVs."
+        - "{name} is unafraid of declaring a SEV when needed."
+        - "{name} proactively creates and/or updates playbooks for components {pronouns[1]} owns."
       decision making:
-        - "{name} makes strategic technical decisions that impact multiple teams."
+        - "{name} makes informed decisions by having productive debate with the right stakeholders, seeking diverse perspectives, balancing details with the big picture, and optimizing for the company."
+        - "{name} understands the implications of decisions and adjusts approach based on impact and risk (e.g. choosing a more iterative approach based on the degree of uncertainty with respect to product fit, while maintaining a view of the long term arc needed to accomplish business goals)."
+        - "{name} leverages insights about customers to inform decisions, balancing value for the customer with other business goals."
+        - "{name} makes timely decisions and doesn’t cut corners that would compromise customer trust."
     direction:
       agility:
-        - "{name} leads organizations through change and transformation."
+        - "{name} embraces change and adapts quickly to it."
+        - "{name} remains resilient through change by staying calm under pressure and taking care of {pronouns[1]} well-being."
+        - "{name} navigates ambiguity by focusing on the greater purpose, goals, and desired impact to move forward one step at a time."
       innovation:
-        - "{name} fosters a culture of innovation and experimentation."
+        - "{name} has a growth mindset and is comfortable experimenting with new approaches, learning, owning the outcomes, and sharing what {pronouns[1]} learned."
+        - "{name} sets audacious goals, takes risks, and shares lessons learned."
+        - "{name} pushes boundaries using industry best practices and customer feedback to implement strategies that drive products, tools, or services forward."
       strategy:
-        - "{name} defines and communicates technical vision."
+        - "{name} defines the technical roadmap for impactful multi-phase projects, refining it as projects progress to deliver customer value quickly, and provides leadership for the people executing on the project."
+        - "In partnership with {pronouns[1]} manager, {name} defines team priorities and secures buy-in by engaging stakeholders and aligning with company priorities and customer needs."
+        - "{name} generates excitement for {pronouns[1]}/{pronouns[1]} team's strategy."
     talent:
       personal growth:
-        - "{name} is a continuous learner and models growth mindset."
+        - "{name} proactively asks for feedback from {pronouns[1]} manager, team, and cross-functional stakeholders. {name} knows {pronouns[1]} strengths and identifies ways to take action on development areas."
+        - "{name} has self-awareness and connects with others with empathy."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow (e.g., PGP, Dropbox-offered training, leveraging perks allowance, etc.)."
       team development:
-        - "{name} develops and coaches senior engineers and tech leads."
+        - "{name} models integrity and a high standard of excellence for {pronouns[1]} work, setting and holding the bar for quality and best practices for {pronouns[1]} team (e.g. via code and design reviews)."
+        - "{name} identifies and supports areas of growth for teammates that take into account their unique skills, strengths, backgrounds and working styles."
+        - "{name} solicits and offers honest, constructive, direct, and actionable feedback delivered with empathy to help others learn and grow into the next level."
+        - "{name} actively contributes to interviewing, gains the trust of candidates, and can represent Dropbox's mission, strategy, and culture throughout the interview process."
+        - "{name} is able to represent {pronouns[1]} team’s technical challenges to potential candidates in a compelling way (e.g. 1:1 sell chats, blog posts, public speaking)."
     culture:
       collaboration:
-        - "{name} builds strong relationships across the company."
-      company values:
-        - "{name} is a culture carrier and inspires others."
+        - "{name} promotes and role models Dropbox core values, leading by example."
+        - "{name} builds relationships and drives coordination across teams & disciplines, helping get to positive outcomes."
+        - "{name} proactively communicates and coordinates {pronouns[1]} team’s requirements with other groups and teams in engineering."
+        - "{name} is effective at working with cross-functional stakeholders to identify technical blindspots and clarify ambiguity in their ideas."
+        - "{name} engages in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
+        - "{name} avoids blame and solves the right problems, disagreeing and committing when necessary to move decisions forward."
+      organizational health:
+        - "Working with {pronouns[1]} manager, {name} leverages the unique strengths and skills of team members and helps identify talent gaps required for team success."
+        - "{name} enables others to bring their authentic selves at work and contributes to building community at Dropbox."
+        - "{name} ensures diverse perspectives are included, leveraging inclusive meeting practices."
+        - "{name} practices the Dropbox Diversity Commitments regularly."
+        - "{name} champions good virtual first practices that help {pronouns[1]} team collaborate effectively."
+        - "{name} helps shape Dropbox engineering culture through involvement with activities outside of {pronouns[1]} team (e.g. presenting tech talks, participating in Eng RFCs, creating interview questions, planning hackweek)."
+      communication:
+        - "{name} communicates with clarity, brevity, focus, and tailors {pronouns[1]} message to the audience, presenting it at the right altitude."
+        - "{name} proactively shares information so the relevant stakeholders are informed and aligned."
+        - "{name} seeks to listen and understand others."
+        - "{name} is effective in holding crucial conversations even when uncomfortable."
+        - "{name} influences stakeholders across a variety of audiences."
+      culture leader:
+        - "{name} acts as a partner to {pronouns[1]} manager in setting the cultural tone for the team, supporting an environment of psychological safety where all Dropboxers are included and heard."
+        - "{name} helps {pronouns[1]} team network and build relationships across Dropbox, creating connection and inclusion across teams."
     craft:
-      technical skills:
-        - "{name} is a technical authority in architecture and system design."
-      best practices:
-        - "{name} drives adoption of engineering best practices across the org."
-      domain knowledge:
-        - "{name} shapes technical domains at Dropbox and beyond."
+      code fluency:
+        - "The expectations for IC3 code fluency are still applicable here (though some specialist engineers may go deep in this area)."
+        - "{name} looks for ways to simplify code and infrastructure, prioritizing tasks that lead to lower system and infrastructure maintenance and migration costs with meaningful and measurable impact."
+        - "{name} finds ways to improve developer efficiency as measured by cycle time, ramp-up time, or other similar measurements."
+        - "{name} preemptively identifies and resolves technical risks before they jeopardize the project, and resolves cross-team dependencies early to ensure successful execution."
+        - "{name} avoids re-inventing the wheel by leveraging other Dropbox or off-the-shelf solutions, writing libraries and modules that can be extended and adopted by other teams."
+      software design:
+        - "{name} is responsible for designing the software or systems required in {pronouns[1]} area of ownership and ensuring that they meet their design objectives."
+        - "{name} gives quality feedback on designs written by other team members, asking probing, insightful questions that solidify choices and surface erroneous assumptions."
+        - "{name} effectively and quickly debugs cross-module issues, and may intuit where bugs might lie due to deep knowledge of the libraries, platforms, and systems that {pronouns[1]} software relies on."
+      architecture design:
+        - "{name} creates coherent designs with multiple components interacting across API or system boundaries, avoiding bugs at the boundaries due to mismatches in expectations."
+        - "{name} reliably rolls out components or major features (and deprecates existing systems or features), ensuring appropriate monitoring, paging, and failure domains are understood and characterized before large scale rollout."
+        - "{name} avoids introducing toil and future maintenance work by proactively avoiding scaling issues and providing adequate documentation."
+        - "{name} designs clear success metrics and achieves those metrics consistently post-launch through the lifetime of the system or feature."
+      technical strategy:
+        - "{name} is responsible for alignment of the software and systems in {pronouns[1]} team to overall technical strategy, making tradeoffs where appropriate in consultation with staff engineers."
+      business acumen:
+        - "{name} engages in listening sessions (All Hands, Quarterly Business Updates, etc.) to increase {pronouns[1]} learning and guide {pronouns[1]} work/priorities."
+        - "{name} has a working knowledge of Dropbox’s org/team structure and how teams work together across Dropbox, and is able to help {pronouns[1]} team collaborate effectively with other teams across the org."
 
   principal:      # IC5
     overview:
       scope:
-        - "{name} sets technical direction for the company or industry."
-        - "{name} leads and influences at the highest levels."
+        - "{name} delivers multi-year, multi-team product or platform goals, setting the technical strategy for large areas of Dropbox."
+        - "{name} exhibits a very high standard of technical judgement, innovation, and execution to tackle open-ended problems that require difficult prioritization, defining both the what and how of things to be done."
       collaborative reach:
-        - "{name} connects teams, organizations, and external partners."
+        - "{name} influences the roadmaps of other Dropbox teams to achieve business-impacting goals."
+        - "{name} exercises judgement that favors the priorities of the wider engineering org rather than favoring locally optimal outcomes."
       impact levers:
-        - "{name} is recognized as an industry leader."
+        - "{name} demonstrates domain expertise, bringing unique business value through deep knowledge of a particular platform or product category."
+        - "{name} defines the vision for and delivers large business-impacting projects with multiple constraints."
+        - "{name} influences or makes product decisions and determines the right technical tradeoffs to deliver customer value quickly."
+        - "{name} serves as a role model and mentor for other Dropbox engineers."
     results:
       impact:
-        - "{name} drives transformative results at company or industry scale."
+        - "{name} identifies and executes on opportunities that have area/group-wide impact."
+        - "{name} executes large projects to a very high standard, whether against tight deadlines, high ambiguity, or raising the quality bar."
+        - "{name} proactively accounts for risks, monitors their likelihood, and plans for new capabilities necessary to deliver large-scale business impact."
+        - "{name} helps refocus the team's efforts when projects are off-course or not moving the needle for business/team goals or customers."
+        - "{name} delivers net-new ways for the team/org to measure and communicate customer impact."
       ownership:
-        - "{name} is accountable for the reliability and success of Dropbox's most critical systems."
+        - "{name} creates alignment across the engineering org/company to improve outcomes for customers."
+        - "{name} owns {pronouns[1]} decisions and mistakes and takes action to prevent similar mistakes in the future, sharing learnings with others."
+        - "{name} unblocks teams by assessing and eliminating the root cause of barriers, including recommending process and scale improvements."
       decision making:
-        - "{name} makes decisions that shape the future of Dropbox and the industry."
+        - "{name} uses a holistic view of the engineering org, customer insights, and Dropbox’s goals to make decisions optimized for the wider org, not just local projects."
+        - "{name} acts thoughtfully and decisively in critical situations, leads decision-making even when making unpopular decisions, and seeks diverse perspectives."
+        - "{name} is able to reach the right decision despite conflicting perspectives, disagreeing and committing when necessary."
     direction:
       agility:
-        - "{name} anticipates and leads through industry changes."
+        - "{name} remains resilient through change by staying calm under pressure and taking care of {pronouns[1]} well-being."
+        - "{name} navigates ambiguity by focusing on the greater purpose, goals, and desired impact to move forward one step at a time."
       innovation:
-        - "{name} pioneers new approaches and technologies."
-      strategy:
-        - "{name} defines and evolves company-wide technical strategy."
+        - "{name} pushes boundaries by leveraging industry best practices and customer feedback to generate and implement breakthrough ideas that create new products or advance existing products."
+        - "{name} creates psychological safety and encourages a growth mindset, supporting experimentation and iteration towards audacious goals."
+      strategy and change management:
+        - "{name} helps introduce change into the organization, helps others understand the business case for change, and creates excitement to drive adoption."
+        - "{name} defines long-term strategy for the team that factors in company-wide priorities, customer needs, and technical limitations and possibilities."
+        - "{name} anticipates challenges and influences the technical direction of the team or org to execute on that vision even in the face of potential significant misalignment."
+        - "{name} finds new and creative ways of leveraging customer insights and including customer voices to influence strategy."
     talent:
       personal growth:
-        - "{name} is a lifelong learner and inspires others to grow."
+        - "{name} proactively asks for feedback and identifies ways to act upon it."
+        - "{name} has self-awareness about strengths and development areas, and takes actions to grow."
+        - "{name} connects with others with empathy and understanding."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn and grow."
       team development:
-        - "{name} mentors and develops leaders across the company."
+        - "{name} is a role model for other Dropboxers and models a standard of excellence that supports a culture of high performance."
+        - "{name} invests time to coach and mentor teammates, especially those looking to grow into L4/L5, and provides thoughtful, constructive feedback."
+        - "{name} spreads knowledge widely via talks, blog posts, or written documentation."
+        - "{name} participates in hiring and calibration processes for senior candidates and managers, and represents Dropbox's mission, strategy, and culture."
+        - "{name} is an effective partner to {pronouns[1]} manager and can represent the team’s technical challenges to candidates in an exciting way."
     culture:
       collaboration:
-        - "{name} is a connector and catalyst for collaboration."
-      company values:
-        - "{name} embodies and evolves Dropbox values."
+        - "{name} promotes and role models Dropbox core values, leading by example."
+        - "{name} helps break down silos within and across functions, influencing others to reach the best outcome for Dropbox."
+        - "{name} builds deep cross-functional relationships, facilitates the right conversations, and settles disagreements by managing different viewpoints."
+        - "{name} engages in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
+        - "{name} balances multiple perspectives and disagrees and commits when necessary to move key company decisions and priorities forward."
+      organizational health:
+        - "{name} leverages the unique strengths & skills of team members and helps identify talent gaps required for team success."
+        - "{name} champions community building efforts and inclusion initiatives, partnering with management to ensure a healthy engineering org."
+        - "{name} practices Dropbox Diversity Commitments regularly."
+        - "{name} builds relationships and uses inclusive meeting practices to support an inclusive environment for all Dropboxers."
+      communication:
+        - "{name} tailors messages to the audience, presenting clearly and concisely at the right altitude."
+        - "{name} writes crisp narratives to create understanding, influence others, and enable effective decision-making."
+        - "{name} fine-tunes approaches to getting buy-in and influencing stakeholders across a variety of audiences."
+        - "{name} leads by example by holding crucial conversations, even when uncomfortable."
+        - "{name} seeks to listen and understand others."
+      culture leader:
+        - "{name} partners with {pronouns[1]} manager in setting the cultural tone for the team, creating an inclusive environment of psychological safety."
+        - "{name} is aware of {pronouns[1]} public presence and actions and their influence on people and Dropbox’s culture."
+        - "{name} helps the team network and build relationships across Dropbox, creating connection and inclusion."
+        - "{name} personifies Dropbox core values and supports the community."
+        - "{name} points out when actions or decisions contradict Dropbox values and suggests alternatives more aligned with our values."
     craft:
-      technical skills:
-        - "{name} is an industry-recognized expert in software engineering."
-      best practices:
-        - "{name} sets the standard for engineering excellence."
-      domain knowledge:
-        - "{name} is a thought leader in the software industry."
+      code fluency:
+        - "The expectations for code fluency do not go beyond L4, though some specialist engineers may go deep in this area."
+      software design:
+        - "{name} designs software components that are difficult to misuse and flexible for adjacent use cases as appropriate to the direction of the business."
+        - "{name} reduces complex designs and concepts to simple foundational components through correct choices of data structures, algorithms, or other deep insight into the problem space, and creates simple interfaces to complex underlying systems."
+        - "{name} reviews designs in related areas with high quality and ensures quality for cross-team cross-module design/API issues."
+        - "{name} may have deep expertise in implementation or principles behind libraries, platforms, and systems relevant to the team's work."
+      architecture design:
+        - "{name} makes correct technology choices for components needed as part of a larger architecture, including build vs buy choices and choosing frameworks."
+        - "{name} owns the overall health and engineering quality of a system or collection of features, driving health reviews and ensuring maintainability."
+        - "{name} drives overall testing strategy of significant systems with high reliability or quality requirements."
+        - "{name} designs systems with significant ambiguity and/or many dependent systems."
+      technical strategy:
+        - "{name} is accountable for alignment of the software and systems in {pronouns[1]} area to overall technical strategy, making tradeoffs where appropriate in consultation with principal engineers."
+      business acumen:
+        - "{name} leverages fluency in Dropbox’s business, products, customers, and strategy to identify opportunities for the team to help Dropbox meet its business objectives."
+        - "{name} can explain how Dropbox’s strategy and business priorities inform and guide {pronouns[1]} and the team’s priorities."
 
-  distinguished:  # IC6 (if Dropbox uses this level)
+  principal:  # IC6 Principal Software Engineer
     overview:
       scope:
-        - "{name} shapes the technical direction of the industry."
-        - "{name} is recognized globally for technical leadership."
+        - "{name} owns and delivers org/company-wide multi-year, multi-team goals."
+        - "{name} takes a multi-year, industry-leading perspective, ensuring our products adapt to scale, usage, and/or business needs well beyond Dropbox’s current scope."
       collaborative reach:
-        - "{name} forges partnerships across and outside the company."
+        - "{name} typically influences the technical strategy of a group, partnering closely with Directors and senior leadership to ensure the health of EPD as a whole and influence the overall direction."
+        - "{name} transcends organizational boundaries and proactively identifies the best ways to leverage {pronouns[1]}self."
       impact levers:
-        - "{name} sets new standards for engineering excellence."
+        - "Domain Expertise – {name} demonstrates a high level of depth in a particular platform or product category that brings unique business value."
+        - "Technical Strategy – {name} aligns the technical strategy for several projects in {pronouns[1]} group to broader initiatives across EPD."
+        - "Product Expertise – {name} consistently influences product decisions and determines the right technical tradeoffs to deliver customer value quickly with high quality."
+        - "Innovation – {name} partners with cross-functional stakeholders to identify major new business opportunities unlocked by technical capabilities."
     results:
       impact:
-        - "{name} drives innovation at a global scale."
+        - "{name} identifies and executes on significant group/company-wide opportunities by understanding how technical capabilities meet customer needs."
+        - "{name} executes large projects to a very high standard, whether against a tight deadline with significant consequences of failure, in a manner that allows rapid learning to clarify significant ambiguity, or to a standard of quality well exceeding that of the current system."
+        - "{name} proactively identifies and helps to refocus the team’s efforts when projects are off-course or not technically feasible and results aren’t moving the needle for business/team goals or serving the needs of customers in a meaningful way."
+        - "{name} knows which levers to pull to drive meaningful results and understands the wider, cross-functional implications of {pronouns[1]} work."
+        - "{name} delivers net-new ways for the team/org to measure and communicate customer impact."
       ownership:
-        - "{name} is responsible for the most critical and strategic systems."
+        - "{name} has a sense of responsibility and obligation to act on opportunities and create alignment across the engineering org/company to improve outcomes for customers."
+        - "{name} owns {pronouns[1]} decisions and mistakes and takes action to prevent similar mistakes in the future, sharing the learnings with others."
+        - "When {name} or the team encounters barriers, {name} unblocks them by assessing and eliminating the root cause, including recommending process and scale improvements."
+        - "{name} transcends organizational boundaries by taking a holistic view of the group’s goals and taking responsibility across the group, not just within immediate scope."
       decision making:
-        - "{name} makes decisions that influence the entire industry."
+        - "{name} has a holistic view of the engineering org, customer insights, and Dropbox’s goals, and uses experience and judgment to make decisions optimized for the wider org, not just the local project."
+        - "{name} acts thoughtfully and decisively in critical situations, seeking diverse perspectives, encouraging productive debate with the right stakeholders, and leading decision-making even when making unpopular decisions."
+        - "{name} is able to reach the right decision despite conflicting perspectives, disagreeing and committing when necessary."
     direction:
       agility:
-        - "{name} leads through paradigm shifts and industry changes."
+        - "When necessary, {name} is able to introduce change into the organization, help others understand the business case for change, and create excitement to drive adoption."
+        - "{name} remains resilient through change by staying calm under pressure and taking care of {pronouns[1]} well-being."
       innovation:
-        - "{name} invents and evangelizes new technologies."
+        - "{name} pushes boundaries to generate and implement breakthrough ideas that drive products and tools forward."
+        - "{name} demonstrates creativity by finding simple, generalizable solutions that unblock new technical or business opportunities in unexpected ways."
+        - "{name} creates psychological safety and encourages a growth mindset with colleagues, supporting experimentation and iteration towards audacious goals."
       strategy:
-        - "{name} defines long-term technical vision for the industry."
+        - "{name} partners with Directors and senior leadership to define long-term strategy for the group, factoring in deep understanding of customers, business, market, and technical limitations/possibilities."
+        - "{name} anticipates challenges and is able to influence the technical direction of the team or org to execute on that vision even in the face of significant misalignment."
+        - "{name} finds new and creative ways of leveraging customer insights and including customer voices to influence strategy."
     talent:
       personal growth:
-        - "{name} is a role model for continuous learning."
+        - "{name} proactively asks for feedback from those {name} works with and identifies ways to act upon it."
+        - "{name} has self-awareness about {pronouns[1]} strengths and takes actions on development areas."
+        - "{name} connects with others with empathy and understanding."
+        - "{name} seeks out opportunities to learn and grow (e.g., external thought leadership, Dropbox-offered training, leveraging perks allowance)."
       team development:
-        - "{name} mentors and inspires the next generation of technical leaders."
+        - "{name} models a standard of excellence that supports a culture of high performance on the team, drives EPD-wide processes, and defines the bar for engineering-wide quality and best practices."
+        - "{name} invests time to coach and mentor teammates (especially those looking to grow into L5/L6), taking into account their skills, backgrounds, and working styles, and providing thoughtful, constructive feedback."
+        - "{name} devotes time to spreading knowledge widely via talks, blog posts, or documentation."
+        - "If requested, {name} participates in calibration sessions by providing meaningful feedback to ensure fair and consistent decisions."
+        - "{name} is an active participant in the hiring process for senior candidates and managers (e.g., hiring committee, debriefs)."
+        - "{name} attracts talent for a variety of roles with diversity of background and location in mind."
+        - "{name} gains the trust of candidates and can represent Dropbox's mission, strategy, and culture throughout the interview process."
+        - "{name} is an effective partner to {pronouns[1]} manager and can represent the group's technical challenges to candidates in an exciting way (e.g., 1:1 selling, blog posts, public speaking)."
     culture:
       collaboration:
-        - "{name} is a global ambassador for collaboration and values."
-      company values:
-        - "{name} defines and evolves company and industry values."
+        - "{name} promotes and role models Dropbox core values, leading by example."
+        - "{name} helps break down silos within and across functions and influences others to reach the best outcome for Dropbox."
+        - "{name} builds deep cross-functional relationships, facilitates the right conversations, and settles disagreements by managing different viewpoints."
+        - "{name} engages in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
+        - "{name} balances multiple perspectives and disagrees and commits when necessary to move key company decisions and priorities forward."
+      organizational health:
+        - "{name} leverages the unique strengths and skills of team members and helps identify talent gaps required for team success."
+        - "{name} champions community building efforts and inclusion initiatives, working in close partnership with senior leadership to ensure a healthy engineering org."
+        - "{name} practices the Dropbox Diversity Commitments on a regular basis."
+        - "{name} builds relationships and uses inclusive meeting practices to support an inclusive environment for all Dropboxers."
+      communication:
+        - "{name} develops compelling, clear, and focused messages, and effectively presents them at the executive level."
+        - "If asked, {name} writes crisp narratives to create understanding, influence others, and enable effective decision-making."
+        - "{name} fine-tunes approaches to getting buy-in and influencing stakeholders across a variety of audiences."
+        - "{name} leads by example by holding crucial conversations, even when uncomfortable."
+        - "{name} seeks to listen and understand others."
+      culture leader:
+        - "{name} acts as a partner to managers in setting the cultural tone for the engineering org, helping create an inclusive environment of psychological safety to support connection, empathy, and productive conflict where dissenting and diverse opinions are valued."
+        - "{name} leads by example, is aware of {pronouns[1]} public presence and actions, and understands {pronouns[1]} influence on people and Dropbox’s culture."
+        - "{name} helps teams across Dropbox network and build relationships, creating connection and inclusion across orgs."
+        - "{name} personifies Dropbox core values and supports the community."
+        - "{name} points out when actions or decisions contradict Dropbox values and suggests alternatives more aligned with our values."
     craft:
-      technical skills:
-        - "{name} is a world-recognized technical authority."
-      best practices:
-        - "{name} redefines engineering best practices."
-      domain knowledge:
-        - "{name} is a visionary in software and technology."
+      code fluency:
+        - "The expectations for code fluency do not go beyond L4, though some specialist engineers may go deep in this area."
+      software design:
+        - "The expectations for software design do not go up beyond L5."
+      architecture design:
+        - "{name} can design systems that require research on what is possible rather than relying on past experience, and where a significant portion of the challenge is designing an appropriately staged validation plan."
+        - "{name} defines the high level systems we need to build to meet strategic objectives."
+      technical strategy:
+        - "{name} is responsible for making technical choices that have no one clearly correct answer but whose consequences have a sweeping effect across {pronouns[1]} scope in the organization."
+        - "{name} rallies the organization around those choices by providing a clear rationale and technical vision backing them."
+      business acumen:
+        - "{name} leverages {pronouns[1]} fluency in Dropbox’s business, products, customers, and strategy to identify opportunities where the team can help Dropbox meet its business objectives."
+        - "{name} can effectively communicate Dropbox's company-wide vision, strategy, and objectives and connect {pronouns[1]} and the team's work to them."
