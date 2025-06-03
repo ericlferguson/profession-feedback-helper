@@ -15,13 +15,14 @@ import logging
 from typing import List
 import yaml
 
-# Maps user-friendly levels to Dropbox IC levels
-LEVEL_MAP = {
+# Default LEVEL_MAP for backward compatibility
+DEFAULT_LEVEL_MAP = {
     "junior": "IC1",
     "intermediate": "IC2",
     "senior": "IC3",
     "tech lead": "IC4",
     "principal": "IC5",
+    "distinguished": "IC6",
 }
 
 
@@ -44,10 +45,13 @@ class PerformanceReviewGenerator:
         self.pronouns = pronouns
         self.role = role
         self.level = level.lower()
-        self.valid_levels = list(LEVEL_MAP.keys())
+        # Load role YAML to check for a level_map
+        self.role_data = self.load_role_definition(role)
+        self.level_map = self.role_data.get('level_map', DEFAULT_LEVEL_MAP)
+        self.valid_levels = list(self.level_map.keys())
         if self.level not in self.valid_levels:
             raise ValueError(f"Invalid level '{self.level}'. Must be one of {', '.join(self.valid_levels)}.")
-        self.ic_level = LEVEL_MAP[self.level]
+        self.ic_level = self.level_map[self.level]
         print(f"Level selected: {self.level} (Dropbox {self.ic_level})")
 
         # Load YAML for the role

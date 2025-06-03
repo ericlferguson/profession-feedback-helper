@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, session
-from performance_review_generator import PerformanceReviewGenerator, LEVEL_MAP
+from performance_review_generator import PerformanceReviewGenerator, DEFAULT_LEVEL_MAP
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -17,7 +17,7 @@ def get_available_roles():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     roles = get_available_roles()
-    levels = list(LEVEL_MAP.keys())
+    levels = list(DEFAULT_LEVEL_MAP.keys())
     if request.method == 'POST':
         name = request.form['name']
         pronouns = [request.form['pronoun_subject'], request.form['pronoun_possessive']]
@@ -129,6 +129,28 @@ def chatgpt_results():
     generator.give_feedback()
     generator.get_chatgpt_feedback()
     session['chatgpt_result'] = generator.chatgpt_feedback
+    # LOGGING: Save user input/output to JSONL
+    import json, datetime
+    log_entry = {
+        'timestamp': datetime.datetime.now().isoformat(),
+        'user_info': chatgpt_input,
+        'summary': summary,
+        'chatgpt_result': generator.chatgpt_feedback,
+    }
+    try:
+        os.makedirs('logs', exist_ok=True)
+        # Build a safe filename
+        def safe(s):
+            return ''.join(c if c.isalnum() else '_' for c in s.lower())
+        username = safe(chatgpt_input.get('name', 'anon'))
+        role = safe(chatgpt_input.get('role', 'role'))
+        level = safe(chatgpt_input.get('level', 'level'))
+        timestamp = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+        fname = f'logs/{username}_{role}_{level}_{timestamp}.json'
+        with open(fname, 'w', encoding='utf-8') as f:
+            json.dump(log_entry, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        print(f'Could not write log: {e}')
     return render_template('chatgpt_results.html', chatgpt_result=generator.chatgpt_feedback, summary=summary, all_sections=all_sections)
 
 if __name__ == '__main__':
