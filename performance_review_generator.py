@@ -73,6 +73,8 @@ class PerformanceReviewGenerator:
         self.okay_list = dict()
         self.going_well_list = dict()
         self.feedback_list = dict()
+        # Store section comments
+        self.section_comments = dict()
 
         # Only collect feedback interactively if running as main
         import sys
@@ -85,7 +87,7 @@ class PerformanceReviewGenerator:
                 print(self.chatgpt_feedback)
 
     def collect_feedback_from_user(self):
-        """Collects user feedback for each behavior, with reduced nesting for clarity."""
+        """Collects user feedback for each behavior and section comments."""
         print(
             "Input [0,1,2] for feedback on an item. "
             "0 means does not meet expectations. "
@@ -119,6 +121,12 @@ class PerformanceReviewGenerator:
                         add_to_list(self.okay_list, responsibility, behavior)
                     elif rating == 2:
                         add_to_list(self.going_well_list, responsibility, behavior)
+            
+            # After all behaviors in a section, ask for comments
+            print(f"\nAny additional comments for {responsibility}? (Enter to skip)")
+            comments = input().strip()
+            if comments:
+                self.section_comments[responsibility] = comments
 
     def give_feedback(self):
         feedback = ""
@@ -127,19 +135,19 @@ class PerformanceReviewGenerator:
         for key_responsibility in self.going_well_list:
             feedback += f"\n{key_responsibility}\n"
             for comment in self.going_well_list[key_responsibility]:
-                feedback += f"- {comment}\n"
+                feedback += f"- {comment}"
 
         feedback += "\nMEETS EXPECTATIONS:"
         for key_responsibility in self.okay_list:
             feedback += f"\n{key_responsibility}\n"
             for comment in self.okay_list[key_responsibility]:
-                feedback += f"- {comment}\n"
+                feedback += f"- {comment}"
 
         feedback += "\nGIVE FEEDBACK:"
         for key_responsibility in self.feedback_list:
             feedback += f"\n{key_responsibility}\n"
             for comment in self.feedback_list[key_responsibility]:
-                feedback += f"- {comment}\n"
+                feedback += f"- {comment}"
 
         self.feedback = feedback
 
@@ -222,12 +230,18 @@ class PerformanceReviewGenerator:
         """Formats feedback into sections for output, using helpers for clarity."""
         def format_section(title, section_dict):
             if not section_dict:
-                return f"\n{title}:\n(No feedback)\n"
-            lines = [f"\n{title}:"]
+                return f"{title}:\n(No feedback)"
+            lines = [f"{title}:"]
             for responsibility, comments in section_dict.items():
                 lines.append(f"{responsibility}")
+                # First list all behaviors
                 for comment in comments:
                     lines.append(f"- {comment}")
+                # Then add section comments if they exist, with clear separation
+                if responsibility in self.section_comments:
+                    lines.append(f"Overall comments for {responsibility}:")
+                    lines.append(f"{self.section_comments[responsibility]}")
+                lines.append("")  # Add blank line between sections
             return "\n".join(lines)
 
         feedback = ""

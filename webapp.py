@@ -95,6 +95,8 @@ def feedback():
                 generator.okay_list.setdefault(section, []).append(behavior)
             elif rating == 2:
                 generator.going_well_list.setdefault(section, []).append(behavior)
+        # Set section comments
+        generator.section_comments = comments
         generator.give_feedback()
         # Prepare detailed summary for results
         summary = {
@@ -152,7 +154,7 @@ def chatgpt_results():
     generator.going_well_list = chatgpt_input['going_well']
     generator.okay_list = chatgpt_input['meets']
     generator.feedback_list = chatgpt_input['needs_improvement']
-    generator.comments = chatgpt_input['comments']
+    generator.section_comments = chatgpt_input['comments']  # Fix: use section_comments instead of comments
     generator.give_feedback()
     generator.get_chatgpt_feedback()
     session['chatgpt_result'] = generator.chatgpt_feedback
