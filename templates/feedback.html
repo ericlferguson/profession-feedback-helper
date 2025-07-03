@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <title>Provide Feedback</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script>
+        function fillRandomFeedback() {
+            // Get all unique radio group names
+            const radioGroups = new Set();
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radioGroups.add(radio.name);
+            });
+            
+            // For each group, select a random option
+            radioGroups.forEach(groupName => {
+                const radios = document.getElementsByName(groupName);
+                const randomIndex = Math.floor(Math.random() * 3);
+                radios[randomIndex].checked = true;
+            });
+        }
+    </script>
 </head>
 <body class="bg-light">
 <div class="container mt-5">
@@ -47,7 +63,10 @@
             </div>
         </div>
         {% endfor %}
-        <button type="submit" class="btn btn-success">Submit Feedback</button>
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary me-2" onclick="fillRandomFeedback()">Fill Random Feedback</button>
+            <button type="submit" class="btn btn-success">Submit Feedback</button>
+        </div>
     </form>
 </div>
 </body>
