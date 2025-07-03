@@ -268,6 +268,7 @@ class PerformanceReviewGenerator:
             print(
                 "Please create a file at ~/.open-ai/open-ai-key with your OpenAI API key."
             )
+            self.chatgpt_feedback = "ChatGPT feedback is not available - missing API key. Please add your OpenAI API key to ~/.open-ai/open-ai-key to enable this feature."
             return
         except Exception as e:
             print(f"An error occurred while reading the API key file: {e}")
