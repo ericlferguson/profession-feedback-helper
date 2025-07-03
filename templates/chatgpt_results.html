@@ -11,14 +11,14 @@
       <div class="mb-3">
         <h5 class="mb-1">{{ section|capitalize }}</h5>
         <ul class="mb-1">
-          {% if summary.going_well[section] %}
-          <li><strong>Strengths (Exceeds):</strong> {{ summary.going_well[section]|join('; ') }}</li>
+          {% if summary.exceeds[section] %}
+          <li><strong>Exceeds Expectations:</strong> {{ summary.exceeds[section]|join('; ') }}</li>
           {% endif %}
           {% if summary.meets[section] %}
-          <li><strong>Meets:</strong> {{ summary.meets[section]|join('; ') }}</li>
+          <li><strong>Meets Expectations:</strong> {{ summary.meets[section]|join('; ') }}</li>
           {% endif %}
-          {% if summary.needs_improvement[section] %}
-          <li><strong>Needs Improvement:</strong> {{ summary.needs_improvement[section]|join('; ') }}</li>
+          {% if summary.does_not_meet[section] %}
+          <li><strong>Does Not Meet Expectations:</strong> {{ summary.does_not_meet[section]|join('; ') }}</li>
           {% endif %}
         </ul>
         {% if summary.comments[section] %}

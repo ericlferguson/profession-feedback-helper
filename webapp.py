@@ -85,24 +85,24 @@ def feedback():
         for section in sections:
             comments[section] = request.form.get(f'comment_{section}', '').strip()
         # Fill feedback lists based on ratings
-        generator.okay_list = {}
-        generator.going_well_list = {}
-        generator.feedback_list = {}
+        generator.exceeds_list = {}
+        generator.meets_list = {}
+        generator.does_not_meet_list = {}
         for (section, subsection, behavior), rating in ratings.items():
             if rating == 0:
-                generator.feedback_list.setdefault(section, []).append(behavior)
+                generator.does_not_meet_list.setdefault(section, []).append(behavior)
             elif rating == 1:
-                generator.okay_list.setdefault(section, []).append(behavior)
+                generator.meets_list.setdefault(section, []).append(behavior)
             elif rating == 2:
-                generator.going_well_list.setdefault(section, []).append(behavior)
+                generator.exceeds_list.setdefault(section, []).append(behavior)
         # Set section comments
         generator.section_comments = comments
         generator.give_feedback()
         # Prepare detailed summary for results
         summary = {
-            'going_well': generator.going_well_list,
-            'meets': generator.okay_list,
-            'needs_improvement': generator.feedback_list,
+            'exceeds': generator.exceeds_list,
+            'meets': generator.meets_list,
+            'does_not_meet': generator.does_not_meet_list,
             'comments': comments,
             'user': user_info,
         }
@@ -114,9 +114,9 @@ def feedback():
             pronouns=user_info['pronouns'],
             role=user_info['role'],
             level=user_info['level'],
-            going_well=generator.going_well_list,
-            meets=generator.okay_list,
-            needs_improvement=generator.feedback_list,
+            exceeds=generator.exceeds_list,
+            meets=generator.meets_list,
+            does_not_meet=generator.does_not_meet_list,
             comments=comments,
         )
         return redirect(url_for('chatgpt_results'))
@@ -132,7 +132,7 @@ def chatgpt_results():
     # Compute all unique section names for summary
     all_sections = []
     if summary:
-        all_sections = set(summary['meets'].keys()) | set(summary['going_well'].keys()) | set(summary['needs_improvement'].keys())
+        all_sections = set(summary['meets'].keys()) | set(summary['exceeds'].keys()) | set(summary['does_not_meet'].keys())
         all_sections = sorted(all_sections)
     if chatgpt_result:
         return render_template('chatgpt_results.html', chatgpt_result=chatgpt_result, summary=summary, all_sections=all_sections)
@@ -151,9 +151,9 @@ def chatgpt_results():
         get_chatgpt_feedback=True,
     )
     # Restore feedback lists
-    generator.going_well_list = chatgpt_input['going_well']
-    generator.okay_list = chatgpt_input['meets']
-    generator.feedback_list = chatgpt_input['needs_improvement']
+    generator.exceeds_list = chatgpt_input['exceeds']
+    generator.meets_list = chatgpt_input['meets']
+    generator.does_not_meet_list = chatgpt_input['does_not_meet']
     generator.section_comments = chatgpt_input['comments']  # Fix: use section_comments instead of comments
     generator.give_feedback()
     generator.get_chatgpt_feedback()

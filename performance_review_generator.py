@@ -70,9 +70,9 @@ class PerformanceReviewGenerator:
                     for s in behaviors
                 ]
         
-        self.okay_list = dict()
-        self.going_well_list = dict()
-        self.feedback_list = dict()
+        self.exceeds_list = dict()
+        self.meets_list = dict()
+        self.does_not_meet_list = dict()
         # Store section comments
         self.section_comments = dict()
 
@@ -89,10 +89,10 @@ class PerformanceReviewGenerator:
     def collect_feedback_from_user(self):
         """Collects user feedback for each behavior and section comments."""
         print(
-            "Input [0,1,2] for feedback on an item. "
-            "0 means does not meet expectations. "
-            "1 means meets expectations. "
-            "2 means exceeds expectations."
+            "Input [0,1,2] for rating each behavior:\n"
+            "0: Does not meet expectations\n"
+            "1: Meets expectations\n"
+            "2: Exceeds expectations"
         )
 
         def add_to_list(list_dict, key, value):
@@ -116,11 +116,11 @@ class PerformanceReviewGenerator:
                         except ValueError:
                             continue
                     if rating == 0:
-                        add_to_list(self.feedback_list, responsibility, behavior)
+                        add_to_list(self.does_not_meet_list, responsibility, behavior)
                     elif rating == 1:
-                        add_to_list(self.okay_list, responsibility, behavior)
+                        add_to_list(self.meets_list, responsibility, behavior)
                     elif rating == 2:
-                        add_to_list(self.going_well_list, responsibility, behavior)
+                        add_to_list(self.exceeds_list, responsibility, behavior)
             
             # After all behaviors in a section, ask for comments
             print(f"\nAny additional comments for {responsibility}? (Enter to skip)")
@@ -245,9 +245,9 @@ class PerformanceReviewGenerator:
             return "\n".join(lines)
 
         feedback = ""
-        feedback += format_section("OVER PERFORMING", self.going_well_list)
-        feedback += format_section("MEETS EXPECTATIONS", self.okay_list)
-        feedback += format_section("GIVE FEEDBACK", self.feedback_list)
+        feedback += format_section("EXCEEDS EXPECTATIONS", self.exceeds_list)
+        feedback += format_section("MEETS EXPECTATIONS", self.meets_list)
+        feedback += format_section("DOES NOT MEET EXPECTATIONS", self.does_not_meet_list)
         self.feedback = feedback
 
     def get_chatgpt_feedback(self, model="chatgpt-4o-latest"):
