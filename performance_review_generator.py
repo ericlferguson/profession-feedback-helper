@@ -238,45 +238,31 @@ class PerformanceReviewGenerator:
 
     def get_chatgpt_feedback(self, model="chatgpt-4o-latest"):
         from openai import OpenAI
-        from tenacity import (
-            retry,
-            stop_after_attempt,
-            wait_random_exponential,
-        )  # for exponential backoff
+        from tenacity import retry, stop_after_attempt, wait_random_exponential
         from os.path import expanduser
+
+        def create_error_message(error_type, error_detail=""):
+            """Create a standardized error message with the prompt included."""
+            return f"""ChatGPT feedback is not available - {error_type}{error_detail}.
+
+In the meantime, you can paste this prompt into your favourite LLM in order to get your feedback:
+
+{primer_prompt}"""
 
         @retry(wait=wait_random_exponential(min=1, max=10), stop=stop_after_attempt(3))
         def submit_prompt(client, model, prompt: str, transaction: str):
-            logging.info(f"Submitting prompt...")
-
-            prompt = prompt + transaction
+            logging.info("Submitting prompt...")
             response = client.chat.completions.create(
                 model=model,
                 messages=[
-                    {"role": "system", "content": prompt},
+                    {"role": "system", "content": prompt + transaction},
                     {"role": "user", "content": transaction},
-                ],
+                ]
             )
-
             return response
 
-        # open ai api key from file
-        try:
-            with open(expanduser("~/.open-ai/open-ai-key"), "r") as f:
-                api_key = f.read().strip()
-        except FileNotFoundError:
-            print(
-                "Please create a file at ~/.open-ai/open-ai-key with your OpenAI API key."
-            )
-            self.chatgpt_feedback = "ChatGPT feedback is not available - missing API key. Please add your OpenAI API key to ~/.open-ai/open-ai-key to enable this feature."
-            return
-        except Exception as e:
-            print(f"An error occurred while reading the API key file: {e}")
-            return
-
-        client = OpenAI(api_key=api_key)
-
-        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of \"Scaling People: Tactics for Management and Company Building\", or  Patrick Lencioni author of \"five dysfunctions of a team\". Reply with UK english spelling.
+        # Define the prompt template
+        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of "Scaling People: Tactics for Management and Company Building", or  Patrick Lencioni author of "five dysfunctions of a team". Reply with UK english spelling.
         I am giving writing a performance review for a {self.level} {self.role}. Build me a narrative for {self.name}'s performance review, based on my ratings of {self.pronouns[1]} skills.
         break it into these sections:
         - What are some things they do well?
@@ -284,12 +270,26 @@ class PerformanceReviewGenerator:
         - What are their biggest challenges? 
 
         I have rated their skills on the basis of: going well; meets; and needs improvement.
-        Here is the specific rated skills. Pay note to any additional comments made also. The tone should not be too casual.\n"""
+        Here is the specific rated skills. Pay note to any additional comments made also. The tone should not be too casual.
 
-        self.chatgpt_response = submit_prompt(
-            client, model, primer_prompt, self.feedback
-        )
+{self.feedback}"""
 
+        # Try to read the API key
+        try:
+            with open(expanduser("~/.open-ai/open-ai-key"), "r") as f:
+                api_key = f.read().strip()
+        except FileNotFoundError:
+            print("Please create a file at ~/.open-ai/open-ai-key with your OpenAI API key.")
+            self.chatgpt_feedback = create_error_message("missing API key", " Please add your OpenAI API key to ~/.open-ai/open-ai-key to enable this feature")
+            return
+        except Exception as e:
+            print(f"An error occurred while reading the API key file: {e}")
+            self.chatgpt_feedback = create_error_message("error reading key file", f": {e}")
+            return
+
+        # Create client and submit prompt
+        client = OpenAI(api_key=api_key)
+        self.chatgpt_response = submit_prompt(client, model, primer_prompt, self.feedback)
         self.chatgpt_feedback = self.chatgpt_response.choices[0].message.content
 
 
