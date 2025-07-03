@@ -262,7 +262,7 @@ In the meantime, you can paste this prompt into your favourite LLM in order to g
             return response
 
         # Define the prompt template
-        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of "Scaling People: Tactics for Management and Company Building", or  Patrick Lencioni author of "five dysfunctions of a team". Reply with UK english spelling.
+        primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of "Scaling People: Tactics for Management and Company Building", or  Patrick Lencioni author of "five dysfunctions of a team". Reply with UK english spelling. Avoid hyperbole.
         I am giving writing a performance review for a {self.level} {self.role}. Build me a narrative for {self.name}'s performance review, based on my ratings of {self.pronouns[1]} skills.
         break it into these sections:
         - What are some things they do well?
