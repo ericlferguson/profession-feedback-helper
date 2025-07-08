@@ -303,8 +303,12 @@ In the meantime, you can paste this prompt into your favourite LLM in order to g
 
         # Create client and submit prompt
         client = OpenAI(api_key=api_key)
-        self.chatgpt_response = submit_prompt(client, model, primer_prompt, self.feedback)
-        self.chatgpt_feedback = self.chatgpt_response.choices[0].message.content
+        try:
+            self.chatgpt_response = submit_prompt(client, model, primer_prompt, self.feedback)
+            self.chatgpt_feedback = self.chatgpt_response.choices[0].message.content
+        except Exception as e:
+            print(f"An error occurred while getting ChatGPT feedback: {e}")
+            self.chatgpt_feedback = create_error_message("error getting ChatGPT feedback", f": {e}")
 
 
 def make_feedback():
