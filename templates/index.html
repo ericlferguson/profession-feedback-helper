@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Performance Review Generator</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="bg-light">
 <div class="container mt-5">
@@ -32,15 +33,15 @@
         </div>
         <div class="mb-3">
             <label class="form-label">Role</label>
-            <select class="form-select" name="role" required>
+            <select class="form-select" name="role" id="role-select" required>
                 {% for role in roles %}
-                <option value="{{ role }}">{{ role }}</option>
+                <option value="{{ role }}" {% if role == selected_role %}selected{% endif %}>{{ role }}</option>
                 {% endfor %}
             </select>
         </div>
         <div class="mb-3">
             <label class="form-label">Level</label>
-            <select class="form-select" name="level" required>
+            <select class="form-select" name="level" id="level-select" required>
                 {% for level in levels %}
                 <option value="{{ level }}">{{ level|capitalize }}</option>
                 {% endfor %}
@@ -49,5 +50,15 @@
         <button type="submit" class="btn btn-primary">Start Review</button>
     </form>
 </div>
+<script>
+$(document).ready(function() {
+    // When role dropdown changes, update the level dropdown
+    $('#role-select').change(function() {
+        const selectedRole = $(this).val();
+        // Redirect to the same page with the role parameter
+        window.location.href = '/?role=' + encodeURIComponent(selectedRole);
+    });
+});
+</script>
 </body>
 </html>

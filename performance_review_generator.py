@@ -1,5 +1,5 @@
 DESCRIPTION = """
-    Produces a performance assessment for an machine learning engineer employee using the Dropbox career framework as a scaffold.
+    Produces a performance assessment for machine learning engineers, software engineers and engineering managers using the Dropbox career framework as a scaffold.
     
     Framework is based on this:
     https://dropbox.github.io/dbx-career-framework/
@@ -132,21 +132,21 @@ class PerformanceReviewGenerator:
         feedback = ""
 
         feedback += "\nOVER PERFORMING:"
-        for key_responsibility in self.going_well_list:
+        for key_responsibility in self.exceeds_list:
             feedback += f"\n{key_responsibility}\n"
-            for comment in self.going_well_list[key_responsibility]:
+            for comment in self.exceeds_list[key_responsibility]:
                 feedback += f"- {comment}"
 
         feedback += "\nMEETS EXPECTATIONS:"
-        for key_responsibility in self.okay_list:
+        for key_responsibility in self.meets_list:
             feedback += f"\n{key_responsibility}\n"
-            for comment in self.okay_list[key_responsibility]:
+            for comment in self.meets_list[key_responsibility]:
                 feedback += f"- {comment}"
 
         feedback += "\nGIVE FEEDBACK:"
-        for key_responsibility in self.feedback_list:
+        for key_responsibility in self.does_not_meet_list:
             feedback += f"\n{key_responsibility}\n"
-            for comment in self.feedback_list[key_responsibility]:
+            for comment in self.does_not_meet_list[key_responsibility]:
                 feedback += f"- {comment}"
 
         self.feedback = feedback
@@ -226,29 +226,6 @@ class PerformanceReviewGenerator:
             ]
         return craft
 
-    def give_feedback(self):
-        """Formats feedback into sections for output, using helpers for clarity."""
-        def format_section(title, section_dict):
-            if not section_dict:
-                return f"{title}:\n(No feedback)"
-            lines = [f"{title}:"]
-            for responsibility, comments in section_dict.items():
-                lines.append(f"{responsibility}")
-                # First list all behaviors
-                for comment in comments:
-                    lines.append(f"- {comment}")
-                # Then add section comments if they exist, with clear separation
-                if responsibility in self.section_comments:
-                    lines.append(f"Overall comments for {responsibility}:")
-                    lines.append(f"{self.section_comments[responsibility]}")
-                lines.append("")  # Add blank line between sections
-            return "\n".join(lines)
-
-        feedback = ""
-        feedback += format_section("EXCEEDS EXPECTATIONS", self.exceeds_list)
-        feedback += format_section("MEETS EXPECTATIONS", self.meets_list)
-        feedback += format_section("DOES NOT MEET EXPECTATIONS", self.does_not_meet_list)
-        self.feedback = feedback
 
     def get_chatgpt_feedback(self, model="chatgpt-4o-latest"):
         from openai import OpenAI
@@ -277,14 +254,14 @@ In the meantime, you can paste this prompt into your favourite LLM in order to g
 
         # Define the prompt template
         primer_prompt = f"""I want you to be an engineering manager coach. Someone like Claire Hughes Johnson, author of "Scaling People: Tactics for Management and Company Building", or  Patrick Lencioni author of "five dysfunctions of a team". Reply with UK english spelling. Avoid hyperbole.
-        I am giving writing a performance review for a {self.level} {self.role}. Build me a narrative for {self.name}'s performance review, based on my ratings of {self.pronouns[1]} skills.
-        break it into these sections:
-        - What are some things they do well?
-        - How could they improve?
-        - What are their biggest challenges? 
+I am giving writing a performance review for a {self.level} {self.role}. Build me a narrative for {self.name}'s performance review, based on my ratings of {self.pronouns[1]} skills.
+break it into these sections:
+- What are some things they do well?
+- How could they improve?
+- What are their biggest challenges? 
 
-        I have rated their skills on the basis of: going well; meets; and needs improvement.
-        Here is the specific rated skills. Pay note to any additional comments made also. The tone should not be too casual.
+I have rated their skills on the basis of: exceeds expectations; meets expectations; and does not meet expectations.
+Here is the specific rated skills. Pay note to any additional comments made also. The tone should not be too casual.
 
 {self.feedback}"""
 
@@ -312,14 +289,14 @@ In the meantime, you can paste this prompt into your favourite LLM in order to g
 
 
 def make_feedback():
-    name = "Bob"
-    pronouns = ["he", "his"]
-    level = "senior"
+    name = "Emma"
+    pronouns = ["she", "her"]
+    level = "m3"
 
     feedback = PerformanceReviewGenerator(
         name=name,
         pronouns=pronouns,
-        role="Machine Learning Engineer",
+        role="Engineering Manager",
         level=level,
         get_chatgpt_feedback=True,
     )
@@ -335,7 +312,7 @@ if __name__ == "__main__":
             for responsibility, behaviors_dict in self.responsibilities.items():
                 for behavior_category, behaviors in behaviors_dict.items():
                     for behavior in behaviors:
-                        self.okay_list.setdefault(responsibility, []).append(behavior)
+                        self.meets_list.setdefault(responsibility, []).append(behavior)
 
     def run_test(role, level, name="Test User", pronouns=["they", "their"]):
         print(f"\n=== TEST: {role} ({level}) ===")
@@ -354,6 +331,7 @@ if __name__ == "__main__":
         ("Machine Learning Engineer", "senior", "Bob", ["he", "his"]),
         ("Software Engineer", "junior", "Charlie", ["they", "their"]),
         ("Software Engineer", "principal", "Dana", ["she", "her"]),
+        ("Engineering Manager", "m3", "Emma", ["she", "her"]),
     ]
     for role, level, name, pronouns in tests:
         run_test(role, level, name=name, pronouns=pronouns)
