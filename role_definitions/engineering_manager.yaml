@@ -1,0 +1,118 @@
+# Dropbox Career Framework: Engineering Manager Role Definitions
+# Use {name} and {pronouns[1]} for dynamic substitution (e.g., his/her/their).
+
+# Level mapping for Engineering Managers
+level_map:
+  m3: "M3"
+  m4: "M4" 
+  m5: "M5"
+  m6: "M6"
+  m7: "M7"
+
+# Implementation starts with M3 only
+levels:
+  m3:  # Engineering Manager (M3)
+    overview:
+      scope:
+        - "{name} owns and delivers team-level goals."
+        - "{name} identifies the right solutions to help the team solve ambiguous, open-ended problems."
+      collaborative reach:
+        - "{name} works with {pronouns[1]} direct team and cross-functional partners to drive outcomes."
+      impact levers:
+        - "Team Leadership - {name} leads {pronouns[1]} team to deliver well-scoped milestones and projects."
+        - "People Management - {name} supports the growth and development of {pronouns[1]} team members."
+        - "Operational Excellence - {name} ensures efficient processes and practices are in place for {pronouns[1]} team."
+    results:
+      impact:
+        - "{name} acts with a bias for action, and leads {pronouns[1]} team to deliver high-quality work that adds the most value for our business and customers."
+        - "{name} redirects {pronouns[1]} team's focus if results aren't moving the needle for business/team goals or serving customer needs in a meaningful way."
+        - "{name} gets work to a simple place by focusing on the heart of the problem, prioritizing the right things, and minimizing unnecessary work."
+        - "{name} is responsible for ensuring that results do not come at the expense of long term growth, retention, or psychological safety."
+        - "{name} is ultimately accountable for the consequences of {pronouns[1]} team's technical decisions, and for achieving the right architecture and tradeoffs to reach and maintain high engineering throughput."
+      ownership:
+        - "{name} proactively follows through on {pronouns[1]} commitments and takes responsibility for {pronouns[1]} work, and the work of {pronouns[1]} team."
+        - "{name} thinks a step or two ahead, and helps {pronouns[1]} team solve the right problems before they become bigger problems."
+        - "{name} takes accountability for {pronouns[1]} and {pronouns[1]} team's decisions, mistakes and helps {pronouns[1]} team learn from them to prevent them in the future. {name} embraces and shares the learnings with others."
+        - "{name} escalates appropriately to ensure the team is unblocked, and helps them learn how to unblock themselves."
+        - "{name} involves {pronouns[1]} team in the discussion of 'what to build' and not just the 'how to build', creating a sense of ownership for the end results."
+      decision making:
+        - "{name} identifies and gathers input and customer insights from others to make informed decisions, balancing value for the customer with other business goals."
+        - "{name} makes timely decisions and doesn't cut corners that would compromise {pronouns[1]} customer's trust."
+        - "{name} understands the implications of decisions and adjusts {pronouns[1]} approach based on the impact and risk."
+        - "{name} escalates appropriately when {name} needs help with a decision about {pronouns[1]} team's deliverables or priorities."
+      operational excellence:
+        - "{name} sets team priorities, goals, and expectations at the right altitude and holds {pronouns[1]} team accountable for progress against them."
+        - "{name} runs efficient processes and operational cadences, leveraging appropriate asynchronous and synchronous methods, to get to the right outcomes."
+        - "{name} builds healthy partnerships with stakeholders and teams with whom {pronouns[1]} team has long-lived relationships."
+        - "{name} is learning about how to best support {pronouns[1]} team in maintaining their well-being and respect work/life boundaries in line with virtual work practices."
+    direction:
+      agility:
+        - "{name} embraces change and is enthusiastic about new initiatives."
+        - "{name} helps {pronouns[1]} team navigate ambiguity and remain resilient through change, by staying calm under pressure and taking care of {pronouns[1]}/{pronouns[1]} team's overall well-being."
+        - "{name} navigates ambiguity by focusing on the greater purpose, goals, and desired impact to move forward one step at a time."
+      innovation:
+        - "{name} has a growth mindset and pursues ideas that challenge conventional approaches while seeking opportunities for improvement."
+        - "{name} encourages {pronouns[1]} team to have a growth mindset and experiment with new approaches and helps them learn from failures, and own the outcomes."
+        - "{name} finds new ways of utilizing customer feedback to influence {pronouns[1]} teams' plans."
+      strategy:
+        - "{name} defines {pronouns[1]} team's priorities and secures buy-in from partner teams with the help of {pronouns[1]} manager."
+        - "{name} strategically prioritizes between running the business (KTLO), foundation, and new initiatives to optimize for execution over the long-term."
+        - "{name} generates excitement for {pronouns[1]}/the team's strategy."
+    talent:
+      personal growth:
+        - "{name} has self-awareness, and empathetically connects with others."
+        - "{name} proactively works on self-development knowing {pronouns[1]} strengths, and seeking new feedback."
+        - "{name} drives discussions with {pronouns[1]} manager about aspirational goals and seeks out opportunities to learn, and grow."
+        - "{name} connects with others with empathy and understanding."
+        - "{name} invests time and seeks out opportunities to learn and grow into a better manager and leader."
+      team development:
+        - "{name} fosters the career growth of {pronouns[1]} team by seeking challenging, impactful work for all members of {pronouns[1]} team based on their unique skills, strengths, backgrounds and working styles."
+        - "{name} gives opportunities to work on next-level assignments that demonstrate readiness for promotion when appropriate."
+        - "{name} provides timely, direct and actionable feedback and coaching to {pronouns[1]} team in an empathetic manner, to drive high performance and career growth."
+        - "{name} celebrates and rewards the variety of contributions expected of engineers, not just high-profile projects, but also reducing toil and improving team cohesion."
+      hiring and talent development:
+        - "{name} attracts and hires across a broad range of backgrounds, experiences, locations and strengths."
+        - "{name} actively works to engage and retain team members and establish the right mix of talent and experience on {pronouns[1]} team."
+        - "{name} sets clear expectations and addresses performance issues with support from {pronouns[1]} manager."
+      organizational design:
+        - "{name} is learning how to think about the talent on {pronouns[1]} team strategically: how to create equitable growth opportunities for team members while addressing gaps and risks through recruiting, training, internal mobility, and performance management."
+        - "{name} structures {pronouns[1]} team so the right people are in the right roles with clearly defined responsibilities, and expectations."
+        - "{name} ensures projects are staffed appropriately to set them up for success, placing {pronouns[1]} strongest technical leaders where they are the most needed and impactful."
+    culture:
+      collaboration:
+        - "{name} promotes and role models core values, leading by example."
+        - "{name} builds relationships across teams and helps them get to win-win outcomes."
+        - "{name} engages in productive conflict with thoughtful questioning and has the courage to state {pronouns[1]} point of view."
+        - "{name} avoids blame and solves the right problems, disagreeing and committing when necessary to move decisions forward."
+        - "{name} manages conflict with empathy in mind."
+      organizational health:
+        - "{name} listens to different perspectives and removes biases from {pronouns[1]} words and actions."
+        - "{name} helps foster effective communication across {pronouns[1]} team and promotes inclusive meeting culture."
+        - "{name} creates an inclusive environment for {pronouns[1]} team where it's safe to speak up."
+        - "{name} champions good virtual collaboration practices that help {pronouns[1]} team work effectively."
+        - "{name} communicates and follows through on plans to correct and prevent recurrence of any lapse in {pronouns[1]} team's culture."
+        - "{name} is aware of {pronouns[1]} public presence and actions and their influence on the people around {pronouns[1]} and the organization's culture."
+      communication:
+        - "{name} communicates with clarity, brevity, and tailors {pronouns[1]} message to {pronouns[1]} audience."
+        - "{name} proactively shares information so the relevant stakeholders are informed and aligned."
+        - "{name} champions {pronouns[1]} team, and team members with others, including leadership."
+        - "{name} initiates crucial conversations even when uncomfortable if there is a significant issue not being addressed."
+      culture leader:
+        - "{name} creates an environment of psychological safety to support connection, empathy, and healthy conflict with support from {pronouns[1]} manager."
+        - "{name} holds team members accountable to actions that uphold core values and support the engineering community."
+    craft:
+      software design:
+        - "{name} is able to give quality feedback on designs written by other members of {pronouns[1]} team, asking probing, insightful questions that solidify choices and surface erroneous assumptions."
+        - "{name} encourages ways to simplify systems and prioritizes work that will lead to lower maintenance and costs with meaningful and measurable impact."
+        - "{name} preemptively identifies technical risks before they jeopardize the project."
+        - "{name} resolves cross-team dependencies earlier to ensure the successful execution of the project."
+        - "{name} discourages re-inventing the wheel by leveraging existing solutions or off-the-shelf solutions with the possible trade-off in mind."
+      business acumen:
+        - "{name} engages in listening sessions to increase {pronouns[1]} learning and guide {pronouns[1]} work/priorities."
+        - "{name} has a working knowledge of the organization's structure and how teams work together, and is able to independently work with partner engineering teams to unblock code reviews, and engineering designs."
+      people management:
+        - "{name} holds regular and effective 1:1s with each team member."
+        - "{name} documents and follows through on commitments to team members."
+        - "{name} advocates for {pronouns[1]} team members' growth and recognition."
+        - "{name} provides clear, actionable feedback to team members on a regular basis."
+        - "{name} identifies team health issues early and takes appropriate action."

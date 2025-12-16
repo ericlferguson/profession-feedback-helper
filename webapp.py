@@ -1,4 +1,5 @@
 import os
+import yaml
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_session import Session
 from performance_review_generator import PerformanceReviewGenerator, DEFAULT_LEVEL_MAP
@@ -35,20 +36,53 @@ def get_available_roles():
             roles.append(fname.replace('.yaml', '').replace('_', ' ').title())
     return sorted(roles)
 
+# Get the appropriate level map for a specific role
+def get_level_map_for_role(role):
+    yaml_path = os.path.join(os.path.dirname(__file__), 'role_definitions', 
+                          f"{role.lower().replace(' ', '_')}.yaml")
+    if not os.path.exists(yaml_path):
+        return DEFAULT_LEVEL_MAP
+    
+    try:
+        with open(yaml_path, 'r', encoding='utf-8') as f:
+            data = yaml.safe_load(f)
+        
+        # Return the role-specific level map or default if not found
+        return data.get('level_map', DEFAULT_LEVEL_MAP)
+    except Exception:
+        return DEFAULT_LEVEL_MAP
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     roles = get_available_roles()
-    levels = list(DEFAULT_LEVEL_MAP.keys())
+    
+    # Default to showing levels for the first role
+    selected_role = request.args.get('role', roles[0] if roles else '')
+    level_map = get_level_map_for_role(selected_role)
+    levels = list(level_map.keys())
+    
     # Check if there is a resumable session file
     resume_available = get_latest_session_file() is not None
+    
     if request.method == 'POST':
         name = request.form['name']
         pronouns = [request.form['pronoun_subject'], request.form['pronoun_possessive']]
         role = request.form['role']
+        
+        # Get the appropriate level map for the selected role
+        role_level_map = get_level_map_for_role(role)
+        
+        # Check if the submitted level is valid for this role
         level = request.form['level']
+        if level not in role_level_map:
+            # If not valid, default to the first level available for this role
+            level = next(iter(role_level_map.keys()), '')
+            
         session['user_info'] = dict(name=name, pronouns=pronouns, role=role, level=level)
         return redirect(url_for('feedback'))
-    return render_template('index.html', roles=roles, levels=levels, resume_available=resume_available)
+    
+    return render_template('index.html', roles=roles, levels=levels, 
+                           selected_role=selected_role, resume_available=resume_available)
 
 @app.route('/feedback', methods=['GET', 'POST'])
 def feedback():

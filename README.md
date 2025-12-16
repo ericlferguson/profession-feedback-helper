@@ -35,7 +35,7 @@ pip install -r requirements.txt
 5. Submit to see a summary and the generated Dropbox-style feedback
 
 ### Example Workflow
-- Select role (e.g., "Software Engineer") and level (e.g., "senior")
+- Select role (e.g., "Software Engineer", "Machine Learning Engineer", or "Engineering Manager") and level (e.g., "senior" for ICs or "m3" for managers)
 - Rate each behavior in the interactive form
 - Add comments for any section as needed
 - View/download the results and use for 1:1s or official reviews
